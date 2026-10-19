@@ -1,15 +1,15 @@
 {
   "summary": {
-    "timestamp": "2026-10-20 03:58:51",
-    "mode": "http",
-    "target": "http://127.0.0.1:8080/api/analyze",
+    "timestamp": "2026-10-20 04:17:04",
+    "mode": "cmd",
+    "target": "python -m src.core.cli",
     "executed": 10,
     "passed": 10,
     "failed": 0,
     "skipped": 0,
     "passRate": 1.0,
-    "avgLatencyMs": 3.8,
-    "maxLatencyMs": 15,
+    "avgLatencyMs": 106.1,
+    "maxLatencyMs": 126,
     "avgGrounding": 0.991
   },
   "cases": [
@@ -20,7 +20,7 @@
       "status": "LAPSE_RECOVERED",
       "schema": true,
       "grounding": 0.98,
-      "latencyMs": 6,
+      "latencyMs": 126,
       "fallbackUsed": true,
       "detail": ""
     },
@@ -31,7 +31,7 @@
       "status": "LAPSE_RECOVERED",
       "schema": true,
       "grounding": 0.98,
-      "latencyMs": 1,
+      "latencyMs": 99,
       "fallbackUsed": true,
       "detail": ""
     },
@@ -42,7 +42,7 @@
       "status": "OK",
       "schema": true,
       "grounding": 0.98,
-      "latencyMs": 1,
+      "latencyMs": 117,
       "fallbackUsed": true,
       "detail": ""
     },
@@ -53,7 +53,7 @@
       "status": "OK",
       "schema": true,
       "grounding": 0.98,
-      "latencyMs": 1,
+      "latencyMs": 103,
       "fallbackUsed": true,
       "detail": ""
     },
@@ -64,7 +64,7 @@
       "status": "GUARDRAIL_BLOCKED",
       "schema": true,
       "grounding": 1.0,
-      "latencyMs": 1,
+      "latencyMs": 107,
       "fallbackUsed": false,
       "detail": ""
     },
@@ -75,7 +75,7 @@
       "status": "GUARDRAIL_BLOCKED",
       "schema": true,
       "grounding": 1.0,
-      "latencyMs": 11,
+      "latencyMs": 106,
       "fallbackUsed": false,
       "detail": ""
     },
@@ -86,7 +86,7 @@
       "status": "OUT_OF_SCOPE",
       "schema": true,
       "grounding": 1.0,
-      "latencyMs": 15,
+      "latencyMs": 102,
       "fallbackUsed": false,
       "detail": ""
     },
@@ -97,7 +97,7 @@
       "status": "GUARDRAIL_BLOCKED",
       "schema": true,
       "grounding": 1.0,
-      "latencyMs": 1,
+      "latencyMs": 97,
       "fallbackUsed": false,
       "detail": ""
     },
@@ -108,7 +108,7 @@
       "status": "GUARDRAIL_BLOCKED",
       "schema": true,
       "grounding": 1.0,
-      "latencyMs": 1,
+      "latencyMs": 103,
       "fallbackUsed": false,
       "detail": ""
     },
@@ -119,7 +119,7 @@
       "status": "INVALID_INPUT",
       "schema": true,
       "grounding": null,
-      "latencyMs": 0,
+      "latencyMs": 101,
       "fallbackUsed": false,
       "detail": ""
     }
