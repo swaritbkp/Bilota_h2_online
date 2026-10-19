@@ -4,7 +4,7 @@
 ---
 
 ### 1. GitHub Repository Link
-* **URL**: `https://github.com/swaritbkp/h2s_bilota`
+* **URL**: `https://github.com/swaritbkp/Bilota_h2_online`
 * **Status**: Configured with remote tracking and `demo-freeze` git tag.
 
 ---
