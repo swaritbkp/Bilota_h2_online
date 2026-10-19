@@ -1,6 +1,6 @@
 """
-Khatwa (خطوة) - FastAPI Application Entrypoint
-Serves the web dashboard, Judge Control Bar API, and analytical behavior loop endpoints.
+Bilota (بيلوتا / قطوة) - FastAPI Application Entrypoint
+Serves the feline-themed web dashboard, Judge Control Bar API, and analytical behavior loop endpoints.
 """
 import os
 from pathlib import Path
@@ -8,6 +8,7 @@ from typing import Dict, Any
 
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
@@ -15,8 +16,8 @@ from src.core.engine import analyze
 from src.core.guardrails import evaluate_l1_guardrails
 
 app = FastAPI(
-    title="Khatwa (خطوة) - Abu Dhabi Adaptive Behavior Engine",
-    description="Preventive behavior loop engine bridging IFHAS, Sahatna, and Malaffi with BCT v1 grounding and sovereign privacy firewall.",
+    title="Bilota (بيلوتا / قطوة) - Abu Dhabi Feline Health Companion",
+    description="Feline-guided preventive behavior loop engine bridging IFHAS, Sahatna, and Malaffi with BCT v1 grounding and sovereign privacy firewall.",
     version="4.0.0-AD-ELITE"
 )
 
@@ -28,7 +29,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-HTML_PATH = Path(__file__).parent / "ui" / "index.html"
+UI_DIR = Path(__file__).parent / "ui"
+HTML_PATH = UI_DIR / "index.html"
+ASSETS_DIR = UI_DIR / "assets"
+ASSETS_DIR.mkdir(parents=True, exist_ok=True)
+
+# Mount static assets for custom cat images and badges
+app.mount("/assets", StaticFiles(directory=str(ASSETS_DIR)), name="assets")
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -36,7 +43,7 @@ async def serve_dashboard():
     """Serves the rich single-page interactive dashboard with pinned Judge Control Bar."""
     if HTML_PATH.exists():
         return HTMLResponse(content=HTML_PATH.read_text(encoding="utf-8"))
-    return HTMLResponse("<h1>Khatwa Adaptive Engine</h1><p>UI file not found.</p>", status_code=404)
+    return HTMLResponse("<h1>Bilota Feline Health Companion</h1><p>UI file not found.</p>", status_code=404)
 
 
 @app.post("/api/analyze")
@@ -79,7 +86,9 @@ async def api_health():
     """Health check endpoint indicating model state and compliance."""
     return {
         "status": "HEALTHY",
+        "name": "Bilota (بيلوتا / قطوة)",
         "version": "4.0.0-AD-ELITE",
+        "theme": "Feline Adaptive Health Companion",
         "regulatory_alignment": "Abu Dhabi Public Health Center (ADPHC) & DoH Guidelines",
         "data_sovereignty": "UAE Federal Law No. 2 of 2019 compliant",
         "offline_ready": True

@@ -1,4 +1,4 @@
-# Khatwa (خطوة) — Abu Dhabi Adaptive Health Behavior Loop Engine
+# Bilota (بيلوتا / قطوة) — Abu Dhabi Feline Adaptive Health Behavior Engine
 **Elite Architecture v4.0 | Abu Dhabi Adaptive Health Behavior Challenge**
 
 > Aligned with the Abu Dhabi Public Health Center (ADPHC) and Department of Health (DoH) Wellness Frameworks.
@@ -6,10 +6,12 @@
 
 ---
 
-## 🌟 Executive Summary & Problem Framing
+## 🐾 Executive Summary & Feline Behavioral Framing
 In Abu Dhabi, public health awareness campaigns achieve high initial recognition (>70%), but traditional digital wellness applications suffer an **82% attrition rate within 30 days**. Rigid goals (e.g. mandatory 10,000 outdoor steps), punitive streaks that reset to zero upon a single lapse, lack of cultural and climate adaptations (43°C summer heat, rotating port night shifts, knee osteoarthritis, and Majlis dining norms), and fear that personal health data might be leaked to employers or insurers create insurmountable behavioral friction.
 
-**Khatwa (خطوة)** bridges existing Abu Dhabi ecosystem assets—**IFHAS screenings**, **Sahatna app journeys**, **Health Age scoring**, **Malaffi HIE**, and wearable feeds—into an adaptive, closed-loop behavioral operating system. It replaces fragile streaks with an evidence-based **Momentum Bank** and automatic 50% task volume downshifting (`BCT 8.7: Graded Tasks`).
+**Bilota (بيلوتا / قطوة)** is an adaptive, cat-guided behavior loop engine inspired by feline agility, zero-guilt recovery, and territorial sovereignty. Cats never feel guilty for taking a 16-hour nap, and they **always land on their feet**—the ultimate metaphor for non-punitive behavior change. 
+
+Bilota bridges existing Abu Dhabi ecosystem assets—**IFHAS screenings**, **Sahatna app journeys**, **Health Age scoring**, **Malaffi HIE**, and wearable feeds—into an adaptive, closed-loop behavioral operating system. It replaces fragile streaks with a feline **9-Lives Momentum Bank**, automatic 50% task volume downshifting (`BCT 8.7: Graded Tasks`), custom cat avatars for diverse Abu Dhabi personas, and a territorial **Guard Cat Privacy Firewall** under UAE Federal Law No. 2 of 2019.
 
 ---
 
