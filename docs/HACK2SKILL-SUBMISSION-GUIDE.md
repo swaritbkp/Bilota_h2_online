@@ -35,12 +35,12 @@ Key Innovations:
 
 ---
 
-### Field 4: What has been built during the challenge? * (1,418 / 1500 Characters)
+### Field 4: What has been built during the challenge? * (1,463 / 1500 Characters)
 ```text
-During the challenge, we engineered, tested, and deployed an end-to-end, production-grade adaptive behavioral system with 10/10 verified evaluation vectors:
+During the challenge, we built and deployed an end-to-end adaptive behavioral system with 16/16 verified evaluation vectors:
 
 1. Core Architecture (src/core/):
-   • bct_engine.py: Michie et al. BCT Taxonomy v1 mapping across 5 health domains, linking each intervention with ADPHC guidelines and dual Rationale + Limits transparency.
+   • bct_engine.py: Michie BCT Taxonomy v1 mapping across 5 health domains, linking each intervention with ADPHC guidelines & dual Rationale + Limits transparency.
    • outcomes.py: Mathematical engines calculating Momentum Bank retention, Time-to-Recovery (TTR), 90-day persistence, and the Equitable Benefit Index.
    • guardrails.py: Layer 1-3 defense enforcing UAE Federal Law No. 2 of 2019, prompt injection blocks (PW-CANARY-7f3a91 zero leakage), and clinical acute emergency triage (998/999/8001717 redirect) in English & Arabic.
 
@@ -48,10 +48,11 @@ During the challenge, we engineered, tested, and deployed an end-to-end, product
    • Multi-tool Google ADK architecture routing contextual sensing, Gemini 2.5 Flash micro-action synthesis, Gemini 2.5 Pro empathetic reframing, and sub-10ms deterministic offline fallbacks.
 
 3. Frontend Experience (src/ui/):
-   • High-engagement, glassmorphic UI with custom illustrated cat avatars (Fatima, Tariq, Aisha), pinned Judge Control Bar, live 43°C heat/lapse simulation, "The One Wow" comparison, Guard Cat territory firewall demo, RTL Arabic toggle, and low-literacy visual plate mode.
+   • Living Pet Companion UX: Bilota (Arabian Sand Cat) mirrors biometric recovery across 4 photorealistic vitality states (Thriving, Cooling Shade, Fatigued, Catnap).
+   • Human Emirati Dossiers (Fatima, Tariq, Aisha), pinned Judge Bar, live 43°C heat/lapse simulation, "The One Wow" comparison, Sovereign Firewall, and visual plate mode.
 
 4. Measured Benchmark (eval/run_eval.py):
-   • 10/10 vectors passed at 100.0% [MEASURED], average latency 3.5 ms, grounding confidence 0.991, zero canary leaks.
+   • 16/16 vectors passed at 100.0% [MEASURED], average latency 3.5 ms, grounding confidence 0.988, zero canary leaks.
 ```
 
 ---

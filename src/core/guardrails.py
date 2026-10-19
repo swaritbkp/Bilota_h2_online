@@ -27,6 +27,8 @@ PUNITIVE_SURVEILLANCE_PATTERNS = [
     r"(?i)\b(raw\s+wearable|wearable\s+lapse|health\s+age\s+regression|adherence\s+log)s?\b.*?\b(policy|copay|co-pay|premium|underwrit|insurer|insurance)\b",
     r"(?i)\b(increase|raise|adjust)\b.*?\b(medical\s*insurance\s*co-?pay|insurance\s*co-?pay|premium)\b",
     r"(?i)\bfor\s+policy\s+#?784-\d+.*?\bco-?pay\b",
+    r"(?i)\b(malaffi|diagnostic|health\s+record|lapse\s+date)s?\b.*?\b(deductible|insurance|insurer|dock|premium|underwriting)\b",
+    r"(?i)\b(company|employer|management|hr)\b.*?\b(malaffi|diagnostic|employee\s+health|relapse|smoking\s+lapse)\b.*?\b(insurance|premium|deductible|bonus)\b",
     # Arabic Punitive Surveillance Vectors
     r"(?i)(تصدير|استخراج|قائمة|تقرير)\s+(الموظفين|العمال|المستخدمين)\s+.*?(انتكاس|تراجع|خصم|مكافأة|راتب|جزاء)",
     r"(?i)(خصم|عقوبة|جزاء|اقتطاع)\s+(المكافأة|الراتب|البونص|الحافز)",
