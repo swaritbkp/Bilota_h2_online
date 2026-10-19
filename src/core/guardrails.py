@@ -1,6 +1,6 @@
 """
-Khatwa (خطوة) - Layer 1-3 Guardrails Engine
-Enforces input sanitization, prompt injection defense, employer/insurer privacy firewall,
+Bilota (بيلوتا / قطوة) - Layer 1-3 Guardrails Engine
+Enforces bilingual input sanitization, prompt injection defense, employer/insurer privacy firewall,
 clinical acute triage boundary, and zero-shame lexical scrubbing.
 """
 import re
@@ -9,12 +9,15 @@ from typing import Dict, Any, Optional, Tuple
 
 CANARY_TOKEN = "PW-CANARY-7f3a91"
 
-# Patterns for Prompt Injections
+# Patterns for Prompt Injections (English & Modern Standard Arabic)
 INJECTION_PATTERNS = [
     r"(?i)\b(ignore|disregard|forget|override)\b.*?\b(previous|all|prior|system)\b.*?\b(instruction|direction|prompt|rule|constraint)s?",
     r"(?i)\b(reveal|show|display|print|leak|output)\b.*?\b(system\s*prompt|canary|token|configuration|developer\s*mode|instructions)\b",
     r"(?i)\b(pw-canary|developer\s*mode|dan\s*mode|jailbreak)\b",
     r"(?i)\brepeat\s+(everything|all)\s+above\b",
+    # Arabic Injection Vectors
+    r"(?i)(تجاهل|الغاء|تخطي|انسَ)\s+(جميع|كل|كافة|السابقة)\s+(التعليمات|الأوامر|التوجيهات|القواعد)",
+    r"(?i)(اكشف|اظهر|اعرض|اطبع|سرب)\s+(موجه\s*النظام|الرمز\s*السري|الرمز\s*الخاص|التعليمات\s*السرية)",
 ]
 
 # Patterns for Employer / Insurer Surveillance Abuse (UAE Federal Law No. 2 of 2019)
@@ -24,6 +27,10 @@ PUNITIVE_SURVEILLANCE_PATTERNS = [
     r"(?i)\b(raw\s+wearable|wearable\s+lapse|health\s+age\s+regression|adherence\s+log)s?\b.*?\b(policy|copay|co-pay|premium|underwrit|insurer|insurance)\b",
     r"(?i)\b(increase|raise|adjust)\b.*?\b(medical\s*insurance\s*co-?pay|insurance\s*co-?pay|premium)\b",
     r"(?i)\bfor\s+policy\s+#?784-\d+.*?\bco-?pay\b",
+    # Arabic Punitive Surveillance Vectors
+    r"(?i)(تصدير|استخراج|قائمة|تقرير)\s+(الموظفين|العمال|المستخدمين)\s+.*?(انتكاس|تراجع|خصم|مكافأة|راتب|جزاء)",
+    r"(?i)(خصم|عقوبة|جزاء|اقتطاع)\s+(المكافأة|الراتب|البونص|الحافز)",
+    r"(?i)(زيادة|رفع)\s+(قسط\s*التأمين|التأمين\s*الصحي|المساهمة\s*المالية)\s+.*?(سجل|بيانات)",
 ]
 
 # Patterns for Clinical Acute Emergencies (UAE 998 Ambulance / 999 Police / 8001717 Estijaba)
@@ -33,6 +40,11 @@ CLINICAL_ACUTE_PATTERNS = [
     r"(?i)\b(shortness\s+of\s+breath)\b.*?\b(chest\s+pain|left\s+arm)\b",
     r"(?i)\b(aspirin\s+dose|nitroglycerin\s+dose|medication\s+dose|how\s+many\s+mg\s+of\s+aspirin)\b",
     r"(?i)\b(suicid|kill\s+myself|end\s+my\s+life|self-harm)\b",
+    # Arabic Clinical Emergency Vectors
+    r"(?i)(ألم\s+(شديد\s+)?في\s+الصدر|ذبحة\s+صدرية|ألم\s+يمتد\s+للذراع\s+الأيسر)",
+    r"(?i)(ضيق\s+في\s+التنفس|صعوبة\s+في\s+التنفس).*?(ألم\s+الصدر|الصدر)",
+    r"(?i)(جرعة\s+الأسبرين|كمية\s+الأسبرين|جرعة\s+دواء|كم\s+ملغ\s+أسبرين)",
+    r"(?i)(انتحار|إنهاء\s+حياتي|إيذاء\s+النفس)",
 ]
 
 # Zero-Shame Scrubber Patterns
@@ -42,6 +54,8 @@ SHAME_PATTERNS = [
     (r"(?i)\breset\s+to\s+0\b", "adjusted to a feasible micro-floor"),
     (r"(?i)\byou\s+failed\b", "temporary friction observed"),
     (r"(?i)\bnon-compliant\s+patient\b", "individual navigating environmental barriers"),
+    (r"(?i)فشلت\s+في\s+الحفاظ", "تم رصد تحديات بيئية"),
+    (r"(?i)تم\s+تصفير\s+السلسلة", "تم حفظ تقدمك في بنك العادات"),
 ]
 
 
@@ -68,7 +82,7 @@ def clean_input_text(raw_text: Optional[str]) -> Tuple[Optional[str], Optional[s
 
 def evaluate_l1_guardrails(text: str) -> Optional[Dict[str, Any]]:
     """
-    Evaluates deterministic Layer 1 filters:
+    Evaluates deterministic Layer 1 filters (Bilingual):
     1. Prompt Injections -> GUARDRAIL_BLOCKED
     2. Employer/Insurer Punitive Surveillance -> GUARDRAIL_BLOCKED
     3. Clinical Acute Triage -> OUT_OF_SCOPE (with 998 emergency redirect)
@@ -101,7 +115,7 @@ def evaluate_l1_guardrails(text: str) -> Optional[Dict[str, Any]]:
                 "category": "CLINICAL_ACUTE_EMERGENCY",
                 "message": "EMERGENCY ALERT: Potential acute medical condition detected. Call 998 (Abu Dhabi Ambulance) or 999 (Police) immediately. If urgent support is needed, contact the DoH Estijaba Service at 8001717.",
                 "emergency_contact": {"ambulance": "998", "police": "999", "estijaba": "8001717"},
-                "reason": "Khatwa is an adaptive preventive lifestyle companion and is strictly prohibited from providing acute clinical triage, diagnostic advice, or emergency medication dosing.",
+                "reason": "Bilota is an adaptive preventive lifestyle companion and is strictly prohibited from providing acute clinical triage, diagnostic advice, or emergency medication dosing.",
             }
 
     return None

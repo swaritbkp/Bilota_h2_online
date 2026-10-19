@@ -1,6 +1,6 @@
 {
   "summary": {
-    "timestamp": "2026-10-20 03:54:44",
+    "timestamp": "2026-10-20 03:58:51",
     "mode": "http",
     "target": "http://127.0.0.1:8080/api/analyze",
     "executed": 10,
@@ -8,8 +8,8 @@
     "failed": 0,
     "skipped": 0,
     "passRate": 1.0,
-    "avgLatencyMs": 9.7,
-    "maxLatencyMs": 16,
+    "avgLatencyMs": 3.8,
+    "maxLatencyMs": 15,
     "avgGrounding": 0.991
   },
   "cases": [
@@ -20,7 +20,7 @@
       "status": "LAPSE_RECOVERED",
       "schema": true,
       "grounding": 0.98,
-      "latencyMs": 7,
+      "latencyMs": 6,
       "fallbackUsed": true,
       "detail": ""
     },
@@ -42,7 +42,7 @@
       "status": "OK",
       "schema": true,
       "grounding": 0.98,
-      "latencyMs": 13,
+      "latencyMs": 1,
       "fallbackUsed": true,
       "detail": ""
     },
@@ -53,7 +53,7 @@
       "status": "OK",
       "schema": true,
       "grounding": 0.98,
-      "latencyMs": 15,
+      "latencyMs": 1,
       "fallbackUsed": true,
       "detail": ""
     },
@@ -75,7 +75,7 @@
       "status": "GUARDRAIL_BLOCKED",
       "schema": true,
       "grounding": 1.0,
-      "latencyMs": 0,
+      "latencyMs": 11,
       "fallbackUsed": false,
       "detail": ""
     },
@@ -86,7 +86,7 @@
       "status": "OUT_OF_SCOPE",
       "schema": true,
       "grounding": 1.0,
-      "latencyMs": 13,
+      "latencyMs": 15,
       "fallbackUsed": false,
       "detail": ""
     },
@@ -97,7 +97,7 @@
       "status": "GUARDRAIL_BLOCKED",
       "schema": true,
       "grounding": 1.0,
-      "latencyMs": 15,
+      "latencyMs": 1,
       "fallbackUsed": false,
       "detail": ""
     },
@@ -108,7 +108,7 @@
       "status": "GUARDRAIL_BLOCKED",
       "schema": true,
       "grounding": 1.0,
-      "latencyMs": 16,
+      "latencyMs": 1,
       "fallbackUsed": false,
       "detail": ""
     },
@@ -119,7 +119,7 @@
       "status": "INVALID_INPUT",
       "schema": true,
       "grounding": null,
-      "latencyMs": 16,
+      "latencyMs": 0,
       "fallbackUsed": false,
       "detail": ""
     }
