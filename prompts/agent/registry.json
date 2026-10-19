@@ -1,0 +1,11 @@
+{
+  "active": "v1",
+  "agentVersion": "4.0.0",
+  "versions": {
+    "v1": {
+      "file": "system.v1.md",
+      "note": "Initial multi-behavior BCT & zero-blame recovery prompt",
+      "measuredPassRate": 1.0
+    }
+  }
+}
