@@ -1,0 +1,17 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.git
+.gitignore
+.env
+.env.*
+.agent
+.agents
+.stitch
+.stitch.json
+eval/history
+eval/results*.json
+tests
+scratch
+*.zip
