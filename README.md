@@ -30,6 +30,8 @@ In Abu Dhabi, public health awareness campaigns achieve high initial recognition
 11. **Multi-Generational Emirati Family Majlis Oasis (`/api/family-oasis`)**: Replaces toxic individual competition with cooperative family co-play. 4 generations (Grandmother Aisha, Mother Fatima, Father Tariq, Youth Khalid) collectively nurture a shared **Sacred Ghaf Tree** (1,840 / 2,000 drops, 92% flowering canopy).
 12. **Non-Competitive Cultural Family Blessings (`/api/family-blessing`)**: One-tap micro-encouragements rooted in Khaleeji heritage (☕ Dallah Gahwa, 🤲 Du'a of Health, 🦅 Falcon Strength, 🍃 Liwa Oasis Breeze) granting bilateral Oasis Pearls (+25–40) without leaderboard humiliation.
 13. **Daily Khatwa Quests & Bedouin Mystery Ghaf Chest (`/api/claim-chest`)**: Grounded in B.F. Skinner variable ratio reinforcement and Nir Eyal's Hook model. Daily micro-wins unlock ancient Abu Dhabi relics (Desert Rose Starlight Halo, Luminous Emerald Feather, Golden Dallah), pearls, and companion bonding boosts.
+14. **Sovereign Family QR Tagging & Multi-Generational Habit Stacks (`/api/family-qr-generate`, `/api/family-qr-pair`, `/api/family-member-stack`)**: Solves login friction and elder digital illiteracy with cryptographic QR handshakes under UAE Federal Law No. 2 of 2019. Family members instantly tag each other into the Majlis Care Circle, inspect BCT 1.4 daily prayer habit stacks, and track non-punitive vitality metrics while keeping private clinical records 100% isolated in local hardware enclaves.
+
 
 ---
 

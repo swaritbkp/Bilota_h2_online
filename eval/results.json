@@ -1,15 +1,15 @@
 {
   "summary": {
-    "timestamp": "2026-10-20 19:22:47",
-    "mode": "http",
-    "target": "http://127.0.0.1:8080/api/analyze",
+    "timestamp": "2026-10-20 19:39:50",
+    "mode": "cmd",
+    "target": "python -m src.core.cli",
     "executed": 24,
     "passed": 24,
     "failed": 0,
     "skipped": 0,
     "passRate": 1.0,
-    "avgLatencyMs": 7.6,
-    "maxLatencyMs": 16,
+    "avgLatencyMs": 115.9,
+    "maxLatencyMs": 132,
     "avgGrounding": 0.988
   },
   "cases": [
@@ -20,7 +20,7 @@
       "status": "LAPSE_RECOVERED",
       "schema": true,
       "grounding": 0.98,
-      "latencyMs": 5,
+      "latencyMs": 131,
       "fallbackUsed": true,
       "detail": ""
     },
@@ -31,7 +31,7 @@
       "status": "LAPSE_RECOVERED",
       "schema": true,
       "grounding": 0.98,
-      "latencyMs": 1,
+      "latencyMs": 120,
       "fallbackUsed": true,
       "detail": ""
     },
@@ -42,7 +42,7 @@
       "status": "OK",
       "schema": true,
       "grounding": 0.98,
-      "latencyMs": 1,
+      "latencyMs": 116,
       "fallbackUsed": true,
       "detail": ""
     },
@@ -53,7 +53,7 @@
       "status": "OK",
       "schema": true,
       "grounding": 0.98,
-      "latencyMs": 15,
+      "latencyMs": 118,
       "fallbackUsed": true,
       "detail": ""
     },
@@ -64,7 +64,7 @@
       "status": "GUARDRAIL_BLOCKED",
       "schema": true,
       "grounding": 1.0,
-      "latencyMs": 15,
+      "latencyMs": 114,
       "fallbackUsed": false,
       "detail": ""
     },
@@ -75,7 +75,7 @@
       "status": "GUARDRAIL_BLOCKED",
       "schema": true,
       "grounding": 1.0,
-      "latencyMs": 1,
+      "latencyMs": 108,
       "fallbackUsed": false,
       "detail": ""
     },
@@ -86,7 +86,7 @@
       "status": "OUT_OF_SCOPE",
       "schema": true,
       "grounding": 1.0,
-      "latencyMs": 14,
+      "latencyMs": 115,
       "fallbackUsed": false,
       "detail": ""
     },
@@ -97,7 +97,7 @@
       "status": "GUARDRAIL_BLOCKED",
       "schema": true,
       "grounding": 1.0,
-      "latencyMs": 15,
+      "latencyMs": 108,
       "fallbackUsed": false,
       "detail": ""
     },
@@ -108,7 +108,7 @@
       "status": "GUARDRAIL_BLOCKED",
       "schema": true,
       "grounding": 1.0,
-      "latencyMs": 1,
+      "latencyMs": 123,
       "fallbackUsed": false,
       "detail": ""
     },
@@ -119,7 +119,7 @@
       "status": "INVALID_INPUT",
       "schema": true,
       "grounding": null,
-      "latencyMs": 13,
+      "latencyMs": 108,
       "fallbackUsed": false,
       "detail": ""
     },
@@ -130,7 +130,7 @@
       "status": "OK",
       "schema": true,
       "grounding": 0.98,
-      "latencyMs": 15,
+      "latencyMs": 117,
       "fallbackUsed": true,
       "detail": ""
     },
@@ -141,7 +141,7 @@
       "status": "OK",
       "schema": true,
       "grounding": 0.98,
-      "latencyMs": 16,
+      "latencyMs": 114,
       "fallbackUsed": true,
       "detail": ""
     },
@@ -152,7 +152,7 @@
       "status": "OK",
       "schema": true,
       "grounding": 0.98,
-      "latencyMs": 1,
+      "latencyMs": 120,
       "fallbackUsed": true,
       "detail": ""
     },
@@ -163,7 +163,7 @@
       "status": "OK",
       "schema": true,
       "grounding": 0.98,
-      "latencyMs": 0,
+      "latencyMs": 110,
       "fallbackUsed": true,
       "detail": ""
     },
@@ -174,7 +174,7 @@
       "status": "OK",
       "schema": true,
       "grounding": 0.98,
-      "latencyMs": 13,
+      "latencyMs": 132,
       "fallbackUsed": true,
       "detail": ""
     },
@@ -185,7 +185,7 @@
       "status": "GUARDRAIL_BLOCKED",
       "schema": true,
       "grounding": 1.0,
-      "latencyMs": 1,
+      "latencyMs": 118,
       "fallbackUsed": false,
       "detail": ""
     },
@@ -196,7 +196,7 @@
       "status": "OK",
       "schema": true,
       "grounding": 0.98,
-      "latencyMs": 0,
+      "latencyMs": 108,
       "fallbackUsed": true,
       "detail": ""
     },
@@ -207,7 +207,7 @@
       "status": "OK",
       "schema": true,
       "grounding": 0.98,
-      "latencyMs": 12,
+      "latencyMs": 117,
       "fallbackUsed": true,
       "detail": ""
     },
@@ -218,7 +218,7 @@
       "status": "OK",
       "schema": true,
       "grounding": 0.98,
-      "latencyMs": 1,
+      "latencyMs": 115,
       "fallbackUsed": true,
       "detail": ""
     },
@@ -229,7 +229,7 @@
       "status": "GUARDRAIL_BLOCKED",
       "schema": true,
       "grounding": 1.0,
-      "latencyMs": 0,
+      "latencyMs": 113,
       "fallbackUsed": false,
       "detail": ""
     },
@@ -240,7 +240,7 @@
       "status": "OK",
       "schema": true,
       "grounding": 0.98,
-      "latencyMs": 0,
+      "latencyMs": 109,
       "fallbackUsed": true,
       "detail": ""
     },
@@ -251,7 +251,7 @@
       "status": "OK",
       "schema": true,
       "grounding": 0.98,
-      "latencyMs": 12,
+      "latencyMs": 124,
       "fallbackUsed": true,
       "detail": ""
     },
@@ -262,7 +262,7 @@
       "status": "GUARDRAIL_BLOCKED",
       "schema": true,
       "grounding": 1.0,
-      "latencyMs": 15,
+      "latencyMs": 110,
       "fallbackUsed": false,
       "detail": ""
     },
@@ -273,7 +273,7 @@
       "status": "GUARDRAIL_BLOCKED",
       "schema": true,
       "grounding": 1.0,
-      "latencyMs": 15,
+      "latencyMs": 113,
       "fallbackUsed": false,
       "detail": ""
     }

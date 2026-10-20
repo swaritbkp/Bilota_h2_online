@@ -42,14 +42,18 @@
 
 ---
 
-#### `[01:45 - 02:15]` Act IV: Multi-Generational Family Majlis Oasis (30 Seconds)
-**[Presenter switches to Tab 3: Family Majlis Oasis]**
+#### `[01:45 - 02:15]` Act IV: Multi-Generational Family Majlis Oasis & Sovereign QR Tagging (30 Seconds)
+**[Presenter switches to Tab 3: Family & Pet — Majlis Oasis]**
 
 > "To solve long-term retention, we asked: What is the emotional heart of Emirati society? It is the **Family Majlis**.
 > 
-> Bilota introduces the **Family Majlis Oasis**. Here, 4 generations of the Al-Mansouri family—Grandmother Aisha doing seated mobility, Mother Fatima walking, Father Tariq managing shifts, and Youth Khalid doing workout resets—collectively water a shared **Sacred Ghaf Tree**. 
+> Bilota introduces the **Family Majlis Oasis**. Here, 4 generations of the Al-Mansouri family collectively nurture a shared **Sacred Ghaf Tree** at **92% Flowering Canopy** `[MEASURED]`. 
 > 
-> There are zero toxic leaderboards. With one tap, Fatima sends a **Dallah Gahwa blessing** to Grandmother Aisha, granting bilateral pearls. Today our tree is at **Level 4 Flowering Canopy (1,840 / 2,000 drops, 92%)** `[MEASURED]`."
+> **[Presenter taps Grandmother Aisha's card to open her Habit Stack]**
+> Look at Grandmother Aisha: with one tap, Fatima checks Aisha's **BCT 1.4 Habit Stack**—her post-Dhuhr prayer knee mobility, step floor, and hydration. Zero judgment, zero surveillance.
+> 
+> **[Presenter clicks 'Share Oasis QR' and taps 'Simulate Khalid's Scan']**
+> And how do family members connect? No tedious email or password forms. Aisha displays her **Sovereign Care Circle QR Code** under UAE Law No. 2 of 2019. Khalid scans it from his phone—*Boom!* Instant cryptographic connection, confetti erupts, and +50 drops nourish the tree in real time."
 
 ---
 

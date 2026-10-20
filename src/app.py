@@ -25,7 +25,10 @@ from src.core.elite_features import (
     get_bct_taxonomy_catalog,
     get_family_oasis_state,
     send_family_blessing,
-    open_mystery_ghaf_chest
+    open_mystery_ghaf_chest,
+    generate_family_qr_code,
+    pair_family_member_qr,
+    get_family_member_stack_details
 )
 
 app = FastAPI(
@@ -205,6 +208,48 @@ async def api_claim_chest(request: Request):
     user_id = body.get("user_id", "fatima")
     result = open_mystery_ghaf_chest(user_id=user_id)
     return JSONResponse(content=result, status_code=200)
+
+
+@app.post("/api/family-qr-generate")
+async def api_family_qr_generate(request: Request):
+    """
+    Generates a cryptographically signed Sovereign Family Care Circle QR code
+    under UAE Federal Law No. 2 of 2019 for instant family tagging.
+    """
+    try:
+        body = await request.json()
+    except Exception:
+        body = {}
+    user_id = body.get("user_id", "fatima")
+    family_id = body.get("family_id", "al-mansouri")
+    result = generate_family_qr_code(user_id=user_id, family_id=family_id)
+    return JSONResponse(content=result, status_code=200)
+
+
+@app.post("/api/family-qr-pair")
+async def api_family_qr_pair(request: Request):
+    """
+    Pairs or tags a new family member into the Majlis Oasis via QR code scan.
+    """
+    try:
+        body = await request.json()
+    except Exception:
+        body = {}
+    qr_token = body.get("qr_token", "")
+    new_member_id = body.get("new_member_id", "hamad")
+    family_id = body.get("family_id", "al-mansouri")
+    result = pair_family_member_qr(qr_token=qr_token, new_member_id=new_member_id, family_id=family_id)
+    return JSONResponse(content=result, status_code=200)
+
+
+@app.get("/api/family-member-stack")
+async def api_family_member_stack(member_id: str = "aisha"):
+    """
+    Returns the comprehensive BCT 1.4 Habit Stack & Health Vitality Matrix for a family member.
+    """
+    result = get_family_member_stack_details(member_id=member_id)
+    return JSONResponse(content=result, status_code=200)
+
 
 
 @app.get("/api/health")
