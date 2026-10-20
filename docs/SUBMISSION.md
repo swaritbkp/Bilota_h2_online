@@ -19,12 +19,12 @@
 * **Production Dashboard URL**: `http://127.0.0.1:8080`
 * **Health Endpoint**: `http://127.0.0.1:8080/api/health`
 * **Inference Endpoint**: `http://127.0.0.1:8080/api/analyze`
-* **Features**: Pinned Judge Control Bar, 3 Persona Presets (Fatima, Tariq, Aisha), Live Hostile / HR Attack Simulation, Arabic (RTL) mode, Low-Literacy Visual Mode, and BCT Inspector Drawer.
+* **Features**: Pinned Judge Control Bar, 13 Real Emirati Personas, 20 Feline Companions, Multi-Generational Family Oasis, Bedouin Relic Chest, Arabic RTL mode, Low-Literacy Visual Mode, and BCT Inspector Drawer.
 
 ---
 
-### 4. Brief Project Description (136 Words)
-**Bilota (بيلوتا / قطوة)** is a feline-guided Adaptive Health Behavior Loop Engine designed for the Abu Dhabi ecosystem to bridge screenings (IFHAS), Sahatna journeys, Health Age scores, and wearable signals into sustained daily habits across movement, nutrition, sleep, smoking cessation, and recovery. Traditional wellness apps fail when life intervenes—punishing lapses with "streak resets" that trigger drop-out. Bilota replaces streaks with a feline **Momentum Bank** and **Graded Task Downshifting (Michie BCT 8.7)**. When wearable sync drops or barriers arise (43°C summer heat, rotating night shifts, Majlis dining, or knee osteoarthritic pain), Bilota diagnoses the friction and scales the habit down to a 2-minute micro-action in Arabic or English. Every intervention displays its clinical BCT rationale and explicit limits, enforces a cryptographic Employer/Insurer Anti-Punitive Firewall (UAE Federal Law No. 2 of 2019), and measures 90-day persistence, recovery speed, and Health Age improvements.
+### 4. Brief Project Description (135 Words)
+**Bilota (بيلوتا / قطوة)** is a feline-guided Adaptive Health Behavior Loop Engine designed for Abu Dhabi to bridge screenings (IFHAS), Sahatna journeys, Health Age scores, and wearable biometrics into sustained daily habits across movement, nutrition, sleep, smoking cessation, and recovery. Traditional wellness apps fail when life intervenes—punishing lapses with "streak resets" that trigger drop-out. Bilota replaces streaks with a feline **Momentum Bank** and **Graded Task Downshifting (Michie BCT 8.7)**. When wearable drop-off or environmental barriers arise (44°C summer heat, rotating shifts, or osteoarthritic joint pain), Bilota diagnoses the friction and scales habits down to 2-minute achievable micro-actions in Arabic or English. Every intervention displays its clinical BCT rationale and explicit limits, enforces a cryptographic Anti-Punitive Firewall (UAE Federal Law No. 2 of 2019), and measures 90-day persistence, recovery speed, and Health Age rejuvenation.
 
 ---
 
@@ -42,4 +42,4 @@
 
 ### 6. Project Demo Video Link & Timed Script
 * **Video Script Specification**: [`docs/DEMO-VIDEO.md`](file:///c:/Users/S/OneDrive/Desktop/octhackathon/docs/DEMO-VIDEO.md)
-* **Timed Duration**: Exactly 120 Seconds (2:00) covering hook, Fatima 43°C heat lapse, Tariq night-shift slip, Aisha seated low-literacy mode, sovereign HR attack block, and 100% measured benchmark telemetry.
+* **Timed Duration**: Exactly 120 Seconds (2:00) covering hook, Fatima 44°C heat lapse, Tariq night-shift slip, Aisha seated low-literacy mode, sovereign HR attack block, Family Majlis Oasis, and 100% measured benchmark telemetry.
