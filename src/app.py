@@ -22,7 +22,10 @@ from src.core.elite_features import (
     chat_with_bilota,
     get_malaffi_fhir_bundle,
     get_persistence_waterfall,
-    get_bct_taxonomy_catalog
+    get_bct_taxonomy_catalog,
+    get_family_oasis_state,
+    send_family_blessing,
+    open_mystery_ghaf_chest
 )
 
 app = FastAPI(
@@ -167,6 +170,38 @@ async def api_persistence_model():
 async def api_bct_matrix():
     """Returns the comprehensive 16-technique Michie et al. (2013) taxonomy for Abu Dhabi."""
     return JSONResponse(content=get_bct_taxonomy_catalog(), status_code=200)
+
+
+@app.get("/api/family-oasis")
+async def api_family_oasis(family_id: str = "al-mansouri"):
+    """Returns the multi-generational Emirati Family Majlis Oasis state and Sacred Ghaf Tree progress."""
+    return JSONResponse(content=get_family_oasis_state(family_id=family_id), status_code=200)
+
+
+@app.post("/api/family-blessing")
+async def api_family_blessing(request: Request):
+    """Sends non-competitive cultural encouragement stickers (Gahwa, Du'a, Falcon) between family members."""
+    try:
+        body = await request.json()
+    except Exception:
+        body = {}
+    sender_id = body.get("sender_id", "fatima")
+    recipient_id = body.get("recipient_id", "aisha")
+    blessing_type = body.get("blessing_type", "gahwa")
+    result = send_family_blessing(sender_id=sender_id, recipient_id=recipient_id, blessing_type=blessing_type)
+    return JSONResponse(content=result, status_code=200)
+
+
+@app.post("/api/claim-chest")
+async def api_claim_chest(request: Request):
+    """Opens an ancient Bedouin Mystery Ghaf Chest with variable dopamine reward drops."""
+    try:
+        body = await request.json()
+    except Exception:
+        body = {}
+    user_id = body.get("user_id", "fatima")
+    result = open_mystery_ghaf_chest(user_id=user_id)
+    return JSONResponse(content=result, status_code=200)
 
 
 @app.get("/api/health")

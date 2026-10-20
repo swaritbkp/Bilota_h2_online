@@ -27,6 +27,9 @@ In Abu Dhabi, public health awareness campaigns achieve high initial recognition
 8. **Emergency Geo-Clinical Triage & 998 / 8001717 Dispatch Hub**: Deterministically intercepts acute cardiac symptoms (crushing chest pain, dyspnea) with immediate 998 Ambulance and 8001717 Estijaba escalation cards complete with GPS coordinates.
 9. **Majlis Community Pulse**: Anonymous district vitality index (Yas, Al Reem, Corniche, Al Ain, Khalifa Port, Al Dhafra) fostering collective efficacy (Bandura 1997) without individual rankings or public shame.
 10. **Living Photorealistic Sanctuary**: 10 Angelic Guardian cat avatars, 13 diverse Emirati human profiles, tactile audio-haptic interactions, and dynamic day/night circadian atmospheres.
+11. **Multi-Generational Emirati Family Majlis Oasis (`/api/family-oasis`)**: Replaces toxic individual competition with cooperative family co-play. 4 generations (Grandmother Aisha, Mother Fatima, Father Tariq, Youth Khalid) collectively nurture a shared **Sacred Ghaf Tree** (1,840 / 2,000 drops, 92% flowering canopy).
+12. **Non-Competitive Cultural Family Blessings (`/api/family-blessing`)**: One-tap micro-encouragements rooted in Khaleeji heritage (☕ Dallah Gahwa, 🤲 Du'a of Health, 🦅 Falcon Strength, 🍃 Liwa Oasis Breeze) granting bilateral Oasis Pearls (+25–40) without leaderboard humiliation.
+13. **Daily Khatwa Quests & Bedouin Mystery Ghaf Chest (`/api/claim-chest`)**: Grounded in B.F. Skinner variable ratio reinforcement and Nir Eyal's Hook model. Daily micro-wins unlock ancient Abu Dhabi relics (Desert Rose Starlight Halo, Luminous Emerald Feather, Golden Dallah), pearls, and companion bonding boosts.
 
 ---
 

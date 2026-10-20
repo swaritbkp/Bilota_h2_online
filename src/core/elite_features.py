@@ -512,3 +512,131 @@ def get_bct_taxonomy_catalog() -> Dict[str, Any]:
         ]
     }
 
+
+def get_family_oasis_state(family_id: str = "al-mansouri") -> Dict[str, Any]:
+    """
+    Simulates the Multi-Generational Emirati Family Majlis Oasis (الواحة العائلية).
+    Unlocks positive dopamine loops through shared family nurture of the Sacred Ghaf Tree.
+    """
+    return {
+        "family_id": family_id,
+        "family_name": "Al-Mansouri Family (عائلة المنصوري)",
+        "ghaf_tree": {
+            "stage": "Lush Flowering Canopy (المرحلة الرابعة: شجرة الغاف المزهرة)",
+            "level": 4,
+            "current_drops": 1840,
+            "target_drops": 2000,
+            "growth_percentage": 92.0,
+            "aura_status": "Radiant Oasis Bloom (توهج البركة)",
+            "visual_badge": "🌸 Blooming Desert Ghaf"
+        },
+        "members": [
+            {
+                "id": "aisha",
+                "name": "Aisha (الجدة عائشة)",
+                "role": "Grandmother • Root Nourisher",
+                "avatar": "/assets/user-aisha.png",
+                "active_habit": "Seated Prayer Stretches & 3-Color Plate",
+                "drops_contributed": 460,
+                "streak_badge": "🌿 21 Days of Grace",
+                "last_active": "12m ago post-Dhuhr",
+                "blessing_status": "Gahwa Blessing Active ☕"
+            },
+            {
+                "id": "fatima",
+                "name": "Fatima (الأم فاطمة)",
+                "role": "Mother • Canopy Tender",
+                "avatar": "/assets/user-fatima.png",
+                "active_habit": "5-Min Indoor Walk & Hydration",
+                "drops_contributed": 540,
+                "streak_badge": "🌸 18 Days of Grace",
+                "last_active": "Just now post-Maghrib",
+                "blessing_status": "Du'a of Health Received 🤲"
+            },
+            {
+                "id": "tariq",
+                "name": "Tariq (الوالد طارق)",
+                "role": "Father • Bark Guardian",
+                "avatar": "/assets/user-tariq.png",
+                "active_habit": "4-7-8 Urge Surfing & Shift Reset",
+                "drops_contributed": 420,
+                "streak_badge": "🛡️ 12 Days of Grace",
+                "last_active": "45m ago during port break",
+                "blessing_status": "Falcon Strength Sent 🦅"
+            },
+            {
+                "id": "khalid",
+                "name": "Khalid (الابن خالد)",
+                "role": "Youth • Dawn Sprout",
+                "avatar": "/assets/user-khalid.png",
+                "active_habit": "Vape Delay Pushups & Electrolytes",
+                "drops_contributed": 420,
+                "streak_badge": "⚡ 26 Days of Grace",
+                "last_active": "2h ago post-training",
+                "blessing_status": "Desert Breeze Active 🍃"
+            }
+        ],
+        "recent_blessings": [
+            {"from": "Aisha", "to": "Fatima", "type": "☕ Gahwa & Du'a", "time": "15m ago"},
+            {"from": "Khalid", "to": "Tariq", "type": "🦅 Falcon Strength", "time": "1h ago"},
+            {"from": "Fatima", "to": "Aisha", "type": "💐 Jasmine Gratitude", "time": "2h ago"}
+        ],
+        "shared_majlis_reward": "Unlock Abu Dhabi Traditional Family Celebration & Festive Oasis Lighting at 2,000 Drops!"
+    }
+
+
+def send_family_blessing(sender_id: str, recipient_id: str, blessing_type: str = "gahwa") -> Dict[str, Any]:
+    """
+    Sends an instant non-competitive cultural blessing between family members.
+    Fosters positive social relatedness (Deci & Ryan Self-Determination Theory).
+    """
+    blessings_map = {
+        "gahwa": {"title": "Dallah & Dates (دلة الضيافة والبركة)", "icon": "☕", "pearls": 35},
+        "dua": {"title": "Du'a of Wellness (دعاء الصحة والعافية)", "icon": "🤲", "pearls": 40},
+        "falcon": {"title": "Falcon Resolute Strength (عزيمة الصقر)", "icon": "🦅", "pearls": 30},
+        "breeze": {"title": "Cool Liwa Oasis Breeze (نسيم واحة ليوا)", "icon": "🍃", "pearls": 25}
+    }
+    blessing = blessings_map.get(blessing_type, blessings_map["gahwa"])
+    
+    return {
+        "status": "BLESSING_DELIVERED",
+        "sender_id": sender_id,
+        "recipient_id": recipient_id,
+        "blessing": blessing["title"],
+        "icon": blessing["icon"],
+        "pearls_awarded_both": blessing["pearls"],
+        "ghaf_tree_drops_added": 25,
+        "sound_cue": "oud_blessing_cascade",
+        "message": f"Warm {blessing['title']} delivered! Your shared family Ghaf Tree grows stronger."
+    }
+
+
+def open_mystery_ghaf_chest(user_id: str = "fatima") -> Dict[str, Any]:
+    """
+    Simulates opening an ancient Bedouin Mystery Ghaf Chest with variable dopamine reward drops.
+    Applies B.F. Skinner variable ratio reinforcement to spark healthy behavioral delight.
+    """
+    relics = [
+        {"name": "Desert Rose Starlight Halo (هالة وردة الصحراء)", "icon": "🌹", "rarity": "LEGENDARY", "sheen_boost": "+15%"},
+        {"name": "Luminous Emerald Oasis Feather (ريشة الواحة الزمردية)", "icon": "🪶", "rarity": "EPIC", "sheen_boost": "+10%"},
+        {"name": "Golden Dallah of Vitality (دلة الحيوية الذهبية)", "icon": "✨", "rarity": "RARE", "sheen_boost": "+8%"},
+        {"name": "Mother-of-Pearl Coastal Bell (جرس اللؤلؤ الساحلي)", "icon": "🔔", "rarity": "RARE", "sheen_boost": "+6%"}
+    ]
+    # Rotate based on current time
+    idx = int(time.time()) % len(relics)
+    relic = relics[idx]
+    pearls = 75 + (int(time.time() * 10) % 125)
+
+    return {
+        "status": "CHEST_UNLOCKED",
+        "chest_name": "Ancient Ghaf Relic Chest (صندوق الغاف الأثري)",
+        "pearls_awarded": pearls,
+        "relic": relic,
+        "companion_bond_boost": "+12% Bond",
+        "sound_cue": "treasure_triumph_oud",
+        "celebration_confetti": True,
+        "affirmation_en": f"SubhanAllah! The chest reveals the {relic['name']}! Bilota spreads glowing wings with immense joy.",
+        "affirmation_ar": f"ما شاء الله! كشف الصندوق عن {relic['name']}! بيلوتا ينشر أجنحته المضيئة ببهجة وفخر."
+    }
+
+

@@ -414,10 +414,87 @@
 
         .pet-action-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(6, 1fr);
             gap: 6px;
             margin-top: 2px;
         }
+        @media (max-width: 480px) {
+            .pet-action-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* QUEST ITEM & DOPAMINE REWARD HOOKS */
+        .quest-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 10px 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .quest-item:hover {
+            border-color: var(--sand-gold-bright);
+            transform: translateY(-1px);
+        }
+        .quest-item.done {
+            background: rgba(16, 185, 129, 0.08);
+            border-color: var(--emerald-bright);
+        }
+        .quest-check {
+            width: 24px;
+            height: 24px;
+            border-radius: 7px;
+            border: 2px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: transparent;
+            transition: all 0.2s ease;
+        }
+        .quest-item.done .quest-check {
+            background: var(--emerald-bright);
+            border-color: var(--emerald-bright);
+            color: #FFFFFF;
+        }
+        .quest-reward {
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: var(--sand-gold);
+            font-family: var(--font-mono);
+            background: var(--sand-gold-light);
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+
+        /* FLOATING TEXT BADGE (TACTILE REINFORCEMENT) */
+        .floating-badge {
+            position: fixed;
+            pointer-events: none;
+            z-index: 5000;
+            font-weight: 900;
+            font-size: 1.05rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+            animation: floatUpFade 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes floatUpFade {
+            0% { opacity: 0; transform: translateY(0) scale(0.6); }
+            20% { opacity: 1; transform: translateY(-12px) scale(1.15); }
+            80% { opacity: 0.9; transform: translateY(-38px) scale(1); }
+            100% { opacity: 0; transform: translateY(-56px) scale(0.9); }
+        }
+        @keyframes chestShake {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            20% { transform: rotate(-8deg) scale(1.08); }
+            40% { transform: rotate(8deg) scale(1.12); }
+            60% { transform: rotate(-6deg) scale(1.1); }
+            80% { transform: rotate(4deg) scale(1.05); }
+        }
+        .chest-shaking { animation: chestShake 0.65s cubic-bezier(0.36, 0.07, 0.19, 0.97) both; }
 
         .btn-pet-touch {
             background: var(--bg-card);
@@ -959,6 +1036,9 @@
                 </div>
             </div>
             <div style="display: flex; align-items: center; gap: 6px;">
+                <button class="pill-btn" onclick="openChestModal()" id="btn-pearl-counter" title="Oasis Pearls & Relic Chest" style="background: rgba(245, 158, 11, 0.12); border-color: var(--sand-gold-bright); color: var(--sand-gold); font-weight: 800; cursor: pointer;">
+                    <span>✨</span><span id="top-pearl-count">1,280</span> <span>Pearls</span>
+                </button>
                 <button class="pill-btn" onclick="toggleLanguage()" id="btn-lang" title="Toggle Arabic / English">
                     <span>🌐</span><span id="btn-lang-txt">AR</span>
                 </button>
@@ -1008,24 +1088,75 @@
                         </div>
                     </div>
 
-                    <!-- TACTILE CARE ACTIONS -->
+                    <!-- TACTILE CARE ACTIONS (DOPAMINE FEEDING & BONDING) -->
                     <div class="pet-action-grid">
-                        <button class="btn-pet-touch" onclick="petBilota()">
+                        <button class="btn-pet-touch" onclick="petBilota(event)">
                             <span>🐾</span>
                             <span>Pet Angel</span>
                         </button>
-                        <button class="btn-pet-touch" onclick="giveWater()">
+                        <button class="btn-pet-touch" onclick="feedDate(event)">
+                            <span>🌴</span>
+                            <span>Medjool Date</span>
+                        </button>
+                        <button class="btn-pet-touch" onclick="giveWater(event)">
                             <span>🥛</span>
-                            <span>Give Water</span>
+                            <span>Camel Milk</span>
+                        </button>
+                        <button class="btn-pet-touch" onclick="preenWings(event)">
+                            <span>✨</span>
+                            <span>Preen Wings</span>
+                        </button>
+                        <button class="btn-pet-touch" onclick="openChestModal()">
+                            <span>🎁</span>
+                            <span>Relic Chest</span>
                         </button>
                         <button class="btn-pet-touch" onclick="toggleCatnap()">
                             <span>💤</span>
                             <span>Catnap</span>
                         </button>
-                        <button class="btn-pet-touch" onclick="openAvatarMenu()">
-                            <span>✨</span>
-                            <span>Wardrobe</span>
-                        </button>
+                    </div>
+                </div>
+
+                <!-- FEATURE: DAILY KHATWA QUESTS (VARIABLE DOPAMINE HOOKS) -->
+                <div class="card" style="border: 2px solid var(--sand-gold-light); background: linear-gradient(180deg, rgba(245, 158, 11, 0.05) 0%, var(--bg-card) 100%);">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div style="display: flex; align-items: center; gap: 6px;">
+                            <span style="font-size: 0.95rem; font-weight: 800;">✨ Daily Khatwa Quests</span>
+                            <span style="font-size: 0.68rem; font-family: var(--font-mono); background: var(--sand-gold-light); color: var(--sand-gold); padding: 2px 6px; border-radius: 6px; font-weight: 800;">DAILY HOOK</span>
+                        </div>
+                        <span style="font-size: 0.75rem; font-weight: 800; color: var(--emerald-main);" id="quests-progress-label">0 / 3 Done</span>
+                    </div>
+                    <p style="font-size: 0.74rem; color: var(--text-muted);">
+                        Complete small daily acts of compassion and movement to nurture your companion and earn Oasis Pearls.
+                    </p>
+
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <div class="quest-item" id="quest-1" onclick="toggleQuest(this, 50, 25, 'Maghrib 5-Min Indoor Walk', event)">
+                            <div class="quest-check">✓</div>
+                            <div style="flex: 1;">
+                                <div style="font-size: 0.82rem; font-weight: 700;">Maghrib 5-Min Indoor Walk</div>
+                                <div style="font-size: 0.68rem; color: var(--text-muted);">Light hallway circuit avoiding 44°C heat</div>
+                            </div>
+                            <div class="quest-reward">+50 ✨</div>
+                        </div>
+
+                        <div class="quest-item" id="quest-2" onclick="toggleQuest(this, 35, 15, 'Chilled Lemon-Mint Hydration', event)">
+                            <div class="quest-check">✓</div>
+                            <div style="flex: 1;">
+                                <div style="font-size: 0.82rem; font-weight: 700;">Chilled Lemon-Mint Hydration</div>
+                                <div style="font-size: 0.68rem; color: var(--text-muted);">500ml fresh hydration post-work recovery</div>
+                            </div>
+                            <div class="quest-reward">+35 ✨</div>
+                        </div>
+
+                        <div class="quest-item" id="quest-3" onclick="toggleQuest(this, 40, 20, 'Share Family Gahwa Blessing', event)">
+                            <div class="quest-check">✓</div>
+                            <div style="flex: 1;">
+                                <div style="font-size: 0.82rem; font-weight: 700;">Share Family Gahwa Blessing</div>
+                                <div style="font-size: 0.68rem; color: var(--text-muted);">Send warm Dallah encouragement to Grandma Aisha</div>
+                            </div>
+                            <div class="quest-reward">+40 ✨</div>
+                        </div>
                     </div>
                 </div>
 
@@ -1316,6 +1447,115 @@
                         <button class="pill-btn" style="padding: 8px 16px;" onclick="playVagalPurr()">
                             🔊 42Hz Vagus Purr
                         </button>
+                    </div>
+                </div>
+
+                <!-- FEATURE: MULTI-GENERATIONAL EMIRATI FAMILY MAJLIS OASIS -->
+                <div class="card" style="border: 2px solid #A7F3D0; background: linear-gradient(180deg, #F0FDF4 0%, var(--bg-card) 100%);">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span style="font-size: 1rem; font-weight: 800; color: var(--emerald-main);">🌳 Family Majlis Oasis</span>
+                            <span style="font-size: 0.68rem; font-family: var(--font-ar); color: var(--emerald-main); margin-left: 4px;">(الواحة العائلية)</span>
+                        </div>
+                        <span style="font-size: 0.68rem; font-family: var(--font-mono); font-weight: 800; background: #D1FAE5; color: var(--emerald-main); padding: 2px 8px; border-radius: 6px;">COOPERATIVE CO-PLAY</span>
+                    </div>
+                    <p style="font-size: 0.76rem; color: var(--text-muted);">
+                        Zero toxic leaderboards. 4 generations of the Al-Mansouri family nurturing our shared <strong>Sacred Ghaf Tree</strong> together.
+                    </p>
+
+                    <!-- SACRED GHAF TREE PROGRESS -->
+                    <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 12px; display: flex; flex-direction: column; gap: 8px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <span style="font-size: 1.2rem;">🌸</span>
+                                <div>
+                                    <div style="font-size: 0.84rem; font-weight: 800;">Sacred Ghaf Tree: Level 4 (Flowering Canopy)</div>
+                                    <div style="font-size: 0.68rem; color: var(--text-muted);">Next Bloom: Festive Oasis Illumination at 2,000 drops</div>
+                                </div>
+                            </div>
+                            <span style="font-size: 0.8rem; font-weight: 800; font-family: var(--font-mono); color: var(--emerald-main);" id="ghaf-drops-pct">92%</span>
+                        </div>
+                        <div class="vitality-bar-track">
+                            <div class="vitality-bar-fill" id="ghaf-tree-bar" style="width: 92%; background: linear-gradient(90deg, #10B981, #F59E0B);"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.68rem; color: var(--text-muted); font-family: var(--font-mono);">
+                            <span id="ghaf-drops-count">1,840 / 2,000 Hydration Drops</span>
+                            <span style="color: var(--sand-gold);">✨ Radiant Oasis Bloom</span>
+                        </div>
+                    </div>
+
+                    <!-- 4 FAMILY GENERATION CARDS -->
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;" id="family-member-grid">
+                        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 10px; display: flex; align-items: center; gap: 8px;">
+                            <img src="/assets/user-aisha.png" alt="Grandmother Aisha" style="width: 44px; height: 44px; border-radius: 10px; object-fit: cover;" onerror="this.src='/assets/user-aisha.jpg'">
+                            <div style="overflow: hidden;">
+                                <div style="font-size: 0.78rem; font-weight: 800; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">Aisha (الجدة)</div>
+                                <div style="font-size: 0.65rem; color: var(--emerald-main);">🌿 21d Seated Grace</div>
+                                <div style="font-size: 0.62rem; color: var(--text-muted);">+460 tree drops</div>
+                            </div>
+                        </div>
+
+                        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 10px; display: flex; align-items: center; gap: 8px;">
+                            <img src="/assets/user-fatima.png" alt="Mother Fatima" style="width: 44px; height: 44px; border-radius: 10px; object-fit: cover;" onerror="this.src='/assets/user-fatima.jpg'">
+                            <div style="overflow: hidden;">
+                                <div style="font-size: 0.78rem; font-weight: 800; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">Fatima (الأم)</div>
+                                <div style="font-size: 0.65rem; color: var(--emerald-main);">🌸 18d AC Loops</div>
+                                <div style="font-size: 0.62rem; color: var(--text-muted);">+540 tree drops</div>
+                            </div>
+                        </div>
+
+                        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 10px; display: flex; align-items: center; gap: 8px;">
+                            <img src="/assets/user-tariq.png" alt="Father Tariq" style="width: 44px; height: 44px; border-radius: 10px; object-fit: cover;" onerror="this.src='/assets/user-tariq.jpg'">
+                            <div style="overflow: hidden;">
+                                <div style="font-size: 0.78rem; font-weight: 800; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">Tariq (الوالد)</div>
+                                <div style="font-size: 0.65rem; color: var(--cyan-main);">🛡️ 12d Port Shift</div>
+                                <div style="font-size: 0.62rem; color: var(--text-muted);">+420 tree drops</div>
+                            </div>
+                        </div>
+
+                        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 10px; display: flex; align-items: center; gap: 8px;">
+                            <img src="/assets/user-khalid.png" alt="Son Khalid" style="width: 44px; height: 44px; border-radius: 10px; object-fit: cover;" onerror="this.src='/assets/user-khalid.jpg'">
+                            <div style="overflow: hidden;">
+                                <div style="font-size: 0.78rem; font-weight: 800; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">Khalid (الابن)</div>
+                                <div style="font-size: 0.65rem; color: var(--indigo-main);">⚡ 26d Vape Delay</div>
+                                <div style="font-size: 0.62rem; color: var(--text-muted);">+420 tree drops</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ONE-TAP FAMILY BLESSING ACTIONS -->
+                    <div>
+                        <div style="font-size: 0.74rem; font-weight: 800; margin-bottom: 6px;">Send Non-Competitive Family Blessing:</div>
+                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px;">
+                            <button class="pill-btn" onclick="sendFamilyBlessing('gahwa', event)" style="padding: 8px 4px; font-size: 0.7rem; justify-content: center; flex-direction: column; gap: 2px;">
+                                <span style="font-size: 1.1rem;">☕</span>
+                                <span>Gahwa</span>
+                            </button>
+                            <button class="pill-btn" onclick="sendFamilyBlessing('dua', event)" style="padding: 8px 4px; font-size: 0.7rem; justify-content: center; flex-direction: column; gap: 2px;">
+                                <span style="font-size: 1.1rem;">🤲</span>
+                                <span>Du'a</span>
+                            </button>
+                            <button class="pill-btn" onclick="sendFamilyBlessing('falcon', event)" style="padding: 8px 4px; font-size: 0.7rem; justify-content: center; flex-direction: column; gap: 2px;">
+                                <span style="font-size: 1.1rem;">🦅</span>
+                                <span>Falcon</span>
+                            </button>
+                            <button class="pill-btn" onclick="sendFamilyBlessing('breeze', event)" style="padding: 8px 4px; font-size: 0.7rem; justify-content: center; flex-direction: column; gap: 2px;">
+                                <span style="font-size: 1.1rem;">🍃</span>
+                                <span>Breeze</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- RECENT BLESSINGS FEED -->
+                    <div style="background: var(--bg-card-subtle); border-radius: 10px; padding: 8px 10px; font-size: 0.7rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 4px;" id="blessings-log-feed">
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>☕ Aisha sent Gahwa blessing to Fatima</span>
+                            <span style="color: var(--sand-gold);">+35 ✨ (15m ago)</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>🦅 Khalid sent Falcon strength to Tariq</span>
+                            <span style="color: var(--sand-gold);">+30 ✨ (1h ago)</span>
+                        </div>
                     </div>
                 </div>
 
@@ -1631,7 +1871,7 @@
             </button>
             <button class="nav-item" id="nav-sanctuary" onclick="switchTab('panel-sanctuary')">
                 <span class="nav-icon">🐾</span>
-                <span class="nav-label">Guardian</span>
+                <span class="nav-label">Family &amp; Pet</span>
             </button>
             <button class="nav-item" id="nav-insights" onclick="switchTab('panel-insights')">
                 <span class="nav-icon">📊</span>
@@ -1781,6 +2021,40 @@ Loading Malaffi HL7 FHIR R4 Bundle from /api/fhir-malaffi...
         </div>
     </div>
 
+    <!-- MODAL 7: BEDOUIN MYSTERY GHAF RELIC CHEST -->
+    <div class="modal-overlay" id="chest-modal">
+        <div class="modal-card" style="border: 2px solid var(--sand-gold-bright); text-align: center; align-items: center;">
+            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <span style="font-weight: 800; color: var(--sand-gold); font-size: 1.05rem;">🎁 Bedouin Mystery Ghaf Relic Chest</span>
+                <button class="pill-btn" onclick="closeChestModal()">✕</button>
+            </div>
+            <p style="font-size: 0.78rem; color: var(--text-muted);">
+                Variable-ratio behavioral reward drop (B.F. Skinner). Open your daily relic chest to discover ancient Abu Dhabi relics, pearls, and companion sheen boosts.
+            </p>
+
+            <div style="margin: 16px 0; position: relative;">
+                <div id="chest-icon-anim" style="font-size: 4.5rem; filter: drop-shadow(0 10px 20px rgba(245, 158, 11, 0.4)); cursor: pointer; transition: transform 0.3s ease;" onclick="claimMysteryChest()">
+                    🎁
+                </div>
+                <div style="font-size: 0.78rem; font-weight: 800; color: var(--sand-gold); margin-top: 8px;" id="chest-tier-label">
+                    ✨ Ancient Ghaf Tier III • Ready to Unlock
+                </div>
+            </div>
+
+            <!-- CHEST LOOT REVEAL CONTAINER -->
+            <div id="chest-loot-box" style="display: none; background: var(--bg-card-subtle); border: 2px solid var(--sand-gold); border-radius: 16px; padding: 14px; width: 100%; margin-bottom: 12px; text-align: center;">
+                <div style="font-size: 2.2rem;" id="loot-icon">🌹</div>
+                <div style="font-size: 0.95rem; font-weight: 800; color: var(--sand-gold); margin-top: 4px;" id="loot-name">Desert Rose Starlight Halo</div>
+                <div style="font-size: 0.72rem; color: var(--emerald-main); font-weight: 700; margin-top: 2px;" id="loot-pearls">+145 Oasis Pearls • +12% Companion Bond</div>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 6px;" id="loot-desc">Bilota spreads glowing wings with immense joy!</p>
+            </div>
+
+            <button class="pill-btn active" id="btn-open-chest" style="padding: 12px 24px; font-size: 0.95rem; font-weight: 800; width: 100%; justify-content: center; background: linear-gradient(135deg, #F59E0B, #D97706); color: #FFF; border: none; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);" onclick="claimMysteryChest()">
+                ✨ Open Relic Chest Now
+            </button>
+        </div>
+    </div>
+
     <script>
         // 10 ANGELIC GUARDIAN CAT AVATARS
         const GUARDIAN_AVATARS = [
@@ -1822,6 +2096,10 @@ Loading Malaffi HL7 FHIR R4 Bundle from /api/fhir-malaffi...
         let isVisual = false;
         let breathInterval = null;
 
+        let oasisPearls = 1280;
+        let completedQuestsCount = 0;
+        let familyGhafDrops = 1840;
+
         // MULTI-HARMONIC BIO-ACOUSTIC PURR SYNTHESIZER
         const audioCtx = (window.AudioContext || window.webkitAudioContext) ? new (window.AudioContext || window.webkitAudioContext)() : null;
 
@@ -1860,23 +2138,69 @@ Loading Malaffi HL7 FHIR R4 Bundle from /api/fhir-malaffi...
                         o.start(now + idx * 0.07);
                         o.stop(now + idx * 0.07 + 0.4);
                     });
-                }
-            } catch(e) {}
-        } else if (type === 'win') {
-                    [523.25, 659.25, 783.99, 1046.5].forEach((freq, idx) => {
+                } else if (type === 'pearl') {
+                    // Crystal bell chime for oasis pearls
+                    [880, 1320, 1760].forEach((freq, idx) => {
+                        const o = audioCtx.createOscillator();
+                        const g = audioCtx.createGain();
+                        o.type = 'sine';
+                        o.frequency.setValueAtTime(freq, now + idx * 0.05);
+                        g.gain.setValueAtTime(0.1, now + idx * 0.05);
+                        g.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.05 + 0.35);
+                        o.connect(g);
+                        g.connect(audioCtx.destination);
+                        o.start(now + idx * 0.05);
+                        o.stop(now + idx * 0.05 + 0.35);
+                    });
+                } else if (type === 'blessing') {
+                    // Warm harmonic oud blessing sweep
+                    [440, 554.37, 659.25, 880].forEach((freq, idx) => {
                         const o = audioCtx.createOscillator();
                         const g = audioCtx.createGain();
                         o.type = 'triangle';
-                        o.frequency.setValueAtTime(freq, now + idx * 0.07);
-                        g.gain.setValueAtTime(0.12, now + idx * 0.07);
-                        g.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.07 + 0.4);
+                        o.frequency.setValueAtTime(freq, now + idx * 0.08);
+                        g.gain.setValueAtTime(0.14, now + idx * 0.08);
+                        g.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.08 + 0.5);
                         o.connect(g);
                         g.connect(audioCtx.destination);
-                        o.start(now + idx * 0.07);
-                        o.stop(now + idx * 0.07 + 0.4);
+                        o.start(now + idx * 0.08);
+                        o.stop(now + idx * 0.08 + 0.5);
+                    });
+                } else if (type === 'chest_open') {
+                    // Majestic celebratory chest fanfare
+                    [392, 523.25, 659.25, 783.99, 1046.5, 1318.5].forEach((freq, idx) => {
+                        const o = audioCtx.createOscillator();
+                        const g = audioCtx.createGain();
+                        o.type = idx >= 4 ? 'sine' : 'triangle';
+                        o.frequency.setValueAtTime(freq, now + idx * 0.09);
+                        g.gain.setValueAtTime(0.15, now + idx * 0.09);
+                        g.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.09 + 0.6);
+                        o.connect(g);
+                        g.connect(audioCtx.destination);
+                        o.start(now + idx * 0.09);
+                        o.stop(now + idx * 0.09 + 0.6);
                     });
                 }
             } catch(e) {}
+        }
+
+        // TACTILE FLOATING TEXT BADGE
+        function spawnFloatingText(text, x, y, color = '#F59E0B') {
+            const badge = document.createElement('div');
+            badge.className = 'floating-badge';
+            badge.innerText = text;
+            badge.style.left = `${x || window.innerWidth / 2}px`;
+            badge.style.top = `${y || window.innerHeight / 2}px`;
+            badge.style.color = color;
+            document.body.appendChild(badge);
+            setTimeout(() => badge.remove(), 1200);
+        }
+
+        function addPearls(amount, x, y) {
+            oasisPearls += amount;
+            document.getElementById('top-pearl-count').innerText = oasisPearls.toLocaleString();
+            playSound('pearl');
+            spawnFloatingText(`+${amount} ✨`, x, y, '#F59E0B');
         }
 
         function playVagalPurr() {
@@ -2101,15 +2425,149 @@ Loading Malaffi HL7 FHIR R4 Bundle from /api/fhir-malaffi...
         }
         function closeBctModal() { document.getElementById('bct-modal').classList.remove('open'); }
 
-        // TACTILE INTERACTIONS
-        function petBilota() {
+        // TACTILE INTERACTIONS & HEALTHY DOPAMINE REINFORCEMENT
+        function petBilota(e) {
             playSound('purr');
+            const x = e ? e.clientX : window.innerWidth / 2;
+            const y = e ? e.clientY : window.innerHeight / 2;
+            spawnFloatingText("💖 +15 Bond", x, y, "#EC4899");
+            addPearls(15, x + 20, y - 20);
             showToast("🐾 *Purrrrr* Bilota spreads feathery wings gently. Autonomic calm restored.");
         }
 
-        function giveWater() {
+        function feedDate(e) {
+            playSound('purr');
+            const x = e ? e.clientX : window.innerWidth / 2;
+            const y = e ? e.clientY : window.innerHeight / 2;
+            spawnFloatingText("🌴 +35 ✨", x, y, "#F59E0B");
+            addPearls(35, x, y);
+            document.getElementById('guardian-speech').innerText = '"Delicious Liwa Medjool date! Whole-food potassium powers gentle indoor momentum."';
+            showToast("🌴 Fed Medjool Date: Companion sheen +10%, natural glycogen restored!");
+        }
+
+        function giveWater(e) {
             playSound('win');
-            showToast("🥛 Bilota drinks from the celestial oasis fountain. Hydration logged!");
+            const x = e ? e.clientX : window.innerWidth / 2;
+            const y = e ? e.clientY : window.innerHeight / 2;
+            spawnFloatingText("🥛 +25 Hydration", x, y, "#38BDF8");
+            addPearls(25, x, y);
+            showToast("🥛 Fresh Camel Milk & Oasis Water: Electrolyte balance restored!");
+        }
+
+        function preenWings(e) {
+            playSound('blessing');
+            const x = e ? e.clientX : window.innerWidth / 2;
+            const y = e ? e.clientY : window.innerHeight / 2;
+            spawnFloatingText("✨ Celestial Sheen +20%", x, y, "#A855F7");
+            addPearls(30, x, y);
+            document.getElementById('guardian-speech').innerText = '"Celestial wings preened! Soft golden feathers insulate us from the desert heat."';
+            showToast("✨ Preened Wings: Angelic companion vitality elevated to 98%!");
+        }
+
+        // DAILY KHATWA QUESTS HOOK
+        function toggleQuest(el, pearls, bond, name, e) {
+            if (el.classList.contains('done')) return;
+            el.classList.add('done');
+            completedQuestsCount++;
+            document.getElementById('quests-progress-label').innerText = `${completedQuestsCount} / 3 Done`;
+
+            const x = e ? e.clientX : window.innerWidth / 2;
+            const y = e ? e.clientY : window.innerHeight / 2;
+            addPearls(pearls, x, y);
+            spawnFloatingText(`+${bond} Bond 🐾`, x + 30, y - 20, "#10B981");
+            playSound('win');
+            showToast(`✓ Quest Completed: ${name}! +${pearls} Oasis Pearls earned.`);
+
+            if (completedQuestsCount === 3) {
+                fireConfetti();
+                playSound('chest_open');
+                setTimeout(() => {
+                    showToast("🎉 Daily Khatwa Triple Win Complete! Bedouin Mystery Ghaf Chest unlocked!");
+                    openChestModal();
+                }, 900);
+            }
+        }
+
+        // BEDOUIN MYSTERY GHAF RELIC CHEST MODAL
+        function openChestModal() {
+            document.getElementById('chest-modal').classList.add('open');
+            playSound('purr');
+        }
+        function closeChestModal() {
+            document.getElementById('chest-modal').classList.remove('open');
+            document.getElementById('chest-loot-box').style.display = 'none';
+            document.getElementById('btn-open-chest').style.display = 'flex';
+        }
+
+        async function claimMysteryChest() {
+            const chestAnim = document.getElementById('chest-icon-anim');
+            chestAnim.classList.add('chest-shaking');
+            playSound('purr');
+
+            try {
+                const res = await fetch('/api/claim-chest', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ user_id: PERSONAS[activePersonaIdx].id })
+                });
+                const data = await res.json();
+
+                setTimeout(() => {
+                    chestAnim.classList.remove('chest-shaking');
+                    chestAnim.innerText = "✨";
+                    document.getElementById('loot-icon').innerText = data.relic.icon;
+                    document.getElementById('loot-name').innerText = data.relic.name;
+                    document.getElementById('loot-pearls').innerText = `+${data.pearls_awarded} Oasis Pearls • ${data.companion_bond_boost}`;
+                    document.getElementById('loot-desc').innerText = isArabic ? data.affirmation_ar : data.affirmation_en;
+                    document.getElementById('chest-loot-box').style.display = 'block';
+                    document.getElementById('btn-open-chest').style.display = 'none';
+
+                    addPearls(data.pearls_awarded);
+                    playSound('chest_open');
+                    fireConfetti();
+                    showToast(`🎁 Chest Opened: ${data.relic.name} unlocked!`);
+                }, 650);
+            } catch(e) {
+                chestAnim.classList.remove('chest-shaking');
+                showToast("🎁 Daily blessing unlocked: +100 Oasis Pearls!");
+                addPearls(100);
+            }
+        }
+
+        // MULTI-GENERATIONAL FAMILY MAJLIS BLESSINGS
+        async function sendFamilyBlessing(type, e) {
+            const x = e ? e.clientX : window.innerWidth / 2;
+            const y = e ? e.clientY : window.innerHeight / 2;
+            playSound('blessing');
+
+            try {
+                const p = PERSONAS[activePersonaIdx];
+                const res = await fetch('/api/family-blessing', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ sender_id: p.id, recipient_id: "aisha", blessing_type: type })
+                });
+                const d = await res.json();
+
+                addPearls(d.pearls_awarded_both, x, y);
+                familyGhafDrops += d.ghaf_tree_drops_added;
+                const pct = Math.min(100, (familyGhafDrops / 2000 * 100)).toFixed(0);
+                document.getElementById('ghaf-drops-pct').innerText = `${pct}%`;
+                document.getElementById('ghaf-tree-bar').style.width = `${pct}%`;
+                document.getElementById('ghaf-drops-count').innerText = `${familyGhafDrops.toLocaleString()} / 2,000 Hydration Drops`;
+
+                // Add to blessing feed
+                const feed = document.getElementById('blessings-log-feed');
+                const row = document.createElement('div');
+                row.style.cssText = "display: flex; justify-content: space-between; font-weight: 700; color: var(--emerald-main);";
+                row.innerHTML = `<span>${d.icon} You sent ${d.blessing} to Aisha</span><span style="color: var(--sand-gold);">+${d.pearls_awarded_both} ✨ (Just now)</span>`;
+                feed.prepend(row);
+
+                showToast(d.message);
+            } catch(e) {
+                addPearls(35, x, y);
+                showToast("☕ Family Gahwa Blessing sent! Your shared Ghaf tree grows.");
+            }
         }
 
         function toggleCatnap() {
