@@ -19,7 +19,7 @@
 * **Production Dashboard URL**: `http://127.0.0.1:8080`
 * **Health Endpoint**: `http://127.0.0.1:8080/api/health`
 * **Inference Endpoint**: `http://127.0.0.1:8080/api/analyze`
-* **Features**: Pinned Judge Control Bar, 13 Real Emirati Personas, 20 Feline Companions, Multi-Generational Family Oasis, Bedouin Relic Chest, Arabic RTL mode, Low-Literacy Visual Mode, and BCT Inspector Drawer.
+* **Features**: Pinned Judge Control Bar, 13 Real Emirati Personas, 20 Feline Companions, Multi-Generational Family Oasis, Sovereign Family QR Tagging & Care Circles, Bedouin Relic Chest, Arabic RTL mode, Low-Literacy Visual Mode, and BCT Inspector Drawer.
 
 ---
 
