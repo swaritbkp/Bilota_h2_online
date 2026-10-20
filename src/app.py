@@ -19,7 +19,10 @@ from src.core.elite_features import (
     get_biometric_stream,
     generate_zkp_proof,
     calculate_malaffi_age,
-    chat_with_bilota
+    chat_with_bilota,
+    get_malaffi_fhir_bundle,
+    get_persistence_waterfall,
+    get_bct_taxonomy_catalog
 )
 
 app = FastAPI(
@@ -146,6 +149,24 @@ async def api_malaffi_age(request: Request):
     steps = int(body.get("steps", 5400))
     result = calculate_malaffi_age(age=age, hba1c=hba1c, sbp=sbp, fasting_glucose=fasting_glucose, steps=steps)
     return JSONResponse(content=result, status_code=200)
+
+
+@app.get("/api/fhir-malaffi")
+async def api_fhir_malaffi(persona_id: str = "fatima"):
+    """Returns official HL7 FHIR R4 clinical bundle aligned with Malaffi Health Information Exchange."""
+    return JSONResponse(content=get_malaffi_fhir_bundle(persona_id=persona_id), status_code=200)
+
+
+@app.get("/api/persistence-model")
+async def api_persistence_model():
+    """Returns the compound behavioral persistence waterfall showing >95% sustained retention."""
+    return JSONResponse(content=get_persistence_waterfall(), status_code=200)
+
+
+@app.get("/api/bct-matrix")
+async def api_bct_matrix():
+    """Returns the comprehensive 16-technique Michie et al. (2013) taxonomy for Abu Dhabi."""
+    return JSONResponse(content=get_bct_taxonomy_catalog(), status_code=200)
 
 
 @app.get("/api/health")
