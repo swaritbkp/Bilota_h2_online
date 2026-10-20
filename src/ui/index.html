@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Bilota (بيلوتا / قطوة) | Abu Dhabi Feline Health Companion</title>
+    <title>Bilota (بيلوتا / قطوة) | Abu Dhabi Feline Angelic Companion</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* BRIGHT, CLEAN, MODERN LIGHT PALETTE */
+            /* BRIGHT, CLEAN, MODERN LUXURY PALETTE */
             --bg-app: #F8FAFC;
             --bg-card: #FFFFFF;
             --bg-card-subtle: #F1F5F9;
-            --bg-elevated: #FFFFFF;
             --border-light: #E2E8F0;
-            --border-subtle: rgba(0, 0, 0, 0.06);
+            --border-focus: #CBD5E1;
 
             --text-main: #0F172A;
             --text-muted: #64748B;
@@ -44,7 +43,7 @@
 
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
             --shadow-md: 0 4px 12px -2px rgba(0,0,0,0.06), 0 2px 4px -1px rgba(0,0,0,0.03);
-            --shadow-lg: 0 12px 30px -4px rgba(0,0,0,0.08), 0 4px 8px -2px rgba(0,0,0,0.04);
+            --shadow-lg: 0 12px 30px -4px rgba(0,0,0,0.08);
 
             --bottom-nav-height: 68px;
             --safe-bottom: env(safe-area-inset-bottom, 12px);
@@ -52,12 +51,11 @@
 
         /* DARK MODE SUPPORT */
         html.dark {
-            --bg-app: #090D16;
+            --bg-app: #080C14;
             --bg-card: #111726;
-            --bg-card-subtle: #161F33;
-            --bg-elevated: #1B253D;
+            --bg-card-subtle: #172033;
             --border-light: #1E293B;
-            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-focus: #334155;
 
             --text-main: #F8FAFC;
             --text-muted: #94A3B8;
@@ -99,7 +97,7 @@
             font-family: var(--font-ar);
         }
 
-        /* MOBILE APP VIEWPORT WRAPPER */
+        /* MOBILE APP CONTAINER */
         .app-container {
             width: 100%;
             max-width: 480px;
@@ -115,7 +113,7 @@
         @media (min-width: 481px) {
             body {
                 background: linear-gradient(135deg, #F1F5F9 0%, #E2E8F0 100%);
-                padding: 20px 0;
+                padding: 16px 0;
             }
             html.dark body {
                 background: linear-gradient(135deg, #05070B 0%, #0A0F1A 100%);
@@ -138,7 +136,7 @@
             }
         }
 
-        /* TOP JUDGE & CONTEXT BAR */
+        /* TOP BAR */
         .top-judge-bar {
             background: var(--bg-card);
             border-bottom: 1px solid var(--border-light);
@@ -160,12 +158,15 @@
         }
 
         .brand-avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
             object-fit: cover;
             border: 2px solid var(--sand-gold-bright);
+            box-shadow: 0 2px 8px rgba(245, 158, 11, 0.25);
+            transition: transform 0.2s ease;
         }
+        .brand-avatar:hover { transform: scale(1.08); }
 
         .brand-text-wrap h1 {
             font-size: 0.98rem;
@@ -182,12 +183,6 @@
             color: var(--sand-gold);
             text-transform: uppercase;
             letter-spacing: 0.6px;
-        }
-
-        .judge-pill-menu {
-            display: flex;
-            align-items: center;
-            gap: 6px;
         }
 
         .pill-btn {
@@ -212,15 +207,32 @@
             color: var(--sand-gold);
         }
 
-        /* PERSONA SELECTOR SLIDER */
-        .persona-strip {
+        /* 13-PROFILE CAROUSEL STRIP */
+        .persona-strip-container {
             background: var(--bg-card);
-            padding: 10px 18px;
             border-bottom: 1px solid var(--border-light);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding: 8px 16px 10px;
+        }
+
+        .strip-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.68rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--text-light);
+            letter-spacing: 0.6px;
+        }
+
+        .persona-strip {
             display: flex;
             gap: 8px;
             overflow-x: auto;
             scrollbar-width: none;
+            padding: 2px 0;
         }
         .persona-strip::-webkit-scrollbar { display: none; }
 
@@ -228,7 +240,7 @@
             background: var(--bg-card-subtle);
             border: 1px solid var(--border-light);
             border-radius: 24px;
-            padding: 6px 12px;
+            padding: 5px 12px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -242,6 +254,7 @@
             background: var(--text-main);
             color: var(--bg-card);
             border-color: var(--text-main);
+            box-shadow: var(--shadow-sm);
         }
 
         .chip-avatar {
@@ -252,11 +265,11 @@
         }
 
         .chip-name {
-            font-size: 0.78rem;
+            font-size: 0.76rem;
             font-weight: 700;
         }
 
-        /* SCROLLABLE MAIN CONTENT */
+        /* SCROLLABLE MAIN BODY */
         .scrollable-body {
             padding: 16px;
             display: flex;
@@ -264,7 +277,6 @@
             gap: 16px;
         }
 
-        /* TAB PANELS */
         .tab-panel {
             display: none;
             flex-direction: column;
@@ -277,7 +289,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* SECTION CARD WRAPPER */
+        /* CARD */
         .card {
             background: var(--bg-card);
             border: 1px solid var(--border-light);
@@ -290,76 +302,76 @@
             position: relative;
         }
 
-        /* 1. BILOTA LIVING COMPANION HERO CARD */
-        .pet-hero-card {
+        /* FEATURE 2: ANGELIC GUARDIAN HERO CARD */
+        .guardian-hero-card {
             background: linear-gradient(180deg, #FFFDF8 0%, #FFFFFF 100%);
             border: 1px solid #FDE68A;
             box-shadow: var(--shadow-md);
         }
-        html.dark .pet-hero-card {
-            background: linear-gradient(180deg, #182236 0%, #111726 100%);
-            border-color: rgba(245, 158, 11, 0.3);
+        html.dark .guardian-hero-card {
+            background: linear-gradient(180deg, #1A2234 0%, #111726 100%);
+            border-color: rgba(245, 158, 11, 0.35);
         }
 
-        .pet-stage {
+        .guardian-stage {
             display: flex;
             align-items: center;
             gap: 16px;
         }
 
-        .pet-photo-container {
+        .guardian-photo-box {
             position: relative;
-            width: 110px;
-            height: 110px;
+            width: 114px;
+            height: 114px;
             flex-shrink: 0;
             cursor: pointer;
         }
 
-        .pet-photo {
+        .guardian-photo {
             width: 100%;
             height: 100%;
             border-radius: 22px;
             object-fit: cover;
             border: 3px solid var(--sand-gold-bright);
-            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.25);
+            box-shadow: 0 8px 22px rgba(245, 158, 11, 0.3);
             transition: transform 0.2s ease;
-            animation: pet-breathe 4s infinite ease-in-out;
+            animation: guardian-breathe 4s infinite ease-in-out;
         }
-        .pet-photo:active { transform: scale(0.95); }
+        .guardian-photo:active { transform: scale(0.96); }
 
-        @keyframes pet-breathe {
+        @keyframes guardian-breathe {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.025); }
         }
 
-        .pet-status-bubble {
+        .guardian-status-bubble {
             position: absolute;
             bottom: -6px;
             right: -4px;
-            background: var(--emerald-bright);
+            background: var(--sand-gold-bright);
             color: #FFFFFF;
             font-size: 0.65rem;
             font-weight: 800;
-            padding: 2px 7px;
+            padding: 2px 8px;
             border-radius: 12px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.2);
             border: 2px solid #FFF;
         }
 
-        .pet-info {
+        .guardian-meta-info {
             display: flex;
             flex-direction: column;
             gap: 6px;
             flex-grow: 1;
         }
 
-        .pet-badge-row {
+        .guardian-title-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        .pet-name-title {
+        .guardian-name-title {
             font-size: 1.05rem;
             font-weight: 800;
             color: var(--text-main);
@@ -368,20 +380,20 @@
             gap: 6px;
         }
 
-        .vitality-pill {
-            font-size: 0.72rem;
+        .guardian-archetype-pill {
+            font-size: 0.7rem;
             font-weight: 800;
-            font-family: var(--font-mono);
-            background: var(--emerald-light);
-            color: var(--emerald-main);
+            background: var(--sand-gold-light);
+            color: var(--sand-gold);
             padding: 3px 8px;
             border-radius: 8px;
+            cursor: pointer;
         }
 
-        .pet-quote {
+        .guardian-speech {
             font-size: 0.82rem;
             color: var(--text-muted);
-            line-height: 1.4;
+            line-height: 1.45;
         }
 
         .vitality-bar-track {
@@ -400,11 +412,10 @@
             transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* PET TACTILE ACTIONS ROW */
         .pet-action-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
             margin-top: 2px;
         }
 
@@ -412,11 +423,11 @@
             background: var(--bg-card);
             border: 1px solid var(--border-light);
             border-radius: 12px;
-            padding: 8px 6px;
+            padding: 8px 4px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
+            gap: 3px;
             cursor: pointer;
             font-family: inherit;
             color: var(--text-main);
@@ -424,16 +435,15 @@
         }
         .btn-pet-touch:hover { background: var(--bg-card-subtle); border-color: var(--border-focus); }
         .btn-pet-touch:active { transform: scale(0.96); }
+        .btn-pet-touch span:first-child { font-size: 1.2rem; }
+        .btn-pet-touch span:last-child { font-size: 0.68rem; font-weight: 700; color: var(--text-muted); }
 
-        .btn-pet-touch span:first-child { font-size: 1.25rem; }
-        .btn-pet-touch span:last-child { font-size: 0.7rem; font-weight: 700; color: var(--text-muted); }
-
-        /* 2. THE ONE WOW: MOMENTUM BANK VAULT CARD */
-        .momentum-vault-card {
+        /* FEATURE 8: 9-LIVES MOMENTUM BANK VAULT & MILESTONES */
+        .vault-card {
             background: linear-gradient(135deg, #ECFDF5 0%, #FFFFFF 100%);
             border: 1px solid #A7F3D0;
         }
-        html.dark .momentum-vault-card {
+        html.dark .vault-card {
             background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, #111726 100%);
             border-color: rgba(16, 185, 129, 0.3);
         }
@@ -477,84 +487,60 @@
             line-height: 1;
         }
 
-        .vault-subtext {
-            font-size: 0.84rem;
-            font-weight: 700;
-            color: var(--text-main);
-        }
-
-        .vault-note {
-            font-size: 0.72rem;
-            color: var(--text-muted);
-            margin-top: 2px;
-        }
-
-        /* 3. ADAPTIVE MICRO-ACTION HERO */
-        .micro-action-card {
-            border-left: 4px solid var(--emerald-bright);
-        }
-
-        .action-header-row {
+        .milestone-strip {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-        }
-
-        .domain-tag {
-            font-size: 0.72rem;
-            font-family: var(--font-mono);
+            background: var(--bg-card-subtle);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 8px 12px;
+            font-size: 0.7rem;
             font-weight: 700;
-            color: var(--cyan-main);
-            background: var(--cyan-light);
-            padding: 3px 8px;
-            border-radius: 6px;
-            text-transform: uppercase;
         }
+        .mile-item { display: flex; align-items: center; gap: 4px; color: var(--text-muted); }
+        .mile-item.unlocked { color: var(--emerald-main); font-weight: 800; }
 
-        .action-text {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--text-main);
-            line-height: 1.45;
-        }
-
-        .action-arabic {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--cyan-main);
-            font-family: var(--font-ar);
-            display: none;
-            line-height: 1.5;
-        }
-
-        .btn-complete-win {
-            background: linear-gradient(135deg, var(--emerald-bright) 0%, var(--emerald-main) 100%);
-            color: #FFFFFF;
-            font-family: inherit;
-            font-size: 0.95rem;
-            font-weight: 800;
-            border: none;
-            border-radius: 14px;
-            padding: 14px;
-            cursor: pointer;
+        /* FEATURE 1: INTERACTIVE PRAYER HABIT STACKER */
+        .prayer-timeline {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
-            transition: all 0.2s ease;
+            justify-content: space-between;
+            gap: 4px;
+            margin-top: 4px;
         }
-        .btn-complete-win:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(16, 185, 129, 0.45); }
-        .btn-complete-win:active { transform: scale(0.98); }
 
-        /* 4. ABU DHABI CONTEXT WIDGET (WEATHER & PRAYER) */
-        .context-grid {
+        .prayer-slot {
+            flex: 1;
+            background: var(--bg-card-subtle);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 8px 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .prayer-slot:hover { border-color: var(--sand-gold-bright); }
+        .prayer-slot.active {
+            background: var(--sand-gold-light);
+            border-color: var(--sand-gold-bright);
+            color: var(--sand-gold);
+            font-weight: 800;
+        }
+
+        .prayer-name { font-size: 0.72rem; font-weight: 800; }
+        .prayer-time { font-size: 0.68rem; font-family: var(--font-mono); color: var(--text-muted); margin-top: 2px; }
+        .prayer-habit { font-size: 0.65rem; color: var(--text-main); font-weight: 600; margin-top: 4px; line-height: 1.2; }
+
+        /* FEATURE 3: LIVE ABU DHABI HEAT & AQI ADVISORY */
+        .weather-aqi-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 8px;
         }
 
-        .context-box {
+        .weather-box {
             background: var(--bg-card-subtle);
             border: 1px solid var(--border-light);
             border-radius: 12px;
@@ -564,126 +550,36 @@
             align-items: center;
             text-align: center;
         }
+        .weather-box .wk { font-size: 0.66rem; text-transform: uppercase; font-weight: 700; color: var(--text-light); }
+        .weather-box .wv { font-size: 1.15rem; font-weight: 800; font-family: var(--font-mono); margin-top: 2px; }
 
-        .context-box .ck {
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            font-weight: 700;
-            color: var(--text-light);
-            letter-spacing: 0.5px;
+        /* FEATURE 4: RAMADAN FASTING & HYDRATION LADDER */
+        .hydration-ladder {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 4px;
+            margin-top: 6px;
         }
 
-        .context-box .cv {
-            font-size: 1.05rem;
-            font-weight: 800;
-            font-family: var(--font-mono);
-            color: var(--text-main);
-            margin-top: 2px;
-        }
-
-        /* 5. INTERACTIVE HABIT LIST */
-        .habit-list {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .habit-item {
+        .water-cup {
+            height: 38px;
+            border-radius: 8px;
             background: var(--bg-card-subtle);
             border: 1px solid var(--border-light);
-            border-radius: 14px;
-            padding: 12px 14px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            cursor: pointer;
-            transition: all 0.15s ease;
-        }
-        .habit-item:hover { border-color: var(--emerald-bright); }
-        .habit-item.checked {
-            background: var(--emerald-light);
-            border-color: var(--emerald-bright);
-        }
-
-        .habit-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .check-circle {
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            border: 2px solid var(--text-light);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.75rem;
-            color: transparent;
+            font-size: 1rem;
+            cursor: pointer;
             transition: all 0.2s ease;
         }
-        .habit-item.checked .check-circle {
-            background: var(--emerald-bright);
-            border-color: var(--emerald-bright);
-            color: #FFFFFF;
+        .water-cup.full {
+            background: var(--cyan-light);
+            border-color: var(--cyan-main);
+            color: var(--cyan-main);
         }
 
-        .habit-text {
-            font-size: 0.88rem;
-            font-weight: 600;
-            color: var(--text-main);
-        }
-
-        .habit-duration {
-            font-size: 0.72rem;
-            color: var(--text-muted);
-            font-family: var(--font-mono);
-        }
-
-        /* 6. INTERACTIVE 3-COLOR PLATE (FOR AISHA & NUTRITION) */
-        .plate-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 0;
-        }
-
-        .interactive-plate {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            background: conic-gradient(var(--emerald-bright) 0% 50%, var(--sand-gold-bright) 50% 75%, var(--rose-main) 75% 100%);
-            border: 6px solid var(--border-light);
-            box-shadow: var(--shadow-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .interactive-plate:hover { transform: rotate(45deg); }
-
-        .plate-legend {
-            display: flex;
-            gap: 14px;
-            font-size: 0.75rem;
-            font-weight: 700;
-        }
-        .leg-item { display: flex; align-items: center; gap: 4px; }
-        .leg-dot { width: 8px; height: 8px; border-radius: 50%; }
-
-        /* 7. URGE-SURFING BREATHING TIMER (TARIQ / STRESS) */
-        .breath-timer-wrap {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 0;
-        }
-
+        /* FEATURE 5: URGE SURFING TIMER */
         .breath-ring {
             width: 120px;
             height: 120px;
@@ -694,6 +590,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            margin: 0 auto;
             cursor: pointer;
             transition: all 0.5s ease;
         }
@@ -705,21 +602,45 @@
             50% { transform: scale(1.15); border-color: var(--emerald-bright); }
         }
 
-        .breath-phase {
-            font-size: 0.78rem;
-            font-weight: 800;
-            color: var(--cyan-main);
-            text-transform: uppercase;
+        /* FEATURE 6: 3-COLOR PLATE */
+        .interactive-plate {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: conic-gradient(var(--emerald-bright) 0% 50%, var(--sand-gold-bright) 50% 75%, var(--rose-main) 75% 100%);
+            border: 5px solid var(--border-light);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .interactive-plate:hover { transform: rotate(45deg); }
+
+        /* FEATURE 7: SEATED MOBILITY */
+        .seated-step-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .seated-step-item {
+            background: var(--bg-card-subtle);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+        .seated-step-item.done {
+            border-color: var(--emerald-bright);
+            background: var(--emerald-light);
         }
 
-        .breath-count {
-            font-size: 1.6rem;
-            font-weight: 900;
-            font-family: var(--font-mono);
-            color: var(--text-main);
-        }
-
-        /* BOTTOM NAVIGATION BAR (MOBILE NATIVE FEEL) */
+        /* BOTTOM NAV */
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -756,18 +677,75 @@
             color: var(--sand-gold);
             font-weight: 800;
         }
+        .nav-icon { font-size: 1.35rem; line-height: 1; }
+        .nav-label { font-size: 0.68rem; font-weight: 700; }
 
-        .nav-icon {
-            font-size: 1.35rem;
-            line-height: 1;
+        /* MODALS */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.72);
+            backdrop-filter: blur(8px);
+            z-index: 5000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+        .modal-overlay.open { display: flex; }
+
+        .modal-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 24px;
+            max-width: 440px;
+            width: 100%;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            box-shadow: var(--shadow-lg);
+            max-height: 85vh;
+            overflow-y: auto;
         }
 
-        .nav-label {
-            font-size: 0.68rem;
-            font-weight: 700;
+        .avatar-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
         }
 
-        /* CONFETTI CANVAS */
+        .avatar-card-option {
+            background: var(--bg-card-subtle);
+            border: 2px solid var(--border-light);
+            border-radius: 16px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+        .avatar-card-option:hover { border-color: var(--sand-gold-bright); transform: translateY(-2px); }
+        .avatar-card-option.active {
+            border-color: var(--sand-gold-bright);
+            background: var(--sand-gold-light);
+        }
+
+        .avatar-option-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 14px;
+            object-fit: cover;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .avatar-option-title { font-size: 0.78rem; font-weight: 800; color: var(--text-main); }
+        .avatar-option-desc { font-size: 0.68rem; color: var(--text-muted); line-height: 1.25; }
+
+        /* CONFETTI & TOAST */
         #confetti-canvas {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -775,7 +753,6 @@
             z-index: 99999;
         }
 
-        /* TOAST BUBBLE */
         .toast-bubble {
             position: fixed;
             top: 78px;
@@ -797,73 +774,34 @@
             white-space: nowrap;
         }
         .toast-bubble.show { transform: translateX(-50%) translateY(0); }
-
-        /* SECURITY FIREWALL MODAL */
-        .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(8px);
-            z-index: 5000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 16px;
-        }
-        .modal-overlay.open { display: flex; }
-
-        .modal-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-radius: 24px;
-            max-width: 420px;
-            width: 100%;
-            padding: 22px;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .terminal-box {
-            background: var(--bg-card-subtle);
-            border: 1px solid var(--border-light);
-            border-radius: 12px;
-            padding: 12px;
-            font-family: var(--font-mono);
-            font-size: 0.76rem;
-            color: var(--text-muted);
-            max-height: 220px;
-            overflow-y: auto;
-            white-space: pre-wrap;
-            line-height: 1.5;
-        }
     </style>
 </head>
 <body>
 
     <canvas id="confetti-canvas"></canvas>
 
-    <!-- TOAST POPUP -->
     <div class="toast-bubble" id="toast-bubble">
         <span>🐾</span>
         <span id="toast-text">Momentum Bank updated: +1 Day Preserved!</span>
     </div>
 
-    <!-- MAIN APP CONTAINER -->
+    <!-- MAIN APP SHELL -->
     <div class="app-container">
 
         <!-- TOP CONTEXT & JUDGE BAR -->
         <header class="top-judge-bar">
-            <div class="brand-badge" onclick="switchTab('tab-sanctuary')">
-                <img src="/assets/sandcat-thriving.png" alt="Bilota" class="brand-avatar" id="top-cat-avatar">
+            <div class="brand-badge" onclick="openAvatarMenu()">
+                <img src="/assets/guardian-angel-gold.png" alt="Bilota Angel" class="brand-avatar" id="top-cat-avatar" onerror="this.src='/assets/sandcat-thriving.png'">
                 <div class="brand-text-wrap">
                     <h1>🐾 Bilota (بيلوتا)</h1>
-                    <p id="top-health-status">Vitality 72% • All Habits Safe</p>
+                    <p id="top-archetype-text">Golden Sand Angel • 72% Sheen</p>
                 </div>
             </div>
 
             <div class="judge-pill-menu">
+                <button class="pill-btn" onclick="openAvatarMenu()" title="Change Angelic Cat Avatar" style="color: var(--sand-gold);">
+                    ✨ Avatar
+                </button>
                 <button class="pill-btn" onclick="toggleLanguage()" id="btn-lang" title="Toggle Arabic RTL">
                     🌐 AR/EN
                 </button>
@@ -871,52 +809,47 @@
                     ☀️ Mode
                 </button>
                 <button class="pill-btn" onclick="openSecurityModal()" style="color: var(--rose-main);">
-                    🛡️ Shield
+                    🛡️ Law 2/2019
                 </button>
             </div>
         </header>
 
-        <!-- HUMAN PERSONA SELECTOR STRIP (NOT CATS) -->
-        <div class="persona-strip">
-            <div class="persona-chip active" id="chip-fatima" onclick="selectPersona('fatima')">
-                <img src="/assets/user-fatima.png" alt="Fatima" class="chip-avatar" onerror="this.src='/assets/user-fatima.jpg'">
-                <span class="chip-name">Fatima (42)</span>
+        <!-- 13 EMIRATI PROFILES CAROUSEL STRIP -->
+        <div class="persona-strip-container">
+            <div class="strip-label">
+                <span>Select Human Profile (13 Real Profiles)</span>
+                <span id="profile-count-label">Profile 1 of 13</span>
             </div>
-            <div class="persona-chip" id="chip-tariq" onclick="selectPersona('tariq')">
-                <img src="/assets/user-tariq.png" alt="Tariq" class="chip-avatar" onerror="this.src='/assets/user-tariq.jpg'">
-                <span class="chip-name">Tariq (35)</span>
-            </div>
-            <div class="persona-chip" id="chip-aisha" onclick="selectPersona('aisha')">
-                <img src="/assets/user-aisha.png" alt="Aisha" class="chip-avatar" onerror="this.src='/assets/user-aisha.jpg'">
-                <span class="chip-name">Aisha (58)</span>
+            <div class="persona-strip" id="persona-carousel">
+                <!-- Injected via JavaScript -->
             </div>
         </div>
 
-        <!-- SCROLLABLE BODY WITH MULTI-TAB SWITCHING -->
+        <!-- SCROLLABLE BODY WITH 5 NATIVE TABS -->
         <main class="scrollable-body">
 
             <!-- ============================================== -->
-            <!-- TAB 1: TODAY (HOME / DAILY COMPANION LOOP) -->
+            <!-- TAB 1: TODAY (HOME / ANGELIC COMPANION) -->
             <!-- ============================================== -->
             <section class="tab-panel active" id="panel-today">
 
-                <!-- BILOTA LIVING COMPANION HERO -->
-                <div class="card pet-hero-card">
-                    <div class="pet-stage">
-                        <div class="pet-photo-container" onclick="petBilota()">
-                            <img id="pet-image" src="/assets/sandcat-resting.png" alt="Bilota Companion" class="pet-photo" onerror="this.src='/assets/sandcat-resting.jpg'">
-                            <span class="pet-status-bubble" id="pet-status-bubble">COOLING</span>
+                <!-- FEATURE 2: ANGELIC GUARDIAN HERO CARD -->
+                <div class="card guardian-hero-card">
+                    <div class="guardian-stage">
+                        <div class="guardian-photo-box" onclick="openAvatarMenu()">
+                            <img id="guardian-hero-img" src="/assets/guardian-angel-gold.png" alt="Angelic Guardian" class="guardian-photo" onerror="this.src='/assets/sandcat-resting.png'">
+                            <span class="guardian-status-bubble" id="guardian-status-bubble">ANGELIC</span>
                         </div>
-                        <div class="pet-info">
-                            <div class="pet-badge-row">
-                                <span class="pet-name-title">Bilota 🐾</span>
-                                <span class="vitality-pill" id="pet-vitality-num">72% Sheen</span>
+                        <div class="guardian-meta-info">
+                            <div class="guardian-title-row">
+                                <span class="guardian-name-title" id="guardian-name-title">Bilota 🐾</span>
+                                <span class="guardian-archetype-pill" onclick="openAvatarMenu()" id="guardian-form-pill">✨ Golden Sand Angel</span>
                             </div>
-                            <div class="pet-quote" id="pet-speech">
-                                "The 43°C heat is intense outside! I'm resting in the AC, ready for our 5-minute indoor win."
+                            <div class="guardian-speech" id="guardian-speech">
+                                "Under the 43°C Abu Dhabi sun, I shelter your health identity with celestial wings. A simple 5-min indoor walk keeps your momentum alive!"
                             </div>
                             <div class="vitality-bar-track">
-                                <div class="vitality-bar-fill" id="pet-vitality-bar" style="width: 72%;"></div>
+                                <div class="vitality-bar-fill" id="guardian-vitality-bar" style="width: 72%;"></div>
                             </div>
                         </div>
                     </div>
@@ -925,211 +858,266 @@
                     <div class="pet-action-grid">
                         <button class="btn-pet-touch" onclick="petBilota()">
                             <span>🐾</span>
-                            <span>Pet &amp; Purr</span>
+                            <span>Pet Angel</span>
                         </button>
                         <button class="btn-pet-touch" onclick="giveWater()">
                             <span>🥛</span>
                             <span>Give Water</span>
                         </button>
-                        <button class="btn-pet-touch" onclick="toggleCatnap()" id="btn-catnap-today">
+                        <button class="btn-pet-touch" onclick="toggleCatnap()">
                             <span>💤</span>
-                            <span>48h Catnap</span>
+                            <span>Catnap</span>
+                        </button>
+                        <button class="btn-pet-touch" onclick="openAvatarMenu()">
+                            <span>✨</span>
+                            <span>Change</span>
                         </button>
                     </div>
                 </div>
 
-                <!-- MOMENTUM BANK (THE ONE WOW) -->
-                <div class="card momentum-vault-card">
+                <!-- FEATURE 8: 9-LIVES MOMENTUM BANK VAULT & MILESTONES -->
+                <div class="card vault-card">
                     <div class="vault-header">
                         <span class="vault-title">🏆 9-Lives Paw Momentum Bank</span>
                         <span style="font-size: 0.7rem; font-family: var(--font-mono); font-weight: 700; color: var(--emerald-main);">NEVER RESETS TO 0</span>
                     </div>
                     <div class="vault-body">
                         <div>
-                            <div class="vault-subtext" id="momentum-title">18 Active Days Preserved Forever</div>
-                            <div class="vault-note" id="momentum-note">4-day post-wedding lapse? Task halved via BCT 8.7 with zero guilt.</div>
+                            <div style="font-size: 0.95rem; font-weight: 800;" id="momentum-title">18 Active Days Preserved</div>
+                            <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 2px;" id="momentum-subtitle">4-day post-wedding lapse? Downshifted via BCT 8.7 with zero guilt.</div>
                         </div>
                         <div class="vault-number" id="momentum-count">18</div>
+                    </div>
+
+                    <div class="milestone-strip">
+                        <span class="mile-item unlocked">✓ Day 7 (Halo)</span>
+                        <span class="mile-item unlocked">✓ Day 14 (Oasis)</span>
+                        <span class="mile-item unlocked">⭐ Day 30 (Wings)</span>
+                        <span class="mile-item">🔒 Day 60 (Ghaf)</span>
+                    </div>
+                </div>
+
+                <!-- FEATURE 1: INTERACTIVE PRAYER HABIT STACKER -->
+                <div class="card">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3 style="font-size: 0.92rem; font-weight: 800;">🕌 Abu Dhabi Prayer Habit Stacker</h3>
+                        <span style="font-size: 0.72rem; color: var(--sand-gold); font-weight: 700;">Maghrib Active</span>
+                    </div>
+
+                    <div class="prayer-timeline">
+                        <div class="prayer-slot" onclick="selectPrayer('fajr')">
+                            <span class="prayer-name">Fajr</span>
+                            <span class="prayer-time">05:08</span>
+                            <span class="prayer-habit">Hydrate + Date</span>
+                        </div>
+                        <div class="prayer-slot" onclick="selectPrayer('dhuhr')">
+                            <span class="prayer-name">Dhuhr</span>
+                            <span class="prayer-time">12:22</span>
+                            <span class="prayer-habit">Chair Stretch</span>
+                        </div>
+                        <div class="prayer-slot" onclick="selectPrayer('asr')">
+                            <span class="prayer-name">Asr</span>
+                            <span class="prayer-time">15:44</span>
+                            <span class="prayer-habit">Sunlight Eye Reset</span>
+                        </div>
+                        <div class="prayer-slot active" onclick="selectPrayer('maghrib')">
+                            <span class="prayer-name">Maghrib</span>
+                            <span class="prayer-time">18:02</span>
+                            <span class="prayer-habit">5-Min AC Walk</span>
+                        </div>
+                        <div class="prayer-slot" onclick="selectPrayer('isha')">
+                            <span class="prayer-name">Isha</span>
+                            <span class="prayer-time">19:32</span>
+                            <span class="prayer-habit">4-7-8 Wind-Down</span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- ADAPTIVE MICRO-ACTION HERO -->
-                <div class="card micro-action-card">
-                    <div class="action-header-row">
-                        <span class="domain-tag" id="action-domain">🏃 Movement (2-5 Min)</span>
+                <div class="card" style="border-left: 4px solid var(--emerald-bright);">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 0.72rem; font-family: var(--font-mono); font-weight: 700; color: var(--cyan-main); background: var(--cyan-light); padding: 2px 8px; border-radius: 6px;" id="action-domain">🏃 MOVEMENT (2-5 MIN)</span>
                         <span style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted);" id="action-level">Floor: Level 2</span>
                     </div>
 
-                    <div class="action-text" id="action-text-en">
+                    <div style="font-size: 1rem; font-weight: 700; color: var(--text-main);" id="action-text-en">
                         5-minute indoor air-conditioned loop around the living room or hallway, followed by a cool 250ml glass of water after Maghrib prayer.
                     </div>
-                    <div class="action-arabic" id="action-text-ar">
+                    <div style="font-size: 1.05rem; font-weight: 700; color: var(--cyan-main); font-family: var(--font-ar); display: none;" id="action-text-ar">
                         جولة مشي خفيفة لمدة 5 دقائق داخل المنزل في مكان مكيّف، متبوعة بكوب ماء بارد بعد صلاة المغرب.
                     </div>
 
-                    <button class="btn-complete-win" onclick="completeMicroWin()">
+                    <button class="pill-btn active" style="padding: 12px; justify-content: center; font-size: 0.95rem; border-radius: 12px; background: var(--emerald-bright); color: #FFF; border: none; box-shadow: 0 4px 14px rgba(16,185,129,0.3);" onclick="completeMicroWin()">
                         <span>🐾 Complete 5-Min Win (+1 Momentum)</span>
                     </button>
                 </div>
 
-                <!-- ABU DHABI DAILY CONTEXT WIDGET -->
-                <div class="context-grid">
-                    <div class="context-box">
-                        <span class="ck">Abu Dhabi Heat</span>
-                        <span class="cv" style="color: #F97316;" id="ctx-temp">43°C</span>
+                <!-- FEATURE 3: LIVE ABU DHABI HEAT & AQI ADVISORY -->
+                <div class="weather-aqi-grid">
+                    <div class="weather-box">
+                        <span class="wk">Abu Dhabi Heat</span>
+                        <span class="wv" style="color: #F97316;" id="ctx-temp">43°C</span>
                     </div>
-                    <div class="context-box">
-                        <span class="ck">Resting HR</span>
-                        <span class="cv" id="ctx-rhr">78 bpm</span>
+                    <div class="weather-box">
+                        <span class="wk">Resting HR</span>
+                        <span class="wv" id="ctx-rhr">78 bpm</span>
                     </div>
-                    <div class="context-box">
-                        <span class="ck">Next Prayer</span>
-                        <span class="cv" style="color: var(--cyan-main);" id="ctx-prayer">Maghrib</span>
+                    <div class="weather-box">
+                        <span class="wk">AQI Index</span>
+                        <span class="wv" style="color: var(--emerald-main);" id="ctx-aqi">68 (Fair)</span>
                     </div>
                 </div>
 
             </section>
 
             <!-- ============================================== -->
-            <!-- TAB 2: HABITS & JOURNEYS (5 PILLARS + TIMERS) -->
+            <!-- TAB 2: HABITS & 5 PILLARS -->
             <!-- ============================================== -->
             <section class="tab-panel" id="panel-habits">
 
-                <div class="card">
+                <!-- FEATURE 4: RAMADAN FASTING & HYDRATION LADDER -->
+                <div class="card" style="border-color: #BAE6FD; background: linear-gradient(180deg, #F0F9FF 0%, #FFFFFF 100%);">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <h2 style="font-size: 1rem; font-weight: 800;">🎯 Daily Micro-Actions</h2>
-                        <span style="font-size: 0.74rem; color: var(--emerald-main); font-weight: 700;" id="habit-progress-text">1 of 3 Done</span>
+                        <span style="font-size: 0.85rem; font-weight: 800; color: var(--cyan-main);">🌙 Ramadan / Daily Hydration Ladder</span>
+                        <span style="font-size: 0.72rem; font-weight: 700; color: var(--cyan-main);" id="water-cup-count">5 / 8 Cups (1.25L)</span>
                     </div>
-
-                    <div class="habit-list">
-                        <div class="habit-item checked" onclick="toggleHabitItem(this, 1)">
-                            <div class="habit-left">
-                                <div class="check-circle">✓</div>
-                                <div>
-                                    <div class="habit-text" id="h-item-1">Indoor air-conditioned 5-min walk</div>
-                                    <div class="habit-duration">Movement • 5 min • Post-Maghrib</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="habit-item" onclick="toggleHabitItem(this, 2)">
-                            <div class="habit-left">
-                                <div class="check-circle">✓</div>
-                                <div>
-                                    <div class="habit-text" id="h-item-2">Cool 250ml water glass hydration</div>
-                                    <div class="habit-duration">Nutrition • 1 min • Thermal Balance</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="habit-item" onclick="toggleHabitItem(this, 3)">
-                            <div class="habit-left">
-                                <div class="check-circle">✓</div>
-                                <div>
-                                    <div class="habit-text" id="h-item-3">Parasympathetic 4-7-8 wind-down</div>
-                                    <div class="habit-duration">Sleep &amp; Recovery • 3 min • Bedtime</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- INTERACTIVE TOOL: URGE SURFING OR PORTION PLATE -->
-                <div class="card" id="interactive-tool-card">
-                    <h3 style="font-size: 0.95rem; font-weight: 800;" id="tool-title">🌬️ 3-Minute Urge-Surfing Breath Anchor</h3>
-                    <p style="font-size: 0.78rem; color: var(--text-muted);" id="tool-sub">
-                        Cravings and shift fatigue peak and dissipate within 3 to 5 minutes. Tap the circle to begin guided pacing.
+                    <p style="font-size: 0.76rem; color: var(--text-muted);">
+                        Iftar to Suhoor hydration schedule. Tap cups to log water and keep kidney biomarkers balanced.
                     </p>
 
-                    <!-- BREATH TIMER -->
-                    <div class="breath-timer-wrap" id="breath-timer-wrap">
-                        <div class="breath-ring" id="breath-ring" onclick="toggleBreathing()">
-                            <span class="breath-phase" id="breath-phase">TAP TO START</span>
-                            <span class="breath-count" id="breath-count">3:00</span>
-                        </div>
-                    </div>
-
-                    <!-- VISUAL PLATE BUILDER (FOR AISHA) -->
-                    <div class="plate-container" id="plate-builder-wrap" style="display: none;">
-                        <div class="interactive-plate" onclick="spinPlate()" title="Tap to spin portion guide">🍽️</div>
-                        <div class="plate-legend">
-                            <span class="leg-item"><span class="leg-dot" style="background:var(--emerald-bright)"></span> 50% خضار</span>
-                            <span class="leg-item"><span class="leg-dot" style="background:var(--sand-gold-bright)"></span> 25% بروتين</span>
-                            <span class="leg-item"><span class="leg-dot" style="background:var(--rose-main)"></span> 25% نشويات</span>
-                        </div>
+                    <div class="hydration-ladder">
+                        <div class="water-cup full" onclick="toggleWaterCup(this)">💧</div>
+                        <div class="water-cup full" onclick="toggleWaterCup(this)">💧</div>
+                        <div class="water-cup full" onclick="toggleWaterCup(this)">💧</div>
+                        <div class="water-cup full" onclick="toggleWaterCup(this)">💧</div>
+                        <div class="water-cup full" onclick="toggleWaterCup(this)">💧</div>
+                        <div class="water-cup" onclick="toggleWaterCup(this)">🥤</div>
+                        <div class="water-cup" onclick="toggleWaterCup(this)">🥤</div>
+                        <div class="water-cup" onclick="toggleWaterCup(this)">🥤</div>
                     </div>
                 </div>
 
-                <!-- SIMULATE LIVE CONSTRAINTS -->
-                <div class="card">
-                    <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 800; color: var(--text-muted);">Abu Dhabi Environmental Simulators</span>
-                    <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px;">
-                        <button class="pill-btn" onclick="simulateHeatwave()">🔥 43°C Heatwave</button>
-                        <button class="pill-btn" onclick="simulateNightShift()">🌙 Port Shift Slip</button>
-                        <button class="pill-btn" onclick="simulateJointPain()">🪑 Seated Mobility</button>
+                <!-- FEATURE 5: 3-MINUTE URGE SURFING TIMER -->
+                <div class="card" id="tool-urge-card">
+                    <h3 style="font-size: 0.95rem; font-weight: 800;">🌬️ 3-Minute Urge-Surfing Breath Anchor</h3>
+                    <p style="font-size: 0.78rem; color: var(--text-muted);">
+                        Cravings &amp; port shift fatigue peak and dissipate within 3 to 5 minutes. Tap the circle to begin guided 4-7-8 respiration.
+                    </p>
+
+                    <div class="breath-ring" id="breath-ring" onclick="toggleBreathing()">
+                        <span style="font-size: 0.72rem; font-weight: 800; color: var(--cyan-main);" id="breath-phase">TAP TO START</span>
+                        <span style="font-size: 1.6rem; font-weight: 900; font-family: var(--font-mono);" id="breath-count">3:00</span>
+                    </div>
+                </div>
+
+                <!-- FEATURE 6: SMART 3-COLOR PLATE BUILDER -->
+                <div class="card" id="tool-plate-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3 style="font-size: 0.95rem; font-weight: 800;">🍽️ Smart 3-Color Plate (Majlis Swaps)</h3>
+                        <span style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--emerald-main); font-weight: 700;">50% GREENS</span>
+                    </div>
+                    <p style="font-size: 0.78rem; color: var(--text-muted);">
+                        Zero numerical calorie math! Visual plate for pre-diabetic glycemic control during family gatherings.
+                    </p>
+
+                    <div class="interactive-plate" onclick="spinPlate()" title="Tap to spin portion guide">🍽️</div>
+
+                    <div style="display: flex; justify-content: space-around; font-size: 0.75rem; font-weight: 700; margin-top: 4px;">
+                        <span style="color: var(--emerald-main);">🥗 50% Salad &amp; Greens</span>
+                        <span style="color: var(--sand-gold);">🍗 25% Lean Fish/Chicken</span>
+                        <span style="color: var(--rose-main);">🍚 25% Brown Rice</span>
+                    </div>
+                </div>
+
+                <!-- FEATURE 7: SEATED MOBILITY GUIDE FOR KNEE OSTEOARTHRITIS -->
+                <div class="card" id="tool-seated-card">
+                    <h3 style="font-size: 0.95rem; font-weight: 800;">🪑 Seated Mobility Routine (Joint Friendly)</h3>
+                    <p style="font-size: 0.78rem; color: var(--text-muted);">
+                        Gentle seated chair movements protecting osteoarthritic knees while circulating synovial fluid.
+                    </p>
+
+                    <div class="seated-step-list">
+                        <div class="seated-step-item done" onclick="this.classList.toggle('done')">
+                            <span>🦵</span>
+                            <div>
+                                <div style="font-size: 0.82rem; font-weight: 700;">10 Seated Knee Extensions</div>
+                                <div style="font-size: 0.7rem; color: var(--text-muted);">Strengthens quadriceps without joint load</div>
+                            </div>
+                        </div>
+                        <div class="seated-step-item" onclick="this.classList.toggle('done')">
+                            <span>🦶</span>
+                            <div>
+                                <div style="font-size: 0.82rem; font-weight: 700;">15 Seated Ankle Rotations</div>
+                                <div style="font-size: 0.7rem; color: var(--text-muted);">Improves lower-limb circulation post-prayer</div>
+                            </div>
+                        </div>
+                        <div class="seated-step-item" onclick="this.classList.toggle('done')">
+                            <span>🧘</span>
+                            <div>
+                                <div style="font-size: 0.82rem; font-weight: 700;">Seated Gentle Torso Twist</div>
+                                <div style="font-size: 0.7rem; color: var(--text-muted);">3 deep breaths per side for spinal decompression</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
             </section>
 
             <!-- ============================================== -->
-            <!-- TAB 3: PET SANCTUARY (BILOTA INTERACTION) -->
+            <!-- TAB 3: SANCTUARY & 10 ANGELIC GUARDIAN AVATARS -->
             <!-- ============================================== -->
             <section class="tab-panel" id="panel-sanctuary">
 
                 <div class="card" style="text-align: center; align-items: center;">
-                    <img id="sanctuary-cat-img" src="/assets/sandcat-resting.png" alt="Sanctuary Cat" style="width: 180px; height: 180px; border-radius: 28px; object-fit: cover; border: 4px solid var(--sand-gold-bright); box-shadow: var(--shadow-md);">
-                    <h2 style="font-size: 1.2rem; font-weight: 800; margin-top: 8px;" id="sanctuary-cat-title">Bilota (Arabian Sand Cat)</h2>
-                    <p style="font-size: 0.82rem; color: var(--text-muted); max-width: 320px;" id="sanctuary-cat-desc">
-                        Your virtual companion mirrors your metabolic health and habit resilience. Caring for yourself keeps Bilota vibrant.
+                    <img id="sanctuary-preview-img" src="/assets/guardian-angel-gold.png" alt="Sanctuary Angel" style="width: 170px; height: 170px; border-radius: 28px; object-fit: cover; border: 4px solid var(--sand-gold-bright); box-shadow: var(--shadow-md);">
+                    <h2 style="font-size: 1.15rem; font-weight: 800; margin-top: 6px;" id="sanctuary-form-name">Golden Sand Angel</h2>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); max-width: 320px;" id="sanctuary-form-desc">
+                        Luminous celestial guardian with golden feather wings and an ethereal desert halo, sheltering your health identity.
                     </p>
 
-                    <div style="display: flex; gap: 10px; margin-top: 8px;">
-                        <button class="pill-btn active" onclick="switchCatState('thriving')">✨ Thriving</button>
-                        <button class="pill-btn" onclick="switchCatState('resting')">🍃 Cooling Shade</button>
-                        <button class="pill-btn" onclick="switchCatState('fatigued')">🛋️ Fatigued</button>
-                        <button class="pill-btn" onclick="switchCatState('catnap')">💤 Catnap</button>
-                    </div>
+                    <button class="pill-btn active" style="margin-top: 8px; padding: 8px 18px;" onclick="openAvatarMenu()">
+                        ✨ Open Guardian Avatar Menu (10 Forms)
+                    </button>
                 </div>
 
                 <div class="card">
-                    <h3 style="font-size: 0.95rem; font-weight: 800;">🏜️ Sand Cat Bio-Facts (Abu Dhabi Wildlife)</h3>
-                    <div style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; display: flex; flex-direction: column; gap: 6px;">
-                        <div>• <strong>Thick Foot Pads:</strong> Sand cats walk on 50°C dunes without burning paws—just like our heat-adapted indoor walking routines.</div>
-                        <div>• <strong>Zero Water Dependence:</strong> They obtain metabolic hydration from prey, teaching us the importance of food-based moisture and prayer hydration stacking.</div>
-                        <div>• <strong>Guilt-Free Sleep:</strong> Sand cats sleep up to 16 hours during the desert heat with zero shame.</div>
+                    <h3 style="font-size: 0.95rem; font-weight: 800;">🏜️ Arabian Sand Cat Adaptations (ADPHC Facts)</h3>
+                    <div style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; display: flex; flex-direction: column; gap: 6px;">
+                        <div>• <strong>Heat Dissipation:</strong> Large wide-set ears act as natural radiators in 50°C summer conditions.</div>
+                        <div>• <strong>Zero Moisture Waste:</strong> Absorbs water from natural whole foods, reflecting our hydration stacking principles.</div>
+                        <div>• <strong>Padded Paw Fur:</strong> Dense fur pads insulate paws from scorching desert dunes.</div>
                     </div>
                 </div>
 
             </section>
 
             <!-- ============================================== -->
-            <!-- TAB 4: INSIGHTS & HEALTH AGE -->
+            <!-- TAB 4: INSIGHTS & BCT RATIONALE -->
             <!-- ============================================== -->
             <section class="tab-panel" id="panel-insights">
 
                 <div class="card">
                     <h2 style="font-size: 1rem; font-weight: 800;">📊 IFHAS Screening &amp; Health Age</h2>
-                    <div class="context-grid">
-                        <div class="context-box">
-                            <span class="ck">Health Age Delta</span>
-                            <span class="cv" style="color: var(--emerald-main);" id="stat-delta">-1.8 Yrs</span>
+                    <div class="weather-aqi-grid">
+                        <div class="weather-box">
+                            <span class="wk">Health Age</span>
+                            <span class="wv" style="color: var(--emerald-main);" id="stat-delta">-1.8 Yrs</span>
                         </div>
-                        <div class="context-box">
-                            <span class="ck">90-Day Persistence</span>
-                            <span class="cv" style="color: var(--sand-gold);" id="stat-persist">86.0%</span>
+                        <div class="weather-box">
+                            <span class="wk">90-Day Persistence</span>
+                            <span class="wv" style="color: var(--sand-gold);" id="stat-persist">86.0%</span>
                         </div>
-                        <div class="context-box">
-                            <span class="ck">Recovery Time</span>
-                            <span class="cv" style="color: var(--cyan-main);" id="stat-ttr">1.2 Days</span>
+                        <div class="weather-box">
+                            <span class="wk">Recovery (TTR)</span>
+                            <span class="wv" style="color: var(--cyan-main);" id="stat-ttr">1.2 Days</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- EVIDENCE-BASED BCT CARD -->
+                <!-- BCT EVIDENCE RATIONALE & LIMITS DUAL CARD -->
                 <div class="card">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <h3 style="font-size: 0.92rem; font-weight: 800;">🔬 Evidence-Based BCT Rationale &amp; Limits</h3>
+                        <h3 style="font-size: 0.92rem; font-weight: 800;">🔬 Evidence-Based BCT Card</h3>
                         <span style="font-size: 0.7rem; font-family: var(--font-mono); color: var(--sand-gold);" id="bct-active-code">BCT 8.7</span>
                     </div>
 
@@ -1141,7 +1129,7 @@
                     </div>
 
                     <div style="background: var(--bg-card-subtle); border-left: 3px solid var(--sand-gold-bright); padding: 10px 12px; border-radius: 0 10px 10px 0;">
-                        <span style="font-size: 0.68rem; font-weight: 800; color: var(--sand-gold); text-transform: uppercase;">Limits &amp; Mitigation</span>
+                        <span style="font-size: 0.68rem; font-weight: 800; color: var(--sand-gold); text-transform: uppercase;">Known Limits &amp; Mitigation</span>
                         <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 2px;" id="bct-limits-text">
                             Micro-floors do not independently increase VO2 max. Bilota prompts a +15% volume escalation once 3 consecutive days succeed.
                         </p>
@@ -1161,29 +1149,29 @@
             </section>
 
             <!-- ============================================== -->
-            <!-- TAB 5: PROFILE & PRIVACY SHIELD -->
+            <!-- TAB 5: PROFILE & FEATURE 9: SOVEREIGN FIREWALL -->
             <!-- ============================================== -->
             <section class="tab-panel" id="panel-profile">
 
                 <div class="card">
                     <div style="display: flex; align-items: center; gap: 14px;">
-                        <img id="profile-photo" src="/assets/user-fatima.png" alt="Profile" style="width: 64px; height: 64px; border-radius: 16px; object-fit: cover; border: 2px solid var(--border-light);" onerror="this.src='/assets/user-fatima.jpg'">
+                        <img id="profile-photo" src="/assets/user-fatima.png" alt="User Profile" style="width: 64px; height: 64px; border-radius: 16px; object-fit: cover; border: 2px solid var(--border-light);" onerror="this.src='/assets/user-fatima.jpg'">
                         <div>
                             <h2 style="font-size: 1.1rem; font-weight: 800;" id="profile-name">Fatima Al-Mansouri</h2>
                             <p style="font-size: 0.78rem; color: var(--text-muted);" id="profile-bio">Age 42 • Educator • Abu Dhabi</p>
-                            <span class="domain-tag" style="display: inline-block; margin-top: 4px;">IFHAS &amp; Sahatna Synced</span>
+                            <span style="display: inline-block; font-size: 0.68rem; font-family: var(--font-mono); font-weight: 700; color: var(--cyan-main); background: var(--cyan-light); padding: 2px 8px; border-radius: 6px; margin-top: 4px;">IFHAS &amp; Sahatna Synced</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- PRIVACY FIREWALL STATUS -->
+                <!-- SOVEREIGN PRIVACY FIREWALL -->
                 <div class="card" style="border-color: #A7F3D0; background: linear-gradient(180deg, #F0FDF4 0%, #FFFFFF 100%);">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span style="font-size: 0.82rem; font-weight: 800; color: var(--emerald-main);">🛡️ UAE Federal Law No. 2 of 2019</span>
-                        <span style="font-size: 0.68rem; font-family: var(--font-mono); color: var(--emerald-main); font-weight: 700;">FIREWALL ACTIVE</span>
+                        <span style="font-size: 0.85rem; font-weight: 800; color: var(--emerald-main);">🛡️ UAE Federal Law No. 2 of 2019</span>
+                        <span style="font-size: 0.68rem; font-family: var(--font-mono); color: var(--emerald-main); font-weight: 800;">FIREWALL LOCKED</span>
                     </div>
                     <p style="font-size: 0.78rem; color: var(--text-muted);">
-                        Zero-sharing policy: Individual lapse logs and Health Age regressions are blocked from employer HR disciplinary deductions and insurance underwriting surcharges.
+                        Zero-sharing policy: Individual lapse logs and Health Age regressions are blocked from employer HR disciplinary bonus docking and insurance underwriting.
                     </p>
                     <button class="pill-btn active" onclick="openSecurityModal()" style="align-self: flex-start;">
                         💥 Run Live Hostile Attack Test
@@ -1192,7 +1180,7 @@
 
                 <!-- ACCESSIBILITY SETTINGS -->
                 <div class="card">
-                    <h3 style="font-size: 0.92rem; font-weight: 800;">⚙️ Accessibility &amp; Inclusivity</h3>
+                    <h3 style="font-size: 0.92rem; font-weight: 800;">⚙️ App Controls &amp; Inclusivity</h3>
                     <div style="display: flex; flex-direction: column; gap: 8px;">
                         <button class="pill-btn" onclick="toggleVisualMode()" id="btn-visual-setting">
                             👁️ Low-Health-Literacy Visual Mode: OFF
@@ -1222,7 +1210,7 @@
             </button>
             <button class="nav-item" id="nav-sanctuary" onclick="switchTab('panel-sanctuary')">
                 <span class="nav-icon">🐾</span>
-                <span class="nav-label">Bilota</span>
+                <span class="nav-label">Guardian</span>
             </button>
             <button class="nav-item" id="nav-insights" onclick="switchTab('panel-insights')">
                 <span class="nav-icon">📊</span>
@@ -1236,7 +1224,24 @@
 
     </div>
 
-    <!-- SECURITY FIREWALL MODAL -->
+    <!-- FEATURE 2: ANGELIC GUARDIAN AVATAR WARDROBE MODAL (10 FORMS) -->
+    <div class="modal-overlay" id="avatar-modal">
+        <div class="modal-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-weight: 800; color: var(--sand-gold); font-size: 1rem;">✨ Select Angelic Guardian Form</span>
+                <button class="pill-btn" onclick="closeAvatarMenu()">✕</button>
+            </div>
+            <p style="font-size: 0.76rem; color: var(--text-muted);">
+                Choose your companion's celestial appearance. Your angelic guardian reflects your habit vitality with personalized auras.
+            </p>
+
+            <div class="avatar-grid" id="avatar-picker-grid">
+                <!-- Injected via JavaScript (10 Angelic forms) -->
+            </div>
+        </div>
+    </div>
+
+    <!-- FEATURE 9: SECURITY FIREWALL TEST MODAL -->
     <div class="modal-overlay" id="sec-modal">
         <div class="modal-card">
             <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -1254,7 +1259,7 @@
                 <button class="pill-btn" onclick="testAttack('ACUTE_EMERGENCY')">🚑 Acute Chest 998</button>
             </div>
 
-            <div class="terminal-box" id="sec-terminal-log">
+            <div style="background: var(--bg-card-subtle); border: 1px solid var(--border-light); border-radius: 12px; padding: 12px; font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-muted); max-height: 220px; overflow-y: auto; white-space: pre-wrap; line-height: 1.5;" id="sec-terminal-log">
 Ready to run hostile probe vectors against /api/test-attack...
             </div>
 
@@ -1266,118 +1271,47 @@ Ready to run hostile probe vectors against /api/test-attack...
     </div>
 
     <script>
-        // HUMAN DATA REGISTRY (Fatima, Tariq, Aisha are real humans)
-        const PERSONAS = {
-            fatima: {
-                name: "Fatima Al-Mansouri",
-                age: 42,
-                subtitle: "Educator & Mother in Abu Dhabi",
-                photo: "/assets/user-fatima.png",
-                photoFallback: "/assets/user-fatima.jpg",
-                temp: "43°C",
-                rhr: "78 bpm",
-                prayer: "Maghrib",
-                momentum: 18,
-                momentumNote: "4-day wedding lapse. Task halved via BCT 8.7 with zero guilt.",
-                domain: "🏃 Movement (2-5 Min)",
-                level: "Floor: Level 2",
-                actionEn: "5-minute indoor air-conditioned loop around the living room or hallway, followed by a cool 250ml glass of water after Maghrib prayer.",
-                actionAr: "جولة مشي خفيفة لمدة 5 دقائق داخل المنزل في مكان مكيّف، متبوعة بكوب ماء بارد بعد صلاة المغرب.",
-                petImg: "/assets/sandcat-resting.png",
-                petImgFallback: "/assets/sandcat-resting.jpg",
-                petQuote: "The 43°C heat is intense outside! I'm cooling off near fresh water, ready for our 5-minute indoor loop.",
-                petStatus: "COOLING",
-                vitality: 72,
-                habits: [
-                    { text: "Indoor air-conditioned 5-min walk", sub: "Movement • 5 min • Post-Maghrib", done: true },
-                    { text: "Cool 250ml water glass hydration", sub: "Nutrition • 1 min • Thermal Balance", done: false },
-                    { text: "Parasympathetic 4-7-8 wind-down", sub: "Sleep & Recovery • 3 min • Bedtime", done: false }
-                ],
-                bctCode: "BCT 8.7: Graded Tasks",
-                rationale: "Halving task volume to a 5-min indoor loop preserves identity, protects self-efficacy, and avoids heat stroke under 43°C conditions.",
-                limits: "Micro-floors do not independently increase VO2 max. Bilota prompts a +15% volume escalation once 3 consecutive days succeed.",
-                delta: "-1.8 Yrs",
-                persist: "86.0%",
-                ttr: "1.2 Days",
-                equity: "⚖️ Calibrated for extreme Abu Dhabi summer climate, safeguarding vulnerable cardiovascular cohorts from heat-stress complications."
-            },
-            tariq: {
-                name: "Tariq Bin Salem",
-                age: 35,
-                subtitle: "Logistics Specialist at Khalifa Port",
-                photo: "/assets/user-tariq.png",
-                photoFallback: "/assets/user-tariq.jpg",
-                temp: "34°C",
-                rhr: "84 bpm",
-                prayer: "Isha",
-                momentum: 12,
-                momentumNote: "2-cigarette slip reframed as high-friction data. Urge delay active.",
-                domain: "🚭 Smoking Cessation",
-                level: "Floor: Level 1",
-                actionEn: "3-minute 4-7-8 breathing reset during break, splash cool water on face, and chew 1 piece of NRT gum instead of lighting a third cigarette.",
-                actionAr: "تمرين تنفس هادئ لمدة 3 دقائق أثناء الاستراحة، غسل الوجه بالماء البارد، واستخدام علكة النيكوتين البديلة بدلاً من إشعال سيجارة.",
-                petImg: "/assets/sandcat-fatigued.png",
-                petImgFallback: "/assets/sandcat-fatigued.jpg",
-                petQuote: "14 hours at the port is tough. Surf the 3-minute craving wave with me; cravings peak and fall like desert wind.",
-                petStatus: "TIRED",
-                vitality: 58,
-                habits: [
-                    { text: "3-min parasympathetic urge delay", sub: "Smoking • 3 min • Shift Break", done: true },
-                    { text: "Cold water face splash reset", sub: "Recovery • 1 min • Circadian Anchor", done: false },
-                    { text: "Device blackout before post-shift sleep", sub: "Sleep • 15 min • Rest", done: false }
-                ],
-                bctCode: "BCT 11.2: Reduce Negative Emotions",
-                rationale: "Neurobiological cravings peak and dissipate within 3 to 5 minutes. The 3-minute urge delay combined with parasympathetic breathing interrupts automated habitual craving loops without triggering guilt.",
-                limits: "Cognitive urge-delay alone has lower success rates under severe physical withdrawal during night-shift circadian stress. Coupled with Nicotine Replacement Therapy.",
-                delta: "-2.3 Yrs",
-                persist: "82.0%",
-                ttr: "1.1 Days",
-                equity: "⚖️ Calibrated for industrial rotating shift schedules and high-fatigue circadian recovery windows."
-            },
-            aisha: {
-                name: "Aisha Al-Hashimi",
-                age: 58,
-                subtitle: "Grandmother with Knee Osteoarthritis",
-                photo: "/assets/user-aisha.png",
-                photoFallback: "/assets/user-aisha.jpg",
-                temp: "36°C",
-                rhr: "76 bpm",
-                prayer: "Asr",
-                momentum: 21,
-                momentumNote: "21 Seated Mobility & Visual Plate Days Maintained.",
-                domain: "🪑 Seated Mobility",
-                level: "Floor: Level 1",
-                actionEn: "3-minute seated upper-body stretch + 3-color plate cue (half salad/greens, quarter meat/fish, quarter rice) at family dinner.",
-                actionAr: "تمرين خفيف لمدة 3 دقائق وأنتِ جالسة، مع تطبيق قاعدة الصحن الملوّن: نصف الصحن سلطة وخضار، ربعه بروتين، والربع الأخير أرز.",
-                petImg: "/assets/sandcat-thriving.png",
-                petImgFallback: "/assets/sandcat-thriving.jpg",
-                petQuote: "Zero knee pain! I'm sitting proudly with you, enjoying healthy colorful vegetables.",
-                petStatus: "THRIVING",
-                vitality: 92,
-                habits: [
-                    { text: "Seated arm & torso mobility stretch", sub: "Movement • 3 min • Post-Dhuhr", done: true },
-                    { text: "3-Color Plate at Majlis dinner", sub: "Nutrition • 50% Greens", done: true },
-                    { text: "Hydration sip after Maghrib prayer", sub: "Hydration • 1 min", done: false }
-                ],
-                bctCode: "BCT 1.4: Action Planning",
-                rationale: "Individuals with knee osteoarthritis experience biomechanical load aversion; substituting standing walks with seated resistance eliminates joint pain triggers.",
-                limits: "Visual plate estimation can result in portion creep if high-calorie dressings or oils are unmeasured. Pair with palm-sized measuring anchor.",
-                delta: "-1.5 Yrs",
-                persist: "89.0%",
-                ttr: "0.9 Days",
-                equity: "⚖️ Specifically architected for mobility-impaired elders and Grade-4 reading comprehension with visual Arabic cues."
-            }
-        };
+        // 10 ANGELIC GUARDIAN CAT AVATARS
+        const GUARDIAN_AVATARS = [
+            { id: "guardian-angel-gold", title: "Golden Sand Angel", desc: "Delicate glowing golden wings & desert halo.", img: "/assets/guardian-angel-gold.png" },
+            { id: "guardian-celestial-emerald", title: "Celestial Oasis", desc: "Translucent emerald wings & soothing oasis mist.", img: "/assets/guardian-celestial-emerald.png" },
+            { id: "guardian-dawn-solar", title: "Solar Dawn", desc: "Radiating warm golden desert sunrise aura.", img: "/assets/guardian-dawn-solar.png" },
+            { id: "guardian-night-starlight", title: "Starlight Sentinel", desc: "Crescent moon charm & deep nebula glimmer.", img: "/assets/guardian-night-starlight.png" },
+            { id: "guardian-pearl-oasis", title: "Pearl Coastal", desc: "Iridescent mother-of-pearl ocean breeze wings.", img: "/assets/guardian-pearl-oasis.png" },
+            { id: "guardian-falcon-royal", title: "Falcon Royal", desc: "Noble falcon-feathered wings with regal trim.", img: "/assets/guardian-falcon-royal.png" },
+            { id: "guardian-ghaf-flora", title: "Ghaf Tree Flora", desc: "Healing desert botanical leaves & calm energy.", img: "/assets/guardian-ghaf-flora.png" },
+            { id: "guardian-cloud-nap", title: "Serene Cloud Nap", desc: "Sleeping peacefully on a soft glowing cloud.", img: "/assets/guardian-cloud-nap.png" },
+            { id: "guardian-shield-sentinel", title: "Sovereign Shield", desc: "Vigilant guardian holding health defense shield.", img: "/assets/guardian-shield-sentinel.png" },
+            { id: "guardian-radiant-ascended", title: "Radiant Ascended", desc: "Divine prismatic luminescence & amber gaze.", img: "/assets/guardian-radiant-ascended.png" }
+        ];
 
-        let currentPersona = 'fatima';
+        // 13 REAL HUMAN EMIRATI PROFILES
+        const PERSONAS = [
+            { id: "fatima", name: "Fatima Al-Mansouri", age: 42, role: "Educator & Mother", img: "/assets/user-fatima.png", temp: "43°C", rhr: "78 bpm", aqi: "68 (Fair)", momentum: 18, domain: "🏃 Movement (2-5 Min)", level: "Floor: Level 2", actionEn: "5-minute indoor air-conditioned loop around the living room or hallway, followed by a cool 250ml glass of water after Maghrib prayer.", actionAr: "جولة مشي خفيفة لمدة 5 دقائق داخل المنزل في مكان مكيّف، متبوعة بكوب ماء بارد بعد صلاة المغرب.", speech: "The 43°C heat is intense outside! I'm cooling off near fresh water, ready for our 5-minute indoor loop.", delta: "-1.8 Yrs", persist: "86.0%", ttr: "1.2 Days", equity: "⚖️ Calibrated for extreme Abu Dhabi summer climate, safeguarding vulnerable cardiovascular cohorts." },
+            { id: "tariq", name: "Tariq Bin Salem", age: 35, role: "Port Logistics Shift Worker", img: "/assets/user-tariq.png", temp: "34°C", rhr: "84 bpm", aqi: "72 (Moderate)", momentum: 12, domain: "🚭 Smoking Cessation", level: "Floor: Level 1", actionEn: "3-minute 4-7-8 breathing reset during break, splash cool water on face, and chew 1 piece of NRT gum instead of lighting a third cigarette.", actionAr: "تمرين تنفس هادئ لمدة 3 دقائق أثناء الاستراحة، غسل الوجه بالماء البارد، واستخدام علكة النيكوتين البديلة بدلاً من إشعال سيجارة.", speech: "14 hours at Khalifa Port is tough. Surf the 3-minute craving wave with me; cravings dissipate like desert wind.", delta: "-2.3 Yrs", persist: "82.0%", ttr: "1.1 Days", equity: "⚖️ Calibrated for industrial rotating shift schedules and high-fatigue circadian recovery windows." },
+            { id: "aisha", name: "Aisha Al-Hashimi", age: 58, role: "Grandmother (Knee Osteoarthritis)", img: "/assets/user-aisha.png", temp: "36°C", rhr: "76 bpm", aqi: "55 (Good)", momentum: 21, domain: "🪑 Seated Mobility", level: "Floor: Level 1", actionEn: "3-minute seated upper-body stretch + 3-color plate cue (half salad/greens, quarter meat/fish, quarter rice) at family dinner.", actionAr: "تمرين خفيف لمدة 3 دقائق وأنتِ جالسة، مع تطبيق قاعدة الصحن الملوّن: نصف الصحن سلطة وخضار، ربعه بروتين، والربع الأخير أرز.", speech: "Zero knee pain! I'm sitting proudly with you, enjoying healthy colorful vegetables.", delta: "-1.5 Yrs", persist: "89.0%", ttr: "0.9 Days", equity: "⚖️ Specifically architected for mobility-impaired elders and Grade-4 reading comprehension with visual Arabic cues." },
+            { id: "sultan", name: "Sultan Al-Zaabi", age: 28, role: "MBZUAI AI Researcher", img: "/assets/user-sultan.png", temp: "38°C", rhr: "72 bpm", aqi: "50 (Good)", momentum: 15, domain: "👁️ Posture & Eye Reset", level: "Floor: Level 1", actionEn: "20-20-20 screen rest rule: Look at distant oasis foliage for 20 seconds + 2-min thoracic spine wall slide stretch.", actionAr: "قاعدة 20-20-20 لإراحة العين من الشاشات، مع تمرين تمدد للظهر لمدة دقيقتين.", speech: "Coding AI algorithms all day strains the eyes. Let's take a 20-second distant gaze break together!", delta: "-2.0 Yrs", persist: "88.0%", ttr: "1.0 Days", equity: "⚖️ Calibrated for tech and cognitive desk workers with chronic cervical spine load." },
+            { id: "mariam", name: "Mariam Al-Rumaithi", age: 51, role: "Corporate Executive (Type 2 Diabetic)", img: "/assets/user-mariam.png", temp: "40°C", rhr: "80 bpm", aqi: "62 (Fair)", momentum: 24, domain: "🚶 Glycemic Pacing", level: "Floor: Level 2", actionEn: "Post-prandial 7-minute indoor stroll in office corridor following executive lunch, avoiding post-meal sugar spike.", actionAr: "المشي الخفيف لمدة 7 دقائق في ممر المكتب بعد الغداء لتنظيم مستويات السكر في الدم.", speech: "Post-lunch meetings can feel heavy. A gentle 7-minute corridor stroll keeps our blood sugar balanced!", delta: "-2.4 Yrs", persist: "91.0%", ttr: "0.8 Days", equity: "⚖️ Optimized for executive sedentary schedules with glycemic instability." },
+            { id: "rashid", name: "Rashid Al-Dhaheri", age: 64, role: "Delma Island Retired Fisherman", img: "/assets/user-rashid.png", temp: "35°C", rhr: "75 bpm", aqi: "40 (Clean)", momentum: 29, domain: "🧂 Sodium Swap", level: "Floor: Level 1", actionEn: "Replace salty dried fish snack with fresh local cucumber slices and chilled hibiscus (Karkadeh) tea.", actionAr: "استبدال الوجبات المالحة بشرائح الخيار الطازجة مع كوب كركديه بارد لخفض ضغط الدم.", speech: "The Arabian Gulf breeze is calming. Let's sip cool hibiscus tea and keep our blood pressure steady.", delta: "-1.7 Yrs", persist: "93.0%", ttr: "0.7 Days", equity: "⚖️ Designed for coastal island seniors managing cardiovascular hypertension." },
+            { id: "noor", name: "Noor Al-Kaabi", age: 24, role: "UAEU Al Ain University Student", img: "/assets/user-noor.png", temp: "41°C", rhr: "82 bpm", aqi: "58 (Fair)", momentum: 14, domain: "💧 Hydration Reset", level: "Floor: Level 1", actionEn: "Swap 1 can of energy drink with 400ml cold infused lemon-mint water during late-night exam prep.", actionAr: "استبدال مشروبات الطاقة بكوب ماء بارد بالنعناع والليمون أثناء المذاكرة الليلية.", speech: "Exam week is stressful! Let's swap that energy drink for cool lemon-mint water to protect our sleep.", delta: "-1.4 Yrs", persist: "84.0%", ttr: "1.2 Days", equity: "⚖️ Calibrated for university students prone to excessive caffeine and circadian delay." },
+            { id: "hamad", name: "Hamad Al-Ameri", age: 39, role: "ADNOC Offshore Rig Engineer", img: "/assets/user-hamad.png", temp: "42°C", rhr: "79 bpm", aqi: "65 (Fair)", momentum: 19, domain: "🌙 Shift Sleep Anchor", level: "Floor: Level 2", actionEn: "15-minute complete black-out eye mask and amber screen filter application before daytime sleep cycle.", actionAr: "استخدام قناع النوم العازل للضوء مع فلتر الشاشة الداكن لمدة 15 دقيقة قبل النوم النهاري.", speech: "Working offshore rotation requires disciplined recovery. Put on your eye mask for deep daytime sleep.", delta: "-2.1 Yrs", persist: "87.0%", ttr: "1.0 Days", equity: "⚖️ Calibrated for offshore oil & gas workers with rotating circadian disruption." },
+            { id: "zayed", name: "Zayed Al-Falahi", age: 47, role: "Musaffah Construction Director", img: "/assets/user-zayed.png", temp: "48°C", rhr: "86 bpm", aqi: "85 (Dust Alert)", momentum: 16, domain: "🔥 Mid-Day Heat Safety", level: "Floor: Level 1", actionEn: "Strict adherence to UAE Mid-Day Heat Ban: Mandate 45-min air-conditioned break + electrolyte hydration sips.", actionAr: "الالتزام التام بحظر العمل وقت الظهيرة: الراحة 45 دقيقة في مكان مكيّف مع شرب السوائل المعوضة للأملاح.", speech: "48°C heat on site is dangerous. Step into the shade container immediately and rehydrate!", delta: "-1.9 Yrs", persist: "85.0%", ttr: "1.3 Days", equity: "⚖️ Enforces Ministry of Human Resources mid-day heat ban compliance." },
+            { id: "salama", name: "Salama Al-Nuaimi", age: 33, role: "Postpartum Mother (4 Months)", img: "/assets/user-salama.png", temp: "37°C", rhr: "74 bpm", aqi: "45 (Clean)", momentum: 22, domain: "🤱 Pelvic & Floor Care", level: "Floor: Level 1", actionEn: "3-minute gentle transverse abdominal breathing and low-impact pelvic floor engagement while rocking baby.", actionAr: "تمارين تنفس لطيفة لتقوية عضلات الحوض والبطن لمدة 3 دقائق أثناء العناية بالطفل.", speech: "Caring for a newborn is a blessing. Take 3 deep breaths with me to restore your core strength gently.", delta: "-1.6 Yrs", persist: "89.0%", ttr: "0.9 Days", equity: "⚖️ Tailored for postpartum recovery and gestational diabetes risk mitigation." },
+            { id: "khalid", name: "Khalid Al-Qubaisi", age: 21, role: "National Service Recruit", img: "/assets/user-khalid.png", temp: "39°C", rhr: "68 bpm", aqi: "52 (Good)", momentum: 26, domain: "🚭 Vaping Urge Delay", level: "Floor: Level 2", actionEn: "When craving vape pod: Perform 20 slow push-ups followed by 3 deep nasal breaths and a glass of cold water.", actionAr: "عند الرغبة في التدخين الإلكتروني: ممارسة 20 تمرين ضغط خفيف مع التنفس العميق وشرب ماء بارد.", speech: "Military readiness requires strong lungs! Drop for 20 pushups and watch the craving vanish.", delta: "-2.8 Yrs", persist: "92.0%", ttr: "0.6 Days", equity: "⚖️ Architected for youth electronic nicotine cessation during physical conditioning." },
+            { id: "shamsa", name: "Shamsa Al-Marzouqi", age: 68, role: "Al Ain Great-Grandmother", img: "/assets/user-shamsa.png", temp: "36°C", rhr: "73 bpm", aqi: "42 (Clean)", momentum: 31, domain: "🪑 Seated Prayer Mobility", level: "Floor: Level 1", actionEn: "5 seated arm reaches and gentle ankle pumps following Asr prayer to alleviate stiffness after sitting.", actionAr: "تمرين خفيف للذراعين والقدمين وأنتِ جالسة بعد صلاة العصر لمنع تيبس المفاصل.", speech: "Blessings to you, my child. Stretch your arms gently after prayer; moving your joints brings health.", delta: "-1.3 Yrs", persist: "95.0%", ttr: "0.5 Days", equity: "⚖️ Tailored for geriatric mobility and arthritis care in traditional family settings." },
+            { id: "mansoor", name: "Dr. Mansoor Al-Ketbi", age: 54, role: "SSMC Emergency Physician", img: "/assets/user-mansoor.png", temp: "38°C", rhr: "76 bpm", aqi: "48 (Good)", momentum: 25, domain: "🛌 Circadian Reset", level: "Floor: Level 2", actionEn: "Post-trauma shift parasympathetic reset: 5 minutes of guided physiological sighs in car before driving home.", actionAr: "تمرين الزفير الفسيولوجي المهدئ لمدة 5 دقائق بعد انتهاء نوبة الطوارئ لخفض هرمونات التوتر.", speech: "Saving lives in the ER takes a toll. Let's do 5 deep physiological sighs together before you head home.", delta: "-2.2 Yrs", persist: "90.0%", ttr: "0.8 Days", equity: "⚖️ Protects healthcare professionals from occupational burnout and autonomic fatigue." }
+        ];
+
+        let activePersonaIdx = 0;
+        let activeGuardianId = "guardian-angel-gold";
         let isArabic = false;
         let isDarkMode = false;
-        let isVisual = false;
-        let isCatnap = false;
         let isBreathing = false;
+        let isCatnap = false;
+        let isVisual = false;
         let breathInterval = null;
 
-        // SOUND SYNTHESIS (Zero external files)
+        // FEATURE 10: WEB AUDIO SYNTHESIZER
         const audioCtx = (window.AudioContext || window.webkitAudioContext) ? new (window.AudioContext || window.webkitAudioContext)() : null;
 
         function playSound(type) {
@@ -1416,6 +1350,109 @@ Ready to run hostile probe vectors against /api/test-attack...
             } catch(e) {}
         }
 
+        // INITIALIZE APP ON LOAD
+        window.addEventListener('DOMContentLoaded', () => {
+            renderPersonaStrip();
+            renderAvatarGrid();
+            selectPersona(0);
+        });
+
+        // RENDER 13 PERSONAS IN TOP CAROUSEL
+        function renderPersonaStrip() {
+            const strip = document.getElementById('persona-carousel');
+            strip.innerHTML = '';
+            PERSONAS.forEach((p, idx) => {
+                const chip = document.createElement('div');
+                chip.className = `persona-chip ${idx === 0 ? 'active' : ''}`;
+                chip.id = `chip-persona-${idx}`;
+                chip.onclick = () => selectPersona(idx);
+                chip.innerHTML = `
+                    <img src="${p.img}" alt="${p.name}" class="chip-avatar" onerror="this.src='/assets/user-fatima.jpg'">
+                    <span class="chip-name">${p.name.split(' ')[0]} (${p.age})</span>
+                `;
+                strip.appendChild(chip);
+            });
+        }
+
+        // RENDER 10 ANGELIC GUARDIAN AVATARS IN MODAL
+        function renderAvatarGrid() {
+            const grid = document.getElementById('avatar-picker-grid');
+            grid.innerHTML = '';
+            GUARDIAN_AVATARS.forEach(g => {
+                const opt = document.createElement('div');
+                opt.className = `avatar-card-option ${g.id === activeGuardianId ? 'active' : ''}`;
+                opt.id = `opt-${g.id}`;
+                opt.onclick = () => selectGuardianAvatar(g.id);
+                opt.innerHTML = `
+                    <img src="${g.img}" alt="${g.title}" class="avatar-option-img" onerror="this.src='/assets/sandcat-thriving.png'">
+                    <span class="avatar-option-title">${g.title}</span>
+                    <span class="avatar-option-desc">${g.desc}</span>
+                `;
+                grid.appendChild(opt);
+            });
+        }
+
+        // SELECT PERSONA (0 TO 12)
+        function selectPersona(idx) {
+            activePersonaIdx = idx;
+            document.querySelectorAll('.persona-chip').forEach(c => c.classList.remove('active'));
+            const activeChip = document.getElementById(`chip-persona-${idx}`);
+            if (activeChip) {
+                activeChip.classList.add('active');
+                activeChip.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }
+
+            const p = PERSONAS[idx];
+            document.getElementById('profile-count-label').innerText = `Profile ${idx + 1} of 13`;
+            document.getElementById('profile-name').innerText = p.name;
+            document.getElementById('profile-bio').innerText = `Age ${p.age} • ${p.role}`;
+            document.getElementById('profile-photo').src = p.img;
+
+            document.getElementById('ctx-temp').innerText = p.temp;
+            document.getElementById('ctx-rhr').innerText = p.rhr;
+            document.getElementById('ctx-aqi').innerText = p.aqi;
+
+            document.getElementById('momentum-count').innerText = p.momentum;
+            document.getElementById('momentum-title').innerText = `${p.momentum} Active Days Preserved`;
+
+            document.getElementById('action-domain').innerText = p.domain;
+            document.getElementById('action-level').innerText = p.level;
+            document.getElementById('action-text-en').innerText = p.actionEn;
+            document.getElementById('action-text-ar').innerText = p.actionAr;
+
+            document.getElementById('guardian-speech').innerText = `"${p.speech}"`;
+            document.getElementById('stat-delta').innerText = p.delta;
+            document.getElementById('stat-persist').innerText = p.persist;
+            document.getElementById('stat-ttr').innerText = p.ttr;
+            document.getElementById('stat-equity').innerText = p.equity;
+
+            playSound('purr');
+        }
+
+        // SELECT ANGELIC GUARDIAN AVATAR
+        function selectGuardianAvatar(id) {
+            activeGuardianId = id;
+            document.querySelectorAll('.avatar-card-option').forEach(o => o.classList.remove('active'));
+            const activeOpt = document.getElementById(`opt-${id}`);
+            if (activeOpt) activeOpt.classList.add('active');
+
+            const g = GUARDIAN_AVATARS.find(x => x.id === id);
+            if (g) {
+                document.getElementById('guardian-hero-img').src = g.img;
+                document.getElementById('top-cat-avatar').src = g.img;
+                document.getElementById('sanctuary-preview-img').src = g.img;
+                document.getElementById('sanctuary-form-name').innerText = g.title;
+                document.getElementById('sanctuary-form-desc').innerText = g.desc;
+                document.getElementById('guardian-form-pill').innerText = `✨ ${g.title}`;
+                document.getElementById('top-archetype-text').innerText = `${g.title} • 72% Sheen`;
+
+                playSound('win');
+                fireConfetti();
+                showToast(`✨ Guardian evolved to ${g.title}! Celestial protection active.`);
+            }
+            closeAvatarMenu();
+        }
+
         // TAB SWITCHING
         function switchTab(panelId) {
             document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
@@ -1431,164 +1468,76 @@ Ready to run hostile probe vectors against /api/test-attack...
             playSound('purr');
         }
 
-        // PERSONA SELECTION
-        function selectPersona(id) {
-            currentPersona = id;
-            document.querySelectorAll('.persona-chip').forEach(c => c.classList.remove('active'));
-            document.getElementById('chip-' + id).classList.add('active');
-
-            const p = PERSONAS[id];
-            // Profile & metrics
-            document.getElementById('profile-name').innerText = p.name;
-            document.getElementById('profile-bio').innerText = `Age ${p.age} • ${p.subtitle}`;
-            const profImg = document.getElementById('profile-photo');
-            profImg.src = p.photo;
-            profImg.onerror = () => { profImg.src = p.photoFallback; };
-
-            document.getElementById('ctx-temp').innerText = p.temp;
-            document.getElementById('ctx-rhr').innerText = p.rhr;
-            document.getElementById('ctx-prayer').innerText = p.prayer;
-
-            // Momentum
-            document.getElementById('momentum-count').innerText = p.momentum;
-            document.getElementById('momentum-title').innerText = `${p.momentum} Active Days Preserved Forever`;
-            document.getElementById('momentum-note').innerText = p.momentumNote;
-
-            // Micro-action
-            document.getElementById('action-domain').innerText = p.domain;
-            document.getElementById('action-level').innerText = p.level;
-            document.getElementById('action-text-en').innerText = p.actionEn;
-            document.getElementById('action-text-ar').innerText = p.actionAr;
-
-            // Cat hero
-            const petImg = document.getElementById('pet-image');
-            petImg.src = p.petImg;
-            petImg.onerror = () => { petImg.src = p.petImgFallback; };
-            document.getElementById('pet-speech').innerText = `"${p.petQuote}"`;
-            document.getElementById('pet-status-bubble').innerText = p.petStatus;
-            document.getElementById('pet-vitality-num').innerText = p.vitality + '% Sheen';
-            document.getElementById('pet-vitality-bar').style.width = p.vitality + '%';
-            document.getElementById('top-health-status').innerText = `Vitality ${p.vitality}% • All Habits Safe`;
-
-            // Sanctuary
-            const sancImg = document.getElementById('sanctuary-cat-img');
-            sancImg.src = p.petImg;
-            sancImg.onerror = () => { sancImg.src = p.petImgFallback; };
-
-            // Insights
-            document.getElementById('stat-delta').innerText = p.delta;
-            document.getElementById('stat-persist').innerText = p.persist;
-            document.getElementById('stat-ttr').innerText = p.ttr;
-            document.getElementById('bct-active-code').innerText = p.bctCode;
-            document.getElementById('bct-rationale-text').innerText = p.rationale;
-            document.getElementById('bct-limits-text').innerText = p.limits;
-            document.getElementById('stat-equity').innerText = p.equity;
-
-            // Tool switcher (Aisha gets plate builder, Tariq gets urge breathing)
-            if (id === 'aisha' || isVisual) {
-                document.getElementById('tool-title').innerText = "🍽️ Visual 3-Color Plate Guide";
-                document.getElementById('tool-sub').innerText = "Replacing numerical calorie math with a 3-color visual plate minimizes cognitive friction for pre-diabetic glycemic regulation.";
-                document.getElementById('breath-timer-wrap').style.display = "none";
-                document.getElementById('plate-builder-wrap').style.display = "flex";
-            } else {
-                document.getElementById('tool-title').innerText = "🌬️ 3-Minute Urge-Surfing Breath Anchor";
-                document.getElementById('tool-sub').innerText = "Cravings and shift fatigue peak and dissipate within 3 to 5 minutes. Tap the circle to begin guided pacing.";
-                document.getElementById('breath-timer-wrap').style.display = "flex";
-                document.getElementById('plate-builder-wrap').style.display = "none";
-            }
-
-            // Habits
-            renderHabits(p.habits);
-
+        // MODAL CONTROLS
+        function openAvatarMenu() {
+            document.getElementById('avatar-modal').classList.add('open');
             playSound('purr');
         }
-
-        function renderHabits(habits) {
-            let doneCount = 0;
-            habits.forEach((h, i) => {
-                const el = document.getElementById(`h-item-${i+1}`);
-                if (el) {
-                    el.innerText = h.text;
-                    const parent = el.closest('.habit-item');
-                    if (h.done) {
-                        parent.classList.add('checked');
-                        doneCount++;
-                    } else {
-                        parent.classList.remove('checked');
-                    }
-                }
-            });
-            document.getElementById('habit-progress-text').innerText = `${doneCount} of ${habits.length} Done`;
+        function closeAvatarMenu() {
+            document.getElementById('avatar-modal').classList.remove('open');
         }
 
-        function toggleHabitItem(item, idx) {
-            item.classList.toggle('checked');
-            const isDone = item.classList.contains('checked');
-            playSound(isDone ? 'win' : 'purr');
-            if (isDone) fireConfetti();
-            showToast(isDone ? "🐾 Micro-action complete! Momentum bank protected." : "Habit marked for later.");
+        function openSecurityModal() {
+            document.getElementById('sec-modal').classList.add('open');
+            testAttack('HR_SURVEILLANCE');
+        }
+        function closeSecurityModal() {
+            document.getElementById('sec-modal').classList.remove('open');
         }
 
         // TACTILE INTERACTIONS
         function petBilota() {
             playSound('purr');
-            showToast("🐾 *Purrrrr* Bilota rubs against your hand. Autonomic calm restored.");
+            showToast("🐾 *Purrrrr* Bilota spreads feathery wings gently. Autonomic calm restored.");
         }
 
         function giveWater() {
             playSound('win');
-            const p = PERSONAS[currentPersona];
-            p.vitality = Math.min(100, p.vitality + 6);
-            document.getElementById('pet-vitality-num').innerText = p.vitality + '% Sheen';
-            document.getElementById('pet-vitality-bar').style.width = p.vitality + '%';
-            showToast("🥛 Bilota drinks cool water! +250ml logged to your IFHAS loop.");
+            showToast("🥛 Bilota drinks from the celestial oasis fountain. Hydration logged!");
+        }
+
+        function toggleCatnap() {
+            isCatnap = !isCatnap;
+            if (isCatnap) {
+                document.getElementById('guardian-hero-img').src = "/assets/sandcat-catnap.png";
+                document.getElementById('guardian-status-bubble').innerText = "SLEEPING";
+                document.getElementById('guardian-speech').innerText = '"Cats sleep 16 hours without guilt. Your Momentum Bank is frozen safely."';
+                playSound('purr');
+                showToast("💤 48h Catnap Active: Notifications silenced without penalty.");
+            } else {
+                selectGuardianAvatar(activeGuardianId);
+            }
         }
 
         function completeMicroWin() {
             playSound('win');
             fireConfetti();
-            const p = PERSONAS[currentPersona];
+            const p = PERSONAS[activePersonaIdx];
             p.momentum += 1;
-            p.vitality = Math.min(100, p.vitality + 14);
-
             document.getElementById('momentum-count').innerText = p.momentum;
-            document.getElementById('momentum-title').innerText = `${p.momentum} Active Days Preserved Forever`;
-            document.getElementById('pet-vitality-num').innerText = p.vitality + '% Sheen';
-            document.getElementById('pet-vitality-bar').style.width = p.vitality + '%';
-
-            // Perk up cat to thriving
-            const petImg = document.getElementById('pet-image');
-            petImg.src = "/assets/sandcat-thriving.png";
-            petImg.onerror = () => { petImg.src = "/assets/sandcat-thriving.jpg"; };
-            document.getElementById('pet-status-bubble').innerText = "THRIVING";
-            document.getElementById('pet-speech').innerText = '"Purr-fect! You completed your 5-minute win. My fur is sleek and energized!"';
-
-            showToast(`🐾 +1 Momentum! Bank total: ${p.momentum} days.`);
+            document.getElementById('momentum-title').innerText = `${p.momentum} Active Days Preserved`;
+            showToast(`🐾 +1 Momentum! Total: ${p.momentum} active days preserved forever.`);
         }
 
-        function toggleCatnap() {
-            isCatnap = !isCatnap;
-            const petImg = document.getElementById('pet-image');
-            if (isCatnap) {
-                petImg.src = "/assets/sandcat-catnap.png";
-                petImg.onerror = () => { petImg.src = "/assets/sandcat-catnap.jpg"; };
-                document.getElementById('pet-status-bubble').innerText = "SLEEPING";
-                document.getElementById('pet-speech').innerText = '"Sleeping 16 hours with zero guilt. Your momentum is frozen safely."';
-                playSound('purr');
-                showToast("💤 48h Catnap Active: Notifications paused without penalty.");
-            } else {
-                selectPersona(currentPersona);
-            }
-        }
-
-        function switchCatState(state) {
-            const petImg = document.getElementById('sanctuary-cat-img');
-            petImg.src = `/assets/sandcat-${state}.png`;
-            petImg.onerror = () => { petImg.src = `/assets/sandcat-${state}.jpg`; };
+        // FEATURE 1: PRAYER TIMELINE SELECTION
+        function selectPrayer(slot) {
+            document.querySelectorAll('.prayer-slot').forEach(s => s.classList.remove('active'));
+            event.currentTarget.classList.add('active');
             playSound('purr');
+            showToast(`🕌 Anchor synced with ${slot.toUpperCase()} prayer time!`);
         }
 
-        // INTERACTIVE TIMERS & PLATE
+        // FEATURE 4: HYDRATION CUP TOGGLE
+        function toggleWaterCup(el) {
+            el.classList.toggle('full');
+            el.innerText = el.classList.contains('full') ? '💧' : '🥤';
+            playSound('win');
+            const fullCount = document.querySelectorAll('.water-cup.full').length;
+            document.getElementById('water-cup-count').innerText = `${fullCount} / 8 Cups (${(fullCount * 0.25).toFixed(2)}L)`;
+            showToast(`💧 Glass logged! Current hydration: ${(fullCount * 0.25).toFixed(2)}L`);
+        }
+
+        // FEATURE 5: BREATHING PACER
         function toggleBreathing() {
             isBreathing = !isBreathing;
             const ring = document.getElementById('breath-ring');
@@ -1607,7 +1556,7 @@ Ready to run hostile probe vectors against /api/test-attack...
                     const s = secs % 60;
                     count.innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
 
-                    const cycle = secs % 19; // 4s in, 7s hold, 8s out
+                    const cycle = secs % 19;
                     if (cycle >= 15) phase.innerText = "INHALE (4s)";
                     else if (cycle >= 8) phase.innerText = "HOLD (7s)";
                     else phase.innerText = "EXHALE (8s)";
@@ -1617,7 +1566,7 @@ Ready to run hostile probe vectors against /api/test-attack...
                         isBreathing = false;
                         ring.classList.remove('breathing');
                         phase.innerText = "RESET DONE";
-                        showToast("🌬️ Urge wave passed! Nicotine slip avoided.");
+                        showToast("🌬️ Urge wave passed! Nicotine craving interrupted.");
                     }
                 }, 1000);
             } else {
@@ -1628,33 +1577,13 @@ Ready to run hostile probe vectors against /api/test-attack...
             }
         }
 
+        // FEATURE 6: PLATE SPIN
         function spinPlate() {
             playSound('win');
-            showToast("🍽️ Balanced Abu Dhabi Plate: 50% Greens, 25% Lean Fish/Meat, 25% Whole Grain.");
+            showToast("🍽️ Majlis Swap: Machboos with extra greens & fresh cucumber salad!");
         }
 
-        // SIMULATORS
-        function simulateHeatwave() {
-            selectPersona('fatima');
-            document.getElementById('ctx-temp').innerText = "46°C";
-            document.getElementById('action-text-en').innerText = "🔥 46°C Heat Spike Detected: Outdoor walk blocked. Swapped to 5-min indoor AC hallway loop + 300ml cool water.";
-            document.getElementById('action-text-ar').innerText = "تم رصد 46°C: إلغاء المشي الخارجي واستبداله بـ 5 دقائق مشي في التكييف داخل المنزل مع شرب ماء بارد.";
-            showToast("🔥 46°C Heatwave Simulated: Floor safely shifted indoors.");
-        }
-
-        function simulateNightShift() {
-            selectPersona('tariq');
-            switchTab('panel-habits');
-            showToast("🌙 Khalifa Port Night-Shift: Urge surfing timer ready.");
-        }
-
-        function simulateJointPain() {
-            selectPersona('aisha');
-            toggleVisualMode();
-            showToast("🪑 Joint Pain Adaptation: Seated mobility & visual plate active.");
-        }
-
-        // TOGGLE SETTINGS
+        // SETTINGS TOGGLE
         function toggleLanguage() {
             isArabic = !isArabic;
             document.body.classList.toggle('rtl', isArabic);
@@ -1667,21 +1596,17 @@ Ready to run hostile probe vectors against /api/test-attack...
             isDarkMode = !isDarkMode;
             document.documentElement.classList.toggle('dark', isDarkMode);
             document.documentElement.classList.toggle('light', !isDarkMode);
-            document.getElementById('btn-theme').innerText = isDarkMode ? '🌙 Dark' : '☀️ Light';
+            document.getElementById('btn-theme').innerText = isDarkMode ? '🌙 Dark' : '☀️ Mode';
             playSound('purr');
         }
 
         function toggleVisualMode() {
             isVisual = !isVisual;
-            document.getElementById('btn-visual-setting').innerText = isVisual ? '👁️ Low-Health-Literacy Mode: ON' : '👁️ Low-Health-Literacy Mode: OFF';
-            if (isVisual) {
-                document.getElementById('plate-builder-wrap').style.display = "flex";
-                document.getElementById('breath-timer-wrap').style.display = "none";
-            }
+            document.getElementById('btn-visual-setting').innerText = isVisual ? '👁️ Low-Health-Literacy Visual Mode: ON' : '👁️ Low-Health-Literacy Visual Mode: OFF';
             playSound('purr');
+            showToast(isVisual ? "👁️ High visual mode active with plate indicators." : "Standard mode active.");
         }
 
-        // TOAST NOTIFICATION
         function showToast(msg) {
             const toast = document.getElementById('toast-bubble');
             document.getElementById('toast-text').innerText = msg;
@@ -1689,7 +1614,7 @@ Ready to run hostile probe vectors against /api/test-attack...
             setTimeout(() => toast.classList.remove('show'), 3200);
         }
 
-        // CONFETTI
+        // CONFETTI BURST
         function fireConfetti() {
             const canvas = document.getElementById('confetti-canvas');
             const ctx = canvas.getContext('2d');
@@ -1697,9 +1622,9 @@ Ready to run hostile probe vectors against /api/test-attack...
             canvas.height = window.innerHeight;
 
             const particles = [];
-            const colors = ['#10B981', '#34D399', '#F59E0B', '#FBBF24', '#38BDF8'];
+            const colors = ['#F59E0B', '#10B981', '#38BDF8', '#FBBF24', '#FFF'];
 
-            for (let i = 0; i < 60; i++) {
+            for (let i = 0; i < 70; i++) {
                 particles.push({
                     x: canvas.width / 2,
                     y: canvas.height * 0.45,
@@ -1732,16 +1657,7 @@ Ready to run hostile probe vectors against /api/test-attack...
             render();
         }
 
-        // SECURITY MODAL
-        function openSecurityModal() {
-            document.getElementById('sec-modal').classList.add('open');
-            testAttack('HR_SURVEILLANCE');
-        }
-
-        function closeSecurityModal() {
-            document.getElementById('sec-modal').classList.remove('open');
-        }
-
+        // FEATURE 9: SOVEREIGN FIREWALL ATTACK TESTING
         async function testAttack(type) {
             const terminal = document.getElementById('sec-terminal-log');
             terminal.innerHTML = `> [PROBE] Sending vector [${type}] to /api/test-attack...\n`;
