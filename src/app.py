@@ -14,6 +14,13 @@ import uvicorn
 
 from src.core.engine import analyze
 from src.core.guardrails import evaluate_l1_guardrails
+from src.core.elite_features import (
+    get_climate_intelligence,
+    get_biometric_stream,
+    generate_zkp_proof,
+    calculate_malaffi_age,
+    chat_with_bilota
+)
 
 app = FastAPI(
     title="Bilota (بيلوتا / قطوة) - Abu Dhabi Feline Health Companion",
@@ -85,6 +92,60 @@ async def api_test_attack(request: Request):
 
     return JSONResponse(content={"status": "OK", "message": "Test passed without triggering rules."}, status_code=200)
 
+
+
+@app.get("/api/climate")
+async def api_climate():
+    """Returns live Abu Dhabi bio-climatic micro-weather and indoor walking sanctuary routing."""
+    return JSONResponse(content=get_climate_intelligence(), status_code=200)
+
+
+@app.get("/api/biometrics")
+async def api_biometrics(persona_id: str = "fatima"):
+    """Returns simulated wearable biometrics and vagus purr frequency."""
+    return JSONResponse(content=get_biometric_stream(persona_id=persona_id), status_code=200)
+
+
+@app.post("/api/chat")
+async def api_chat(request: Request):
+    """Conversational micro-counseling with Bilota the Sand Cat under L1-L3 guardrails."""
+    try:
+        body = await request.json()
+    except Exception:
+        body = {}
+    query = body.get("query", "")
+    persona_id = body.get("persona_id", "fatima")
+    result = chat_with_bilota(user_query=query, persona_id=persona_id)
+    return JSONResponse(content=result, status_code=200)
+
+
+@app.post("/api/zkp-verify")
+async def api_zkp_verify(request: Request):
+    """Cryptographic Zero-Knowledge Privacy Proof verification (UAE Federal Law No. 2 of 2019)."""
+    try:
+        body = await request.json()
+    except Exception:
+        body = {}
+    persona_id = body.get("persona_id", "fatima")
+    habit_completed = body.get("habit_completed", True)
+    proof = generate_zkp_proof(persona_id=persona_id, habit_completed=habit_completed)
+    return JSONResponse(content=proof, status_code=200)
+
+
+@app.post("/api/malaffi-age")
+async def api_malaffi_age(request: Request):
+    """Calculates biological health age delta and ASCVD risk reduction from IFHAS biomarkers."""
+    try:
+        body = await request.json()
+    except Exception:
+        body = {}
+    age = int(body.get("age", 42))
+    hba1c = float(body.get("hba1c", 5.9))
+    sbp = int(body.get("sbp", 125))
+    fasting_glucose = int(body.get("fasting_glucose", 102))
+    steps = int(body.get("steps", 5400))
+    result = calculate_malaffi_age(age=age, hba1c=hba1c, sbp=sbp, fasting_glucose=fasting_glucose, steps=steps)
+    return JSONResponse(content=result, status_code=200)
 
 
 @app.get("/api/health")
