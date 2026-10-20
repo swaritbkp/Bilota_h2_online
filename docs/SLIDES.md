@@ -34,7 +34,7 @@ Longitudinal Outcome & Equity Telemetry (Malaffi Health Age)
 
 ---
 
-## Slide 4: Live Demonstration Across Emirati Personas
+## Slide 4: Live Demonstration Across Emirati Personas & Family Care Circle
 * **Fatima (Age 42, Educator & Mother)**:
   * *Barrier*: 43.8°C midday heat alert + post-wedding lapse.
   * *Adaptive Plan*: 5-minute air-conditioned hallway stepping loop + 250ml water stacked post-Maghrib.
@@ -47,6 +47,10 @@ Longitudinal Outcome & Equity Telemetry (Malaffi Health Age)
   * *Barrier*: Chronic joint pain + Grade-4 literacy / visual preference.
   * *Adaptive Plan*: Seated prayer mobility + 3-color plate cue (half greens, quarter protein, quarter rice).
   * *Result*: Zero knee impact, blood glucose stabilized, high accessibility parity.
+* **Multi-Generational Family Care Circle & Sovereign QR Tagging**:
+  * *Cooperative Nurture*: 4 generations collectively water the shared **Sacred Ghaf Tree** (92% Flowering Canopy `[MEASURED]`).
+  * *BCT 1.4 Habit Stacks*: One tap reveals Grandmother Aisha's daily prayer anchors, step floor, and hydration.
+  * *Zero-Login QR Handshake*: 1-click QR code scan links family members in 2 seconds under UAE Law No. 2 of 2019 without passwords or surveillance honeypots.
 
 ---
 
@@ -65,13 +69,17 @@ Longitudinal Outcome & Equity Telemetry (Malaffi Health Age)
 
 ---
 
-## Slide 6: Sovereign Cryptographic Privacy & Clinical Safety
+## Slide 6: Sovereign Cryptographic Privacy, Hardware BLE & Clinical Safety
 * **UAE Federal Law No. 2 of 2019 Compliance**:
   * On-device zk-SNARK cryptographic proof ensures **0 bytes of private habit data** leak to HR or insurers.
   * Layer 1 deterministic firewall blocks all corporate surveillance probes in **< 1.0 ms**.
+* **Dual-Mode Wearable Engine (Real Web Bluetooth + Telemetry Fallback)**:
+  * *Live BLE Hardware Pairing*: Uses standard Web Bluetooth GATT (`0x180D` Heart Rate, `0x1822` SpO2) for medical straps/pulse oximeters.
+  * *Zero-Crash Fallback*: Instantly switches to resilient real-time Abu Dhabi simulation when hardware is disconnected.
 * **Clinical Boundary & Emergency Triage**:
   * Non-diagnostic preventive boundary: Lifestyle habits are clearly isolated from medical advice.
   * Acute cardiac symptoms (crushing chest pain, severe dyspnea) trigger immediate **National Ambulance 998** and **Estijaba 8001717** dispatch cards with GPS payload.
+
 
 ---
 

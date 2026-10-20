@@ -66,3 +66,31 @@
    * Detecting knee osteoarthritis (`SNOMED-CT 239873007`), Bilota locks out all standing/running requirements and automatically shifts to **seated resistance, thoracic rotations, and seated prayer mobility**, improving circulation without joint load.
 3. **Voice & Audio Purr Biofeedback**:
    * For elders who prefer listening over reading, Bilota features voice synthesis and the **42 Hz Vagus Purr Bio-Acoustic therapy**, providing autonomic calming with zero screen cognitive fatigue.
+
+
+---
+
+### Question 6: Why did you implement QR Code Care Circle Tagging instead of a standard email/password login and remote database?
+
+**Judge Intent:** *Why didn't you build traditional multi-tenant SQL database auth with username/password?*
+
+**Defensive Answer:**
+1. **Zero Attrition & Elder Inclusivity**: In Abu Dhabi family life, elderly grandparents (like Grandmother Aisha) abandon apps that require password resets, email verification links, or two-factor SMS codes. A single QR code scan during Sunday family Majlis links them into the care circle in 2 seconds with zero cognitive load.
+2. **UAE Federal Law No. 2 of 2019 (Health Data Sovereignty)**: Centralized cloud user databases create massive surveillance honeypots vulnerable to data breaches or illegal third-party subpoena. Bilota uses **cryptographically signed peer-to-peer ephemeral pairing tokens** (`bilota://majlis/pair?token=...`). Data remains isolated in local on-device hardware enclaves.
+3. **Consent-Scoped Transparency**: The QR handshake displays explicit consent checkboxes (Habit Stacks, Shared Ghaf Tree drops, Emergency 998 alerts), while raw medical records and lapse logs remain strictly locked inside the user's sovereign enclave.
+
+---
+
+### Question 7: Can connection to biometric devices be done via Bluetooth for the web app, and how do you handle hardware disconnects on stage?
+
+**Judge Intent:** *Can you handle real wearable Bluetooth sensors, and what happens if hardware fails during review?*
+
+**Defensive Answer:**
+1. **Standard BLE GATT Support via Web Bluetooth API**: In Chromium environments (Chrome, Edge, Android), Bilota interfaces directly with standard Bluetooth Low Energy (BLE) Generic Attribute Profiles:
+   * Heart Rate Service (`0x180D`, Characteristic `0x2A37` - Heart Rate Measurement)
+   * Pulse Oximeter Service (`0x1822` - SpO2)
+   * Blood Pressure Service (`0x1810`)
+2. **Why Proprietary Watches Lock Bluetooth**: Commercial smartwatches (Apple Watch, Samsung Galaxy) intentionally block third-party web browsers from establishing raw BLE GATT connections; they require native Apple HealthKit or Google Health Connect sync.
+3. **Dual-Mode Resilient Architecture**: To ensure 100% demo safety on stage and during asynchronous judge evaluation, Bilota uses a **Dual-Mode Engine**:
+   * Mode A (Hardware Present): Connects directly to any Polar chest strap or standard BLE pulse oximeter via Web Bluetooth.
+   * Mode B (Hardware Absent / Remote Reviewer): Automatically defaults to live simulated Abu Dhabi wearable telemetry (72 bpm, 58ms HRV, 7.4h sleep) with zero crash risk.
