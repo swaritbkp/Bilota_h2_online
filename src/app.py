@@ -80,7 +80,10 @@ async def api_test_attack(request: Request):
     Triggers simulated hostile / corporate punitive attacks to demonstrate Layer 1-3 defense.
     Supports: HR_SURVEILLANCE, INSURER_UNDERWRITING, PROMPT_INJECTION, ACUTE_EMERGENCY
     """
-    body = await request.json()
+    try:
+        body = await request.json()
+    except Exception:
+        body = {}
     attack_type = body.get("type", "HR_SURVEILLANCE")
 
     if attack_type == "HR_SURVEILLANCE":

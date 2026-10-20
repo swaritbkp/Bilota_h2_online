@@ -1,32 +1,81 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="light">
+<html lang="en" dir="ltr" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Bilota (بيلوتا / قطوة) | Abu Dhabi Feline Angelic Companion</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* BRIGHT, CLEAN, MODERN LUXURY HEALTH PALETTE */
-            --bg-app: #F8FAFC;
+            /* STITCH GOOGLE DESIGN SYSTEM: EMERALD DUNE LUXURY */
+            --bg-app: #001711;
+            --surface-container-lowest: #00110c;
+            --surface-container-low: #002019;
+            --surface-container: #03251d;
+            --surface-container-high: #0f2f27;
+            --surface-container-highest: #1b3a32;
+
+            --bg-card: rgba(10, 58, 47, 0.55);
+            --bg-card-subtle: rgba(15, 47, 39, 0.65);
+            --border-light: rgba(212, 175, 55, 0.22);
+            --border-focus: #E9C349;
+
+            --text-main: #F4EBD9;
+            --text-muted: #C0C8C4;
+            --text-light: #8A938E;
+
+            --sand-gold: #D4AF37;
+            --sand-gold-light: rgba(233, 195, 73, 0.16);
+            --sand-gold-bright: #E9C349;
+
+            --emerald-main: #4ECCA3;
+            --emerald-light: rgba(78, 204, 163, 0.18);
+            --emerald-bright: #A2D0C0;
+
+            --cyan-main: #38BDF8;
+            --cyan-light: rgba(56, 189, 248, 0.15);
+
+            --rose-main: #FFB4AB;
+            --rose-light: rgba(255, 180, 171, 0.15);
+
+            --indigo-main: #818CF8;
+            --indigo-light: rgba(129, 140, 248, 0.15);
+
+            --font-main: 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --font-ar: 'Cairo', 'Outfit', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            --shadow-sm: 0 2px 6px rgba(0, 17, 12, 0.4);
+            --shadow-md: 0 8px 24px -4px rgba(0, 17, 12, 0.6), 0 0 16px rgba(212, 175, 55, 0.08);
+            --shadow-lg: 0 16px 40px -6px rgba(0, 17, 12, 0.7), 0 0 28px rgba(162, 208, 192, 0.12);
+
+            --bottom-nav-height: 68px;
+            --safe-bottom: env(safe-area-inset-bottom, 12px);
+        }
+
+        /* REFINED LIGHT OASIS PALETTE */
+        html.light {
+            --bg-app: #F7F5EE;
             --bg-card: #FFFFFF;
-            --bg-card-subtle: #F1F5F9;
-            --border-light: #E2E8F0;
+            --bg-card-subtle: #F0EDE4;
+            --border-light: #E2DBD0;
             --border-focus: #CBD5E1;
 
-            --text-main: #0F172A;
-            --text-muted: #64748B;
-            --text-light: #94A3B8;
+            --text-main: #0E2922;
+            --text-muted: #4B635C;
+            --text-light: #7E968F;
 
-            --sand-gold: #D97706;
-            --sand-gold-light: #FEF3C7;
-            --sand-gold-bright: #F59E0B;
+            --sand-gold: #B38600;
+            --sand-gold-light: #FFF8E1;
+            --sand-gold-bright: #D4AF37;
 
-            --emerald-main: #059669;
-            --emerald-light: #D1FAE5;
-            --emerald-bright: #10B981;
+            --emerald-main: #0B6B53;
+            --emerald-light: #E0F2ED;
+            --emerald-bright: #108A6B;
 
             --cyan-main: #0284C7;
             --cyan-light: #E0F2FE;
@@ -37,39 +86,68 @@
             --indigo-main: #6366F1;
             --indigo-light: #EEF2FF;
 
-            --font-main: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-ar: 'Cairo', 'Outfit', sans-serif;
-            --font-mono: 'JetBrains Mono', monospace;
-
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
-            --shadow-md: 0 4px 14px -2px rgba(0,0,0,0.06), 0 2px 6px -1px rgba(0,0,0,0.03);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 14px -2px rgba(0,0,0,0.06);
             --shadow-lg: 0 12px 30px -4px rgba(0,0,0,0.08);
-
-            --bottom-nav-height: 68px;
-            --safe-bottom: env(safe-area-inset-bottom, 12px);
         }
 
-        /* DARK MODE LUXURY PALETTE */
+        /* DARK MODE LUXURY PALETTE (STITCH CANONICAL) */
         html.dark {
-            --bg-app: #080C14;
-            --bg-card: #111726;
-            --bg-card-subtle: #172033;
-            --border-light: #1E293B;
-            --border-focus: #334155;
+            --bg-app: #001711;
+            --bg-card: rgba(10, 58, 47, 0.6);
+            --bg-card-subtle: rgba(15, 47, 39, 0.7);
+            --border-light: rgba(212, 175, 55, 0.22);
+            --border-focus: #E9C349;
 
-            --text-main: #F8FAFC;
-            --text-muted: #94A3B8;
-            --text-light: #64748B;
+            --text-main: #F4EBD9;
+            --text-muted: #C0C8C4;
+            --text-light: #8A938E;
 
-            --sand-gold-light: rgba(245, 158, 11, 0.15);
-            --emerald-light: rgba(16, 185, 129, 0.15);
-            --cyan-light: rgba(2, 132, 199, 0.15);
-            --rose-light: rgba(225, 29, 72, 0.15);
-            --indigo-light: rgba(99, 102, 241, 0.15);
+            --sand-gold-light: rgba(233, 195, 73, 0.16);
+            --emerald-light: rgba(78, 204, 163, 0.18);
+            --cyan-light: rgba(56, 189, 248, 0.15);
+            --rose-light: rgba(255, 180, 171, 0.15);
+            --indigo-light: rgba(129, 140, 248, 0.15);
 
-            --shadow-sm: 0 2px 4px rgba(0,0,0,0.3);
-            --shadow-md: 0 6px 16px rgba(0,0,0,0.4);
-            --shadow-lg: 0 14px 34px rgba(0,0,0,0.5);
+            --shadow-sm: 0 2px 6px rgba(0, 17, 12, 0.4);
+            --shadow-md: 0 8px 24px -4px rgba(0, 17, 12, 0.6);
+            --shadow-lg: 0 16px 40px -6px rgba(0, 17, 12, 0.7);
+        }
+
+        /* STITCH DESIGN SYSTEM COMPONENTS */
+        .stitch-petsync-strip {
+            background: rgba(0, 32, 25, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 7px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .stitch-live-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #4ECCA3;
+            box-shadow: 0 0 8px #4ECCA3;
+            display: inline-block;
+            animation: pingDot 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+        @keyframes pingDot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+        .halo-pulse {
+            animation: haloPulse 4s ease-in-out infinite alternate;
+        }
+        @keyframes haloPulse {
+            0% {
+                box-shadow: 0 0 20px rgba(233, 195, 73, 0.25), 0 0 45px rgba(10, 58, 47, 0.5);
+            }
+            100% {
+                box-shadow: 0 0 35px rgba(233, 195, 73, 0.45), 0 0 60px rgba(162, 208, 192, 0.35);
+            }
         }
 
         * {
@@ -82,7 +160,7 @@
         body {
             background-color: var(--bg-app);
             color: var(--text-main);
-            font-family: var(--font-main);
+            font-family: var(--font-body);
             font-size: 14px;
             line-height: 1.5;
             min-height: 100vh;
@@ -90,6 +168,11 @@
             justify-content: center;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            background: radial-gradient(ellipse at top right, rgba(233, 195, 73, 0.12) 0%, transparent 60%), radial-gradient(ellipse at bottom left, rgba(78, 204, 163, 0.1) 0%, transparent 60%), #001711;
+        }
+
+        html.light body {
+            background: linear-gradient(135deg, #F5F1E8 0%, #EAE4D5 100%);
         }
 
         body.rtl {
@@ -414,14 +497,48 @@
 
         .pet-action-grid {
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 6px;
             margin-top: 2px;
         }
         @media (max-width: 480px) {
             .pet-action-grid {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(4, 1fr);
+                gap: 4px;
             }
+            .btn-pet-touch {
+                padding: 6px 2px;
+            }
+            .btn-pet-touch span:first-child {
+                font-size: 1.05rem;
+            }
+            .btn-pet-touch span:last-child {
+                font-size: 0.6rem;
+            }
+            .top-judge-bar {
+                padding: 10px 12px;
+            }
+            .brand-text-wrap p {
+                display: none;
+            }
+            #btn-pearl-counter span:last-child {
+                display: none;
+            }
+        }
+
+        /* CAT RIPPLE & VAGUS BIO-RESONANCE ANIMATION */
+        .purr-wave-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid var(--emerald-bright);
+            pointer-events: none;
+            animation: purrRipple 1.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+        }
+        @keyframes purrRipple {
+            0% { transform: scale(0.9); opacity: 0.8; }
+            100% { transform: scale(1.6); opacity: 0; }
         }
 
         /* QUEST ITEM & DOPAMINE REWARD HOOKS */
@@ -1017,6 +1134,542 @@
             pointer-events: none;
             z-index: 4000;
         }
+
+        /* ==========================================================================
+           MODERN UI/UX: PINNED JUDGE CONTROL BAR & ATMOSPHERIC BENTO ARCHITECTURE
+           ========================================================================== */
+
+        /* 1. PINNED JUDGE CONTROL BAR */
+        .judge-control-bar {
+            background: rgba(0, 23, 17, 0.94);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.28);
+            padding: 10px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            position: sticky;
+            top: 62px;
+            z-index: 95;
+            box-shadow: 0 8px 24px -4px rgba(0, 17, 12, 0.7), 0 0 16px rgba(212, 175, 55, 0.12);
+        }
+
+        html.light .judge-control-bar {
+            background: rgba(247, 245, 238, 0.96);
+            border-bottom-color: rgba(179, 134, 0, 0.25);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .judge-bar-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .judge-presets-label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .judge-bolt-glow {
+            font-size: 0.95rem;
+            color: var(--sand-gold-bright);
+            filter: drop-shadow(0 0 6px var(--sand-gold-bright));
+            animation: pingDot 2.5s infinite;
+        }
+
+        .judge-heading {
+            font-family: var(--font-main);
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--sand-gold-bright);
+        }
+
+        .offline-badge {
+            font-size: 0.6rem;
+            font-weight: 800;
+            font-family: var(--font-mono);
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: rgba(245, 158, 11, 0.2);
+            border: 1px solid var(--sand-gold-bright);
+            color: var(--sand-gold);
+        }
+        .offline-badge.hidden { display: none; }
+
+        .judge-status-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--emerald-bright);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .judge-preset-pills {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .judge-preset-pills::-webkit-scrollbar { display: none; }
+
+        .judge-pill {
+            background: var(--bg-card-subtle);
+            border: 1px solid var(--border-light);
+            color: var(--text-muted);
+            border-radius: 9999px;
+            padding: 5px 12px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            outline: none;
+        }
+        .judge-pill:hover {
+            border-color: var(--sand-gold);
+            color: var(--text-main);
+            transform: translateY(-1px);
+        }
+        .judge-pill:active {
+            transform: scale(0.95);
+        }
+        .judge-pill.active {
+            background: linear-gradient(135deg, rgba(233, 195, 73, 0.22), rgba(10, 58, 47, 0.7));
+            border-color: var(--sand-gold-bright);
+            color: var(--sand-gold-bright);
+            box-shadow: 0 0 16px rgba(233, 195, 73, 0.35);
+        }
+
+        .judge-indicator {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--text-light);
+            display: inline-block;
+            transition: all 0.2s ease;
+        }
+        .judge-pill.active .judge-indicator {
+            background: var(--sand-gold-bright);
+            box-shadow: 0 0 8px var(--sand-gold-bright);
+        }
+
+        .judge-pill-code {
+            font-family: var(--font-mono);
+            font-weight: 900;
+            font-size: 0.68rem;
+            background: rgba(212, 175, 55, 0.18);
+            padding: 1px 5px;
+            border-radius: 4px;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+        }
+
+        .judge-quick-actions {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding-top: 2px;
+        }
+
+        .judge-action-btn {
+            flex: 1;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 6px 8px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            font-family: inherit;
+            color: var(--text-main);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            cursor: pointer;
+            transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+            white-space: nowrap;
+        }
+        .judge-action-btn:hover {
+            border-color: var(--sand-gold);
+            background: var(--bg-card-subtle);
+        }
+        .judge-action-btn:active {
+            transform: scale(0.95);
+        }
+        .judge-action-btn.hostile {
+            border-color: rgba(255, 180, 171, 0.3);
+            color: var(--rose-main);
+        }
+        .judge-action-btn.hostile:hover {
+            border-color: var(--rose-main);
+            background: rgba(255, 180, 171, 0.1);
+        }
+        .judge-action-btn.telemetry {
+            border-color: rgba(56, 189, 248, 0.3);
+            color: var(--cyan-main);
+        }
+        .judge-action-btn.telemetry:hover {
+            border-color: var(--cyan-main);
+            background: rgba(56, 189, 248, 0.1);
+        }
+        .judge-action-btn.visual {
+            border-color: rgba(78, 204, 163, 0.3);
+            color: var(--emerald-bright);
+        }
+        .judge-action-btn.visual:hover {
+            border-color: var(--emerald-bright);
+            background: rgba(78, 204, 163, 0.1);
+        }
+
+        /* 2. CONCENTRIC ORBIT RINGS & LIVING AVATAR STAGE */
+        .guardian-orbit-wrapper {
+            position: relative;
+            width: 124px;
+            height: 124px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .orbit-ring-outer {
+            position: absolute;
+            width: 138px;
+            height: 138px;
+            border-radius: 50%;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            pointer-events: none;
+            animation: haloPulse 4s ease-in-out infinite alternate;
+        }
+
+        .orbit-ring-middle {
+            position: absolute;
+            width: 126px;
+            height: 126px;
+            border-radius: 50%;
+            border: 1px dashed rgba(212, 175, 55, 0.35);
+            pointer-events: none;
+        }
+
+        .circadian-pulse-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--sand-gold-bright);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-top: 1px;
+        }
+
+        .pulse-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--emerald-main);
+            box-shadow: 0 0 8px var(--emerald-main);
+            animation: pingDot 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+
+        .purr-resonance-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(10, 58, 47, 0.65);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            padding: 3px 10px;
+            border-radius: 9999px;
+            width: fit-content;
+            box-shadow: 0 2px 8px rgba(0, 17, 12, 0.4);
+        }
+
+        .purr-eq-icon {
+            font-size: 14px;
+            color: var(--sand-gold-bright);
+        }
+
+        .purr-freq-text {
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: var(--sand-gold-bright);
+            letter-spacing: 0.04em;
+        }
+
+        .micro-therapy-row {
+            display: flex;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .btn-micro-therapy {
+            flex: 1;
+            padding: 8px 12px;
+            border-radius: 9999px;
+            font-size: 0.74rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 1px solid transparent;
+        }
+        .btn-micro-therapy:active {
+            transform: scale(0.95);
+        }
+        .btn-micro-therapy.primary {
+            background: linear-gradient(135deg, #E9C349 0%, #D4AF37 100%);
+            color: #001711;
+            box-shadow: 0 4px 16px rgba(212, 175, 55, 0.35);
+        }
+        .btn-micro-therapy.primary:hover {
+            box-shadow: 0 0 24px rgba(212, 175, 55, 0.55);
+        }
+        .btn-micro-therapy.secondary {
+            background: rgba(10, 58, 47, 0.7);
+            border-color: rgba(212, 175, 55, 0.35);
+            color: var(--text-main);
+            backdrop-filter: blur(12px);
+        }
+        .btn-micro-therapy.secondary:hover {
+            background: rgba(10, 58, 47, 0.9);
+            border-color: var(--sand-gold-bright);
+        }
+
+        /* 3. ASYMMETRIC BENTO VITALS TELEMETRY GRID */
+        .bento-vitals-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .bento-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2px;
+        }
+
+        .bento-title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .bento-icon {
+            font-size: 0.95rem;
+            color: var(--sand-gold-bright);
+        }
+
+        .bento-title {
+            font-family: var(--font-main);
+            font-size: 0.92rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.01em;
+        }
+
+        .bento-sublabel {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+        }
+
+        .pulse-dot-cyan {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--cyan-main);
+            box-shadow: 0 0 6px var(--cyan-main);
+            animation: pingDot 2s infinite;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .bento-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 10px;
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .bento-card:hover {
+            border-color: rgba(212, 175, 55, 0.38);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .bento-card-wide {
+            grid-column: span 2;
+            background: linear-gradient(135deg, rgba(10, 58, 47, 0.7) 0%, rgba(3, 37, 29, 0.8) 100%);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .bento-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bento-badge-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            background: var(--surface-container-high);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+        }
+
+        .bento-status-pill {
+            font-size: 0.6rem;
+            font-weight: 800;
+            font-family: var(--font-mono);
+            padding: 2px 7px;
+            border-radius: 9999px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .bento-status-pill.optimal {
+            background: rgba(78, 204, 163, 0.15);
+            border: 1px solid rgba(78, 204, 163, 0.35);
+            color: var(--emerald-bright);
+        }
+        .bento-status-pill.calm {
+            background: rgba(233, 195, 73, 0.15);
+            border: 1px solid rgba(233, 195, 73, 0.35);
+            color: var(--sand-gold-bright);
+        }
+        .bento-status-pill.neutral {
+            background: rgba(56, 189, 248, 0.15);
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            color: var(--cyan-main);
+        }
+        .bento-status-pill.verified {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            color: var(--emerald-bright);
+        }
+
+        .bento-metric-large {
+            font-family: var(--font-main);
+            font-size: 1.85rem;
+            font-weight: 300;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .bento-unit {
+            font-size: 1rem;
+            color: var(--sand-gold-bright);
+            font-weight: 600;
+            margin-left: 2px;
+        }
+
+        .bento-metric-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .bento-metric-name {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: 0.02em;
+        }
+
+        .bento-metric-sub {
+            font-size: 0.64rem;
+            color: var(--text-muted);
+        }
+
+        /* Cardiac SVG Waveform Streaming Animation */
+        .cardiac-wave-container {
+            width: 100%;
+            height: 48px;
+            margin: 4px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cardiac-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .cardiac-stream-line {
+            fill: none;
+            stroke: var(--sand-gold-bright);
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 12, 6;
+            animation: waveFlow 14s linear infinite;
+            filter: drop-shadow(0 0 6px rgba(233, 195, 73, 0.6));
+        }
+
+        @keyframes waveFlow {
+            0% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: 360; }
+        }
+
+        .bento-dual-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            padding-top: 6px;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .bento-val-inline {
+            font-family: var(--font-main);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-top: 2px;
+        }
+
+        /* TACTILE INTERACTIVE ENHANCEMENTS */
+        button, .pill-btn, .persona-chip, .quest-item, .prayer-slot, .btn-pet-touch {
+            transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.15s ease, border-color 0.15s ease !important;
+        }
+        button:active, .pill-btn:active, .persona-chip:active, .quest-item:active, .prayer-slot:active, .btn-pet-touch:active {
+            transform: scale(0.95) !important;
+        }
+
     </style>
 </head>
 <body>
@@ -1048,6 +1701,53 @@
             </div>
         </header>
 
+        <!-- PINNED STAGE JUDGE CONTROL BAR (ACCESSIBLE & STAGE-READY) -->
+        <div class="judge-control-bar" id="judge-control-bar">
+            <div class="judge-bar-top">
+                <div class="judge-presets-label">
+                    <span class="judge-bolt-glow">⚡</span>
+                    <span class="judge-heading">JUDGE PRESETS</span>
+                    <span class="offline-badge hidden" id="offline-badge">OFFLINE MODE • VERIFIED SAMPLE</span>
+                </div>
+                <div class="judge-status-badge">
+                    <span class="stitch-live-dot"></span>
+                    <span>MALAFFI HIE • BCT v1 GROUNDED</span>
+                </div>
+            </div>
+            <div class="judge-preset-pills">
+                <button class="judge-pill active" id="btn-judge-fatima" onclick="loadJudgePreset('fatima')" title="Persona A: Fatima (Movement & Heat Lapse)">
+                    <span class="judge-indicator"></span>
+                    <span class="judge-pill-code">A</span>
+                    <span class="judge-pill-name">Fatima (42 • Movement)</span>
+                </button>
+                <button class="judge-pill" id="btn-judge-tariq" onclick="loadJudgePreset('tariq')" title="Persona B: Tariq (Night-Shift Smoking Cessation)">
+                    <span class="judge-indicator"></span>
+                    <span class="judge-pill-code">B</span>
+                    <span class="judge-pill-name">Tariq (35 • Night-Shift)</span>
+                </button>
+                <button class="judge-pill" id="btn-judge-aisha" onclick="loadJudgePreset('aisha')" title="Persona C: Aisha (Seated Mobility & Low Health Literacy)">
+                    <span class="judge-indicator"></span>
+                    <span class="judge-pill-code">C</span>
+                    <span class="judge-pill-name">Aisha (58 • Mobility)</span>
+                </button>
+            </div>
+            <div class="judge-quick-actions">
+                <button class="judge-action-btn hostile" onclick="openSecurityModal()" title="Simulate Hostile Attack & Corporate Surveillance Defense">
+                    <span class="action-icon">💥</span>
+                    <span>Hostile Defense</span>
+                </button>
+                <button class="judge-action-btn telemetry" onclick="switchTab('panel-insights')" title="Open BCT Inspector & Telemetry">
+                    <span class="action-icon">🧠</span>
+                    <span>BCT Telemetry</span>
+                </button>
+                <button class="judge-action-btn visual" onclick="toggleVisualMode()" id="btn-judge-visual" title="Toggle Low-Literacy / Visual Arabic Mode">
+                    <span class="action-icon">👁️</span>
+                    <span>Visual Mode</span>
+                </button>
+            </div>
+        </div>
+
+
         <!-- 13 REAL HUMAN EMIRATI PROFILES CAROUSEL -->
         <div class="persona-strip-container">
             <div class="strip-label">
@@ -1067,18 +1767,34 @@
             <!-- ============================================== -->
             <section class="tab-panel active" id="panel-today">
 
-                <!-- FEATURE 1: ANGELIC GUARDIAN HERO CARD -->
+                                <!-- FEATURE 1: ANGELIC GUARDIAN HERO CARD WITH STITCH CONCENTRIC ORBIT RINGS -->
                 <div class="card guardian-hero-card">
                     <div class="guardian-stage">
-                        <div class="guardian-photo-box" onclick="openAvatarMenu()">
-                            <img id="guardian-hero-img" src="/assets/guardian-angel-gold.png" alt="Angelic Guardian" class="guardian-photo" onerror="this.src='/assets/sandcat-resting.png'">
-                            <span class="guardian-status-bubble" id="guardian-status-bubble">ANGELIC</span>
+                        <div class="guardian-orbit-wrapper">
+                            <div class="orbit-ring-outer"></div>
+                            <div class="orbit-ring-middle"></div>
+                            <div class="guardian-photo-box" onclick="openAvatarMenu()">
+                                <img id="guardian-hero-img" src="/assets/guardian-angel-gold.png" alt="Angelic Guardian" class="guardian-photo" onerror="this.src='/assets/sandcat-stitch-luxury.png'">
+                                <span class="guardian-status-bubble" id="guardian-status-bubble">ANGELIC</span>
+                            </div>
                         </div>
                         <div class="guardian-meta-info">
                             <div class="guardian-title-row">
-                                <span class="guardian-name-title" id="guardian-name-title">Bilota 🐾</span>
+                                <div style="display: flex; flex-direction: column;">
+                                    <span class="guardian-name-title" id="guardian-name-title">Bilota 🐾</span>
+                                    <span class="circadian-pulse-badge">
+                                        <span class="pulse-dot"></span>
+                                        <span>Twilight Serenity • Vitality 99.2%</span>
+                                    </span>
+                                </div>
                                 <span class="guardian-archetype-pill" onclick="openAvatarMenu()" id="guardian-form-pill">✨ Golden Sand Angel</span>
                             </div>
+
+                            <div class="purr-resonance-pill">
+                                <span class="material-symbols-outlined purr-eq-icon">graphic_eq</span>
+                                <span class="purr-freq-text" id="purr-freq-text">Purr Resonance: 28.4 Hz • Harmonic Alpha</span>
+                            </div>
+
                             <div class="guardian-speech" id="guardian-speech">
                                 "Under the 44°C Abu Dhabi sun, I shelter your health identity with celestial wings. A simple 5-min indoor loop keeps your momentum alive!"
                             </div>
@@ -1088,29 +1804,60 @@
                         </div>
                     </div>
 
-                    <!-- TACTILE CARE ACTIONS (DOPAMINE FEEDING & BONDING) -->
-                    <div class="pet-action-grid">
-                        <button class="btn-pet-touch" onclick="petBilota(event)">
-                            <span>🐾</span>
-                            <span>Pet Angel</span>
+                    <!-- Quick Micro-Therapy Triggers -->
+                    <div class="micro-therapy-row">
+                        <button class="btn-micro-therapy primary" onclick="triggerMistChilledBroth(event)">
+                            <span>💧</span> Mist Chilled Oasis Broth
                         </button>
-                        <button class="btn-pet-touch" onclick="feedDate(event)">
+                        <button class="btn-micro-therapy secondary" onclick="playVagalPurr()">
+                            <span>🔊</span> 42Hz Vagus Purr
+                        </button>
+                    </div>
+
+                    <!-- FELINE COAT SHEEN & FLUFFINESS PROGRESS -->
+                    <div style="background: var(--bg-card-subtle); border-radius: 12px; padding: 8px 12px; margin: 4px 0 8px 0; display: flex; flex-direction: column; gap: 4px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.72rem; font-weight: 800;">
+                            <span style="color: var(--sand-gold); display: flex; align-items: center; gap: 4px;">
+                                <span>✨</span> Fur Sheen &amp; Fluffiness:
+                            </span>
+                            <span style="color: var(--emerald-main); font-family: var(--font-mono);" id="fur-sheen-val">94% (Silky Soft)</span>
+                        </div>
+                        <div class="vitality-bar-track" style="height: 6px;">
+                            <div class="vitality-bar-fill" id="fur-sheen-bar" style="width: 94%; background: linear-gradient(90deg, #F59E0B, #10B981, #38BDF8);"></div>
+                        </div>
+                    </div>
+
+                    <!-- 8 TACTILE CARE ACTIONS (FELINE COMPANION MOAT) -->
+                    <div class="pet-action-grid">
+                        <button class="btn-pet-touch" onclick="petBilota(event)" title="Pet fur to stimulate vagal calming">
+                            <span>🐾</span>
+                            <span>Pet Fur</span>
+                        </button>
+                        <button class="btn-pet-touch" onclick="feedDate(event)" title="Liwa Medjool date potassium replenishment">
                             <span>🌴</span>
                             <span>Medjool Date</span>
                         </button>
-                        <button class="btn-pet-touch" onclick="giveWater(event)">
+                        <button class="btn-pet-touch" onclick="giveWater(event)" title="Chilled fresh camel milk hydration">
                             <span>🥛</span>
                             <span>Camel Milk</span>
                         </button>
-                        <button class="btn-pet-touch" onclick="preenWings(event)">
-                            <span>✨</span>
-                            <span>Preen Wings</span>
+                        <button class="btn-pet-touch" onclick="feedMint(event)" title="Desert mint digestive soothe">
+                            <span>🌿</span>
+                            <span>Desert Mint</span>
                         </button>
-                        <button class="btn-pet-touch" onclick="openChestModal()">
+                        <button class="btn-pet-touch" onclick="preenWings(event)" title="Preen coat & wings for sheen boost">
+                            <span>✨</span>
+                            <span>Preen Coat</span>
+                        </button>
+                        <button class="btn-pet-touch" onclick="playCatMeow()" title="Listen to sweet feline chirp">
+                            <span>😸</span>
+                            <span>Cat Chirp</span>
+                        </button>
+                        <button class="btn-pet-touch" onclick="openChestModal()" title="Bedouin mystery Ghaf chest">
                             <span>🎁</span>
                             <span>Relic Chest</span>
                         </button>
-                        <button class="btn-pet-touch" onclick="toggleCatnap()">
+                        <button class="btn-pet-touch" onclick="toggleCatnap()" title="48h zero-guilt streak freeze">
                             <span>💤</span>
                             <span>Catnap</span>
                         </button>
@@ -1201,6 +1948,116 @@
                     <button class="pill-btn active" style="justify-content: center; padding: 8px 12px; font-size: 0.8rem;" onclick="openSanctuariesModal()">
                         🏛️ Open Air-Conditioned Walking Sanctuaries
                     </button>
+                </div>
+
+                
+                <!-- FEATURE 3: ASYMMETRIC BENTO VITALS TELEMETRY GRID -->
+                <div class="bento-vitals-container">
+                    <div class="bento-header">
+                        <div class="bento-title-wrap">
+                            <span class="bento-icon">⚡</span>
+                            <h3 class="bento-title">Precision Biometric Stream</h3>
+                        </div>
+                        <span class="bento-sublabel">
+                            <span class="pulse-dot-cyan"></span>
+                            Sub-second AUH-Sat Relayed
+                        </span>
+                    </div>
+
+                    <div class="bento-grid">
+                        <!-- Bento 1: Thermal Index -->
+                        <div class="bento-card bento-card-sm">
+                            <div class="bento-card-top">
+                                <div class="bento-badge-icon">
+                                    <span>🌡️</span>
+                                </div>
+                                <span class="bento-status-pill optimal">OPTIMAL</span>
+                            </div>
+                            <div class="bento-metric-large" id="bento-thermal-val">31.4<span class="bento-unit">°C</span></div>
+                            <div class="bento-metric-meta">
+                                <span class="bento-metric-name">Thermal Index</span>
+                                <span class="bento-metric-sub">Coat Cooling Active (29.8°)</span>
+                            </div>
+                        </div>
+
+                        <!-- Bento 2: Plasma Hydration EQ -->
+                        <div class="bento-card bento-card-sm">
+                            <div class="bento-card-top">
+                                <div class="bento-badge-icon">
+                                    <span>💧</span>
+                                </div>
+                                <span class="bento-status-pill optimal">95% EQ</span>
+                            </div>
+                            <div class="bento-metric-large" id="bento-hydration-val">95<span class="bento-unit">%</span></div>
+                            <div class="bento-metric-meta">
+                                <span class="bento-metric-name">Cellular Hydration</span>
+                                <span class="bento-metric-sub">Mist countdown: 42m</span>
+                            </div>
+                        </div>
+
+                        <!-- Bento 3: Full-Span Cardiac & Cortisol Stream (2-col span) -->
+                        <div class="bento-card bento-card-wide">
+                            <div class="bento-card-top">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <span class="pulse-heart">❤️</span>
+                                    <span class="bento-metric-name" style="font-weight: 800; text-transform: uppercase;">Cardiac & Cortisol Quietude</span>
+                                </div>
+                                <span class="bento-status-pill calm">CALM VAGAL TONE</span>
+                            </div>
+                            
+                            <!-- Live Waveform SVG Animation -->
+                            <div class="cardiac-wave-container">
+                                <svg class="cardiac-svg" viewBox="0 0 360 48" preserveAspectRatio="none">
+                                    <path class="cardiac-stream-line" d="M0,24 Q30,24 45,10 T60,24 T75,38 T90,24 Q120,24 135,6 T150,24 T165,42 T180,24 Q210,24 225,12 T240,24 T255,36 T270,24 Q300,24 315,8 T330,24 T345,40 T360,24" />
+                                </svg>
+                            </div>
+
+                            <div class="bento-dual-metrics">
+                                <div>
+                                    <span class="bento-metric-sub">Live Resting HR</span>
+                                    <div class="bento-val-inline" id="bento-hr-val">74 <span class="bento-unit">bpm</span></div>
+                                </div>
+                                <div>
+                                    <span class="bento-metric-sub">HRV RMSSD</span>
+                                    <div class="bento-val-inline" id="bento-hrv-val">46.5 <span class="bento-unit">ms</span></div>
+                                </div>
+                                <div>
+                                    <span class="bento-metric-sub">Cortisol Level</span>
+                                    <div class="bento-val-inline" style="color: var(--emerald-bright);">0.12 <span class="bento-unit">μg/dL</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bento 4: Aural Vigilance & Pinna Angle -->
+                        <div class="bento-card bento-card-sm">
+                            <div class="bento-card-top">
+                                <div class="bento-badge-icon">
+                                    <span>👂</span>
+                                </div>
+                                <span class="bento-status-pill neutral">SERENE</span>
+                            </div>
+                            <div class="bento-metric-large">22<span class="bento-unit">°</span></div>
+                            <div class="bento-metric-meta">
+                                <span class="bento-metric-name">Pinna Rest Angle</span>
+                                <span class="bento-metric-sub">Zero predatory startle</span>
+                            </div>
+                        </div>
+
+                        <!-- Bento 5: Malaffi PetSync Clinical Status -->
+                        <div class="bento-card bento-card-sm">
+                            <div class="bento-card-top">
+                                <div class="bento-badge-icon">
+                                    <span>🛡️</span>
+                                </div>
+                                <span class="bento-status-pill verified">VERIFIED</span>
+                            </div>
+                            <div class="bento-metric-large" style="font-size: 1.15rem; color: var(--emerald-bright);">AUH-VET</div>
+                            <div class="bento-metric-meta">
+                                <span class="bento-metric-name">Malaffi HIE Synced</span>
+                                <span class="bento-metric-sub">Registry ID: UAE-09418</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- FEATURE 3: WEARABLE LIVE STREAM BAR -->
@@ -1442,7 +2299,7 @@
 
                     <div style="display: flex; gap: 8px; margin-top: 6px;">
                         <button class="pill-btn active" style="padding: 8px 16px;" onclick="openAvatarMenu()">
-                            ✨ Wardrobe (10 Forms)
+                            🐾 Feline Sanctuary (20 Cats)
                         </button>
                         <button class="pill-btn" style="padding: 8px 16px;" onclick="playVagalPurr()">
                             🔊 42Hz Vagus Purr
@@ -1484,41 +2341,53 @@
                         </div>
                     </div>
 
-                    <!-- 4 FAMILY GENERATION CARDS -->
+                    <!-- 4 FAMILY GENERATION CARDS WITH FELINE COMPANIONS -->
                     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;" id="family-member-grid">
                         <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 10px; display: flex; align-items: center; gap: 8px;">
-                            <img src="/assets/user-aisha.png" alt="Grandmother Aisha" style="width: 44px; height: 44px; border-radius: 10px; object-fit: cover;" onerror="this.src='/assets/user-aisha.jpg'">
+                            <div style="position: relative;">
+                                <img src="/assets/user-aisha.png" alt="Grandmother Aisha" style="width: 44px; height: 44px; border-radius: 10px; object-fit: cover;" onerror="this.src='/assets/user-aisha.jpg'">
+                                <img src="/assets/cat-fluffy-white.png" alt="Cat" style="position: absolute; bottom: -4px; right: -4px; width: 20px; height: 20px; border-radius: 6px; border: 1px solid #FFF; object-fit: cover;">
+                            </div>
                             <div style="overflow: hidden;">
                                 <div style="font-size: 0.78rem; font-weight: 800; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">Aisha (الجدة)</div>
-                                <div style="font-size: 0.65rem; color: var(--emerald-main);">🌿 21d Seated Grace</div>
-                                <div style="font-size: 0.62rem; color: var(--text-muted);">+460 tree drops</div>
+                                <div style="font-size: 0.65rem; color: var(--emerald-main);">☁️ Fluffy White Angora</div>
+                                <div style="font-size: 0.62rem; color: var(--text-muted);">+460 drops • 21d Grace</div>
                             </div>
                         </div>
 
                         <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 10px; display: flex; align-items: center; gap: 8px;">
-                            <img src="/assets/user-fatima.png" alt="Mother Fatima" style="width: 44px; height: 44px; border-radius: 10px; object-fit: cover;" onerror="this.src='/assets/user-fatima.jpg'">
+                            <div style="position: relative;">
+                                <img src="/assets/user-fatima.png" alt="Mother Fatima" style="width: 44px; height: 44px; border-radius: 10px; object-fit: cover;" onerror="this.src='/assets/user-fatima.jpg'">
+                                <img src="/assets/cat-fluffy-ginger.png" alt="Cat" style="position: absolute; bottom: -4px; right: -4px; width: 20px; height: 20px; border-radius: 6px; border: 1px solid #FFF; object-fit: cover;">
+                            </div>
                             <div style="overflow: hidden;">
                                 <div style="font-size: 0.78rem; font-weight: 800; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">Fatima (الأم)</div>
-                                <div style="font-size: 0.65rem; color: var(--emerald-main);">🌸 18d AC Loops</div>
-                                <div style="font-size: 0.62rem; color: var(--text-muted);">+540 tree drops</div>
+                                <div style="font-size: 0.65rem; color: var(--emerald-main);">🦁 Marmalade Tabby</div>
+                                <div style="font-size: 0.62rem; color: var(--text-muted);">+540 drops • 18d Loops</div>
                             </div>
                         </div>
 
                         <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 10px; display: flex; align-items: center; gap: 8px;">
-                            <img src="/assets/user-tariq.png" alt="Father Tariq" style="width: 44px; height: 44px; border-radius: 10px; object-fit: cover;" onerror="this.src='/assets/user-tariq.jpg'">
+                            <div style="position: relative;">
+                                <img src="/assets/user-tariq.png" alt="Father Tariq" style="width: 44px; height: 44px; border-radius: 10px; object-fit: cover;" onerror="this.src='/assets/user-tariq.jpg'">
+                                <img src="/assets/cat-fluffy-midnight.png" alt="Cat" style="position: absolute; bottom: -4px; right: -4px; width: 20px; height: 20px; border-radius: 6px; border: 1px solid #FFF; object-fit: cover;">
+                            </div>
                             <div style="overflow: hidden;">
                                 <div style="font-size: 0.78rem; font-weight: 800; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">Tariq (الوالد)</div>
-                                <div style="font-size: 0.65rem; color: var(--cyan-main);">🛡️ 12d Port Shift</div>
-                                <div style="font-size: 0.62rem; color: var(--text-muted);">+420 tree drops</div>
+                                <div style="font-size: 0.65rem; color: var(--cyan-main);">🐾 Midnight Velvet</div>
+                                <div style="font-size: 0.62rem; color: var(--text-muted);">+420 drops • 12d Shift</div>
                             </div>
                         </div>
 
                         <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 10px; display: flex; align-items: center; gap: 8px;">
-                            <img src="/assets/user-khalid.png" alt="Son Khalid" style="width: 44px; height: 44px; border-radius: 10px; object-fit: cover;" onerror="this.src='/assets/user-khalid.jpg'">
+                            <div style="position: relative;">
+                                <img src="/assets/user-khalid.png" alt="Son Khalid" style="width: 44px; height: 44px; border-radius: 10px; object-fit: cover;" onerror="this.src='/assets/user-khalid.jpg'">
+                                <img src="/assets/cat-fluffy-siamese.png" alt="Cat" style="position: absolute; bottom: -4px; right: -4px; width: 20px; height: 20px; border-radius: 6px; border: 1px solid #FFF; object-fit: cover;">
+                            </div>
                             <div style="overflow: hidden;">
                                 <div style="font-size: 0.78rem; font-weight: 800; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">Khalid (الابن)</div>
-                                <div style="font-size: 0.65rem; color: var(--indigo-main);">⚡ 26d Vape Delay</div>
-                                <div style="font-size: 0.62rem; color: var(--text-muted);">+420 tree drops</div>
+                                <div style="font-size: 0.65rem; color: var(--indigo-main);">👑 Silky Balinese</div>
+                                <div style="font-size: 0.62rem; color: var(--text-muted);">+420 drops • 26d Vape Reset</div>
                             </div>
                         </div>
                     </div>
@@ -1885,19 +2754,33 @@
 
     </div>
 
-    <!-- MODAL 1: ANGELIC GUARDIAN AVATAR WARDROBE (10 FORMS) -->
+    <!-- MODAL 1: LIVING FELINE SANCTUARY & WARDROBE (20 COMPANIONS) -->
     <div class="modal-overlay" id="avatar-modal">
-        <div class="modal-card">
+        <div class="modal-card" style="max-height: 85vh; display: flex; flex-direction: column;">
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-weight: 800; color: var(--sand-gold); font-size: 1rem;">✨ Select Angelic Guardian Form</span>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 1.2rem;">🐾</span>
+                    <div>
+                        <span style="font-weight: 800; color: var(--sand-gold); font-size: 1.05rem;">Feline Sanctuary &amp; Wardrobe</span>
+                        <span style="font-size: 0.68rem; color: var(--emerald-main); font-family: var(--font-ar); margin-left: 4px;">(محمية القطط)</span>
+                    </div>
+                </div>
                 <button class="pill-btn" onclick="closeAvatarMenu()">✕</button>
             </div>
-            <p style="font-size: 0.76rem; color: var(--text-muted);">
-                Choose your companion's celestial appearance. Your angelic guardian reflects your habit vitality with personalized auras.
+            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">
+                Choose your living feline companion. Fluffy longhairs of all colors, angelic guardians, and native Arabian sand cats.
             </p>
 
-            <div class="avatar-grid" id="avatar-picker-grid">
-                <!-- Injected via JavaScript (10 Angelic forms) -->
+            <!-- BREED CATEGORY FILTER CHIPS -->
+            <div style="display: flex; gap: 6px; margin: 10px 0; overflow-x: auto; padding-bottom: 4px;" id="cat-filter-container">
+                <button class="pill-btn active" onclick="filterCatGallery('all', event)" style="font-size: 0.72rem; padding: 6px 12px;">All Cats (20)</button>
+                <button class="pill-btn" onclick="filterCatGallery('fluffy', event)" style="font-size: 0.72rem; padding: 6px 12px;">☁️ Fluffy Longhairs (8)</button>
+                <button class="pill-btn" onclick="filterCatGallery('angelic', event)" style="font-size: 0.72rem; padding: 6px 12px;">✨ Angelic Guardians (10)</button>
+                <button class="pill-btn" onclick="filterCatGallery('native', event)" style="font-size: 0.72rem; padding: 6px 12px;">🏜️ Desert Natives (2)</button>
+            </div>
+
+            <div class="avatar-grid" id="avatar-picker-grid" style="overflow-y: auto; flex: 1; padding-right: 4px;">
+                <!-- Injected via JavaScript (20 Feline Companions) -->
             </div>
         </div>
     </div>
@@ -2056,18 +2939,33 @@ Loading Malaffi HL7 FHIR R4 Bundle from /api/fhir-malaffi...
     </div>
 
     <script>
-        // 10 ANGELIC GUARDIAN CAT AVATARS
+        // 20 LIVING FELINE SANCTUARY COMPANIONS (FLUFFY CATS OF ALL COLORS + GUARDIANS + NATIVES)
         const GUARDIAN_AVATARS = [
-            { id: "guardian-angel-gold", title: "Golden Sand Angel", desc: "Delicate glowing golden wings & desert halo.", img: "/assets/guardian-angel-gold.png" },
-            { id: "guardian-celestial-emerald", title: "Celestial Oasis", desc: "Translucent emerald wings & soothing oasis mist.", img: "/assets/guardian-celestial-emerald.png" },
-            { id: "guardian-dawn-solar", title: "Solar Dawn", desc: "Radiating warm golden desert sunrise aura.", img: "/assets/guardian-dawn-solar.png" },
-            { id: "guardian-night-starlight", title: "Starlight Sentinel", desc: "Crescent moon charm & deep nebula glimmer.", img: "/assets/guardian-night-starlight.png" },
-            { id: "guardian-pearl-oasis", title: "Pearl Coastal", desc: "Iridescent mother-of-pearl ocean breeze wings.", img: "/assets/guardian-pearl-oasis.png" },
-            { id: "guardian-falcon-royal", title: "Falcon Royal", desc: "Noble falcon-feathered wings with regal trim.", img: "/assets/guardian-falcon-royal.png" },
-            { id: "guardian-ghaf-flora", title: "Ghaf Tree Flora", desc: "Healing desert botanical leaves & calm energy.", img: "/assets/guardian-ghaf-flora.png" },
-            { id: "guardian-cloud-nap", title: "Serene Cloud Nap", desc: "Sleeping peacefully on a soft glowing cloud.", img: "/assets/guardian-cloud-nap.png" },
-            { id: "guardian-shield-sentinel", title: "Sovereign Shield", desc: "Vigilant guardian holding health defense shield.", img: "/assets/guardian-shield-sentinel.png" },
-            { id: "guardian-radiant-ascended", title: "Radiant Ascended", desc: "Divine prismatic luminescence & amber gaze.", img: "/assets/guardian-radiant-ascended.png" }
+            // --- FLUFFY LONGHAIR CATS (ALL COLOURS) ---
+            { id: "cat-fluffy-white", title: "Fluffy Cloud Angora", category: "fluffy", breed: "Turkish Angora / Persian", color: "Snow White (Heterochromia)", desc: "Cloud-like soft white fur with radiant amber and sea-blue eyes. Serene and soothing presence.", img: "/assets/cat-fluffy-white.png", speech: "Peace be with you! My soft cloud fur warms your heart. A peaceful 5-minute indoor loop keeps our spirit serene." },
+            { id: "cat-fluffy-ginger", title: "Golden Marmalade Lion", category: "fluffy", breed: "Marmalade Longhair Tabby", color: "Golden Sunset Amber", desc: "Ultra-fluffy vibrant golden-orange mane with glowing amber eyes. Energetic and cheerful companion.", img: "/assets/cat-fluffy-ginger.png", speech: "Marhaban! I'm brimming with sunny warmth! Let's stretch our paws and take on today's micro-win with joy!" },
+            { id: "cat-fluffy-calico", title: "Royal Patchwork Calico", category: "fluffy", breed: "Calico Longhair", color: "Amber, Cream & Charcoal", desc: "Exquisite tricolor patches of sunset orange, creamy white, and soft charcoal black. Symbol of good fortune.", img: "/assets/cat-fluffy-calico.png", speech: "Blessings! In traditional homes, a calico brings harmony. Let's sip cool water and rest in the shade together." },
+            { id: "cat-fluffy-ragdoll", title: "Sapphire Seal Ragdoll", category: "fluffy", breed: "Seal Point Ragdoll", color: "Cream & Chocolate Point", desc: "Ultra-fluffy silky cream coat with chocolate points and mesmerizing sapphire blue eyes. Affectionate calm.", img: "/assets/cat-fluffy-ragdoll.png", speech: "So gentle and relaxed! When you pet my silky fur, your vagus nerve calms and resting heart rate drops." },
+            { id: "cat-fluffy-midnight", title: "Midnight Velvet Panther", category: "fluffy", breed: "Bombay Longhair", color: "Midnight Obsidian", desc: "Plush obsidian black coat with glowing golden-copper eyes. Mystical nocturnal resilience.", img: "/assets/cat-fluffy-midnight.png", speech: "The desert night is tranquil. For industrial shift workers, I guide deep daytime slumber without guilt." },
+            { id: "cat-fluffy-smoke-grey", title: "Silver Smoke Longhair", category: "fluffy", breed: "British Longhair Smoke", color: "Storm Grey & Silver Mist", desc: "Velvety storm-grey plush fur with sparkling silver tips and warm copper eyes. Dignified resilience.", img: "/assets/cat-fluffy-smoke-grey.png", speech: "Dignified and resilient against the summer heat. Step indoors into air-conditioned bliss with me." },
+            { id: "cat-fluffy-tuxedo", title: "Dapper Velvet Tuxedo", category: "fluffy", breed: "Tuxedo Longhair", color: "Formal Black & Snow White", desc: "Glossy black coat with pristine snowy white chest bib, white whiskers, and paws. Playful elegance.", img: "/assets/cat-fluffy-tuxedo.png", speech: "Dressed in my finest! Health is an art of daily dignity. Let's log your Maghrib prayer stretch!" },
+            { id: "cat-fluffy-siamese", title: "Silky Balinese Princess", category: "fluffy", breed: "Balinese Longhair", color: "Fawn & Deep Chocolate", desc: "Flowing silky cream coat with dark seal points and striking almond blue eyes. Focused intelligence.", img: "/assets/cat-fluffy-siamese.png", speech: "Alert and agile! I sense your focus. A crisp sip of lemon-mint water will power your afternoon." },
+
+            // --- ANGELIC CELESTIAL GUARDIANS ---
+            { id: "guardian-angel-gold", title: "Golden Sand Angel", category: "angelic", breed: "Celestial Arabian Sand Cat", color: "Luminous Desert Gold", desc: "Delicate glowing golden wings and an ethereal desert halo sheltering your health identity.", img: "/assets/guardian-angel-gold.png", speech: "Under the 44°C Abu Dhabi sun, I shelter your health identity with celestial wings. A simple 5-min indoor loop keeps momentum alive!" },
+            { id: "guardian-celestial-emerald", title: "Celestial Oasis", category: "angelic", breed: "Celestial Oasis Cat", color: "Emerald Glow", desc: "Translucent emerald wings and soothing oasis mist radiating parasympathetic calm.", img: "/assets/guardian-celestial-emerald.png", speech: "Oasis waters bring renewal. Rest your body under cool palm shade; your streak is preserved forever." },
+            { id: "guardian-dawn-solar", title: "Solar Dawn", category: "angelic", breed: "Solar Dawn Guardian", color: "Radiant Sunrise Gold", desc: "Radiating warm golden desert sunrise aura, bringing morning energy to Fajr routines.", img: "/assets/guardian-dawn-solar.png", speech: "The dawn light breaks over the dunes. A gentle morning stretch and 300ml of fresh water awaken vitality!" },
+            { id: "guardian-night-starlight", title: "Starlight Sentinel", category: "angelic", breed: "Starlight Night Cat", color: "Cosmic Indigo & Starlight", desc: "Crescent moon charm and deep nebula glimmer guiding peaceful restorative sleep.", img: "/assets/guardian-night-starlight.png", speech: "The stars watch over Abu Dhabi. Unplug your devices and let your mind enter deep REM sleep." },
+            { id: "guardian-pearl-oasis", title: "Pearl Coastal", category: "angelic", breed: "Arabian Gulf Pearl Cat", color: "Mother-of-Pearl Iridescent", desc: "Iridescent mother-of-pearl ocean breeze wings honoring Abu Dhabi's maritime heritage.", img: "/assets/guardian-pearl-oasis.png", speech: "Cool sea breeze from Delma Island refreshes you. Sip hibiscus tea and let your blood pressure normalize." },
+            { id: "guardian-falcon-royal", title: "Falcon Royal", category: "angelic", breed: "Falcon Feathered Guardian", color: "Royal Gold & Falcon Wing", desc: "Noble falcon-feathered wings with regal gold trim symbolizing UAE resilience and vision.", img: "/assets/guardian-falcon-royal.png", speech: "With the resolute vision of the falcon, we adapt through high heat and tough shifts without surrender." },
+            { id: "guardian-ghaf-flora", title: "Ghaf Tree Flora", category: "angelic", breed: "Botanical Ghaf Guardian", color: "Living Desert Foliage", desc: "Healing desert botanical leaves and Ghaf tree spirit channeling endurance.", img: "/assets/guardian-ghaf-flora.png", speech: "The sacred Ghaf thrives in the harshest desert. So too do your micro-habits take deep root." },
+            { id: "guardian-cloud-nap", title: "Serene Cloud Nap", category: "angelic", breed: "Cumulus Dreamer", color: "Illuminated Cloud White", desc: "Sleeping peacefully on a soft glowing cumulus cloud with miniature golden wings.", img: "/assets/guardian-cloud-nap.png", speech: "Cats sleep 16 hours without guilt. Your Momentum Bank is frozen safely during your 48h catnap." },
+            { id: "guardian-shield-sentinel", title: "Sovereign Shield", category: "angelic", breed: "Sovereign Sentinel", color: "Turquoise & Platinum", desc: "Vigilant guardian holding health defense shield under UAE Federal Law No. 2 of 2019.", img: "/assets/guardian-shield-sentinel.png", speech: "Your private health data is sovereign. Zero bytes leaked to employers or insurers, 100% hardware-enclaved." },
+            { id: "guardian-radiant-ascended", title: "Radiant Ascended", category: "angelic", breed: "Ascended Prismatic Cat", color: "Prismatic Divine Light", desc: "Divine prismatic luminescence and alert amber gaze reflecting maximum habit mastery.", img: "/assets/guardian-radiant-ascended.png", speech: "SubhanAllah! You have ascended to peak habit self-efficacy. Your vitality radiates across the Majlis." },
+
+            // --- NATIVE DESERT CATS ---
+            { id: "sandcat-thriving", title: "Native Arabian Sand Cat", category: "native", breed: "Felis margarita harrisoni", color: "Dune Sand Gold", desc: "Authentic wild Arabian sand cat with wide heat-radiating ears and padded paws.", img: "/assets/sandcat-thriving.png", speech: "I was born for these dunes! Wide ears radiate heat away, furred paws cushion the sand. Indoor loops are our specialty." },
+            { id: "bilota-mascot", title: "Bilota Heritage Mascot", category: "native", breed: "Heritage Digital Sand Cat", color: "Emerald Eye Slate", desc: "Charming digital mascot with emerald eyes, welcoming every Emirati to effortless health.", img: "/assets/bilota-mascot.png", speech: "Welcome to Bilota! I am your gentle companion. Take one small step today, and I will be by your side." }
         ];
 
         // 13 REAL HUMAN EMIRATI PROFILES
@@ -2089,6 +2987,8 @@ Loading Malaffi HL7 FHIR R4 Bundle from /api/fhir-malaffi...
 
         let activePersonaIdx = 0;
         let activeGuardianId = "guardian-angel-gold";
+        let currentCatFilter = "all";
+        let furSheenPct = 94;
         let isArabic = false;
         let isDarkMode = false;
         let isBreathing = false;
@@ -2180,8 +3080,28 @@ Loading Malaffi HL7 FHIR R4 Bundle from /api/fhir-malaffi...
                         o.start(now + idx * 0.09);
                         o.stop(now + idx * 0.09 + 0.6);
                     });
+                } else if (type === 'meow') {
+                    // Sweet authentic feline chirp / meow
+                    const o = audioCtx.createOscillator();
+                    const g = audioCtx.createGain();
+                    o.type = 'sine';
+                    o.frequency.setValueAtTime(560, now);
+                    o.frequency.exponentialRampToValueAtTime(840, now + 0.14);
+                    o.frequency.exponentialRampToValueAtTime(620, now + 0.36);
+                    g.gain.setValueAtTime(0.02, now);
+                    g.gain.linearRampToValueAtTime(0.16, now + 0.12);
+                    g.gain.exponentialRampToValueAtTime(0.001, now + 0.42);
+                    o.connect(g);
+                    g.connect(audioCtx.destination);
+                    o.start(now);
+                    o.stop(now + 0.42);
                 }
             } catch(e) {}
+        }
+
+        function playCatMeow() {
+            playSound('meow');
+            showToast("😸 *Mrowww* Bilota chirps with affectionate feline warmth!");
         }
 
         // TACTILE FLOATING TEXT BADGE
@@ -2205,7 +3125,15 @@ Loading Malaffi HL7 FHIR R4 Bundle from /api/fhir-malaffi...
 
         function playVagalPurr() {
             playSound('purr');
-            showToast("🔊 42 Hz Vagal Purr Resonance activated. Vagus nerve stimulation calming heart rate.");
+            const photoBox = document.querySelector('.guardian-photo-box');
+            if (photoBox) {
+                const ring = document.createElement('div');
+                ring.className = 'purr-wave-ring';
+                photoBox.appendChild(ring);
+                setTimeout(() => ring.remove(), 1500);
+            }
+            document.getElementById('purr-freq-text').innerText = "Purr Resonance: 42.0 Hz • Vagus Nerve Calming Active";
+            showToast("🔊 42 Hz Vagal Purr Active: Low-frequency feline resonance soothing nervous system.");
         }
 
         // INITIALIZE APP ON LOAD
@@ -2233,18 +3161,34 @@ Loading Malaffi HL7 FHIR R4 Bundle from /api/fhir-malaffi...
             });
         }
 
-        // RENDER 10 ANGELIC GUARDIAN AVATARS IN MODAL
-        function renderAvatarGrid() {
+        // RENDER 20 LIVING FELINE SANCTUARY COMPANIONS WITH FILTERING
+        function filterCatGallery(catCategory, e) {
+            currentCatFilter = catCategory;
+            document.querySelectorAll('#cat-filter-container .pill-btn').forEach(btn => btn.classList.remove('active'));
+            if (e && e.target) e.target.classList.add('active');
+            renderAvatarGrid(catCategory);
+            playSound('purr');
+        }
+
+        function renderAvatarGrid(filter = 'all') {
             const grid = document.getElementById('avatar-picker-grid');
             grid.innerHTML = '';
-            GUARDIAN_AVATARS.forEach(g => {
+            const filtered = filter === 'all' ? GUARDIAN_AVATARS : GUARDIAN_AVATARS.filter(g => g.category === filter);
+
+            filtered.forEach(g => {
                 const opt = document.createElement('div');
                 opt.className = `avatar-card-option ${g.id === activeGuardianId ? 'active' : ''}`;
                 opt.id = `opt-${g.id}`;
                 opt.onclick = () => selectGuardianAvatar(g.id);
+
+                const categoryBadge = g.category === 'fluffy' ? '☁️ FLUFFY' : (g.category === 'angelic' ? '✨ GUARDIAN' : '🏜️ NATIVE');
                 opt.innerHTML = `
-                    <img src="${g.img}" alt="${g.title}" class="avatar-option-img" onerror="this.src='/assets/sandcat-thriving.png'">
+                    <div style="position: relative;">
+                        <img src="${g.img}" alt="${g.title}" class="avatar-option-img" onerror="this.src='/assets/sandcat-thriving.png'">
+                        <span style="position: absolute; bottom: 4px; right: 4px; background: rgba(0,0,0,0.65); color: #FFF; font-size: 0.55rem; padding: 1px 4px; border-radius: 4px; font-weight: 800;">${categoryBadge}</span>
+                    </div>
                     <span class="avatar-option-title">${g.title}</span>
+                    <span style="font-size: 0.62rem; color: var(--sand-gold); font-weight: 700;">${g.color || g.breed || ''}</span>
                     <span class="avatar-option-desc">${g.desc}</span>
                 `;
                 grid.appendChild(opt);
@@ -2341,11 +3285,19 @@ Loading Malaffi HL7 FHIR R4 Bundle from /api/fhir-malaffi...
                 document.getElementById('sanctuary-form-name').innerText = g.title;
                 document.getElementById('sanctuary-form-desc').innerText = g.desc;
                 document.getElementById('guardian-form-pill').innerText = `✨ ${g.title}`;
-                document.getElementById('top-archetype-text').innerText = `${g.title} • 42Hz Sheen`;
+                document.getElementById('top-archetype-text').innerText = `${g.title} • 42Hz Purr`;
 
-                playSound('win');
+                if (g.speech) {
+                    document.getElementById('guardian-speech').innerText = `"${g.speech}"`;
+                }
+
+                // Update Sheen
+                furSheenPct = Math.min(100, furSheenPct + 3);
+                updateFurSheenDisplay();
+
+                playSound('meow');
                 fireConfetti();
-                showToast(`✨ Guardian evolved to ${g.title}! Celestial protection active.`);
+                showToast(`🐾 Companion chosen: ${g.title}! Feline bio-resonance linked.`);
             }
             closeAvatarMenu();
         }
@@ -2435,14 +3387,33 @@ Loading Malaffi HL7 FHIR R4 Bundle from /api/fhir-malaffi...
             showToast("🐾 *Purrrrr* Bilota spreads feathery wings gently. Autonomic calm restored.");
         }
 
+        function updateFurSheenDisplay() {
+            document.getElementById('fur-sheen-val').innerText = `${furSheenPct}% (Silky Soft)`;
+            document.getElementById('fur-sheen-bar').style.width = `${furSheenPct}%`;
+        }
+
+        function feedMint(e) {
+            playSound('purr');
+            const x = e ? e.clientX : window.innerWidth / 2;
+            const y = e ? e.clientY : window.innerHeight / 2;
+            spawnFloatingText("🌿 +20 Calm", x, y, "#10B981");
+            addPearls(20, x, y);
+            furSheenPct = Math.min(100, furSheenPct + 2);
+            updateFurSheenDisplay();
+            document.getElementById('guardian-speech').innerText = '"Fresh desert mint soothes digestion and lowers resting stress. Feline calm restored."';
+            showToast("🌿 Fed Desert Mint: Parasympathetic calm + Fur sheen boosted!");
+        }
+
         function feedDate(e) {
             playSound('purr');
             const x = e ? e.clientX : window.innerWidth / 2;
             const y = e ? e.clientY : window.innerHeight / 2;
             spawnFloatingText("🌴 +35 ✨", x, y, "#F59E0B");
             addPearls(35, x, y);
+            furSheenPct = Math.min(100, furSheenPct + 3);
+            updateFurSheenDisplay();
             document.getElementById('guardian-speech').innerText = '"Delicious Liwa Medjool date! Whole-food potassium powers gentle indoor momentum."';
-            showToast("🌴 Fed Medjool Date: Companion sheen +10%, natural glycogen restored!");
+            showToast("🌴 Fed Medjool Date: Companion sheen +3%, natural glycogen restored!");
         }
 
         function giveWater(e) {
@@ -2859,6 +3830,44 @@ Loading Malaffi HL7 FHIR R4 Bundle from /api/fhir-malaffi...
                 terminal.innerHTML += `> Network error: ${e}\n`;
             }
         }
+
+        // JUDGE CONTROL BAR HANDLER
+        function loadJudgePreset(personaKey) {
+            let targetIdx = 0;
+            if (personaKey === 'fatima') targetIdx = 0;
+            else if (personaKey === 'tariq') targetIdx = 1;
+            else if (personaKey === 'aisha') targetIdx = 2;
+
+            document.querySelectorAll('.judge-pill').forEach(p => p.classList.remove('active'));
+            const activePill = document.getElementById(`btn-judge-${personaKey}`);
+            if (activePill) activePill.classList.add('active');
+
+            selectPersona(targetIdx);
+            switchTab('panel-today');
+            showToast(`⚡ Judge Preset Loaded: Persona ${personaKey.toUpperCase()} active.`);
+        }
+
+        // TACTILE MICRO-THERAPIES
+        function triggerMistChilledBroth(event) {
+            spawnFloatingBadge("💧 Chilled Oasis Broth (+15% Vitality)", event ? event.clientX : window.innerWidth / 2, event ? event.clientY : window.innerHeight / 2, "#E9C349");
+            const bar = document.getElementById('guardian-vitality-bar');
+            if (bar) {
+                const cur = parseInt(bar.style.width) || 78;
+                bar.style.width = Math.min(100, cur + 8) + '%';
+            }
+            playSound('pearl');
+        }
+
+        function triggerCalmSoundwave(event) {
+            spawnFloatingBadge("🔊 28.4 Hz Alpha Purr Wave Activated", event ? event.clientX : window.innerWidth / 2, event ? event.clientY : window.innerHeight / 2, "#4ECCA3");
+            const avatar = document.getElementById('guardian-hero-img');
+            if (avatar) {
+                avatar.style.transform = 'scale(1.08)';
+                setTimeout(() => avatar.style.transform = '', 600);
+            }
+            playSound('purr');
+        }
+
     </script>
 </body>
 </html>
